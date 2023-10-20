@@ -1,0 +1,2 @@
+class EncounterBiomes():
+    pass

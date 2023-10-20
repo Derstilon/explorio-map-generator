@@ -1,6 +1,8 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
+from nodes import Node
+
 
 def map_label_to_color(label):
     color_map = {'el': '#ff0000', 'i': '#ffa500', 'e': '#5e90d7'}
@@ -64,5 +66,64 @@ def draw_graph(graph: nx.Graph, layer=None, plot=True):
             labels=labels, font_size=12,
             node_size=300, node_color=node_colors)
 
+    if plot:
+        plt.show()
+
+def draw_dungeon(graph: nx.Graph, label_tags=['label'] ,plot=True):
+    
+    
+    
+    # Get a reproducible layout and create figure
+    pos = nx.planar_layout(graph)
+    fig, ax = plt.subplots(figsize=(12, 9))
+    
+    # Note: the min_source/target_margin kwargs only work with FancyArrowPatch objects.
+    # Force the use of FancyArrowPatch for edge drawing by setting `arrows=True`,
+    # but suppress arrowheads with `arrowstyle="-"`
+    
+    # Transform from data coordinates (scaled between xlim and ylim) to display coordinates
+    tr_figure = ax.transData.transform
+    # Transform from display to figure coordinates
+    tr_axes = fig.transFigure.inverted().transform
+    # Select the size of the image (relative to the X axis)
+    icon_size = (ax.get_xlim()[1] - ax.get_xlim()[0]) * 0.025
+    icon_center = icon_size / 2.0
+
+    nx.draw_networkx_edges(
+        graph,
+        pos=pos,
+        edge_color="gray",
+        ax=ax,
+        arrows=True,
+        arrowstyle="-|>",
+        # connectionstyle='angle',
+        min_source_margin=5,
+        min_target_margin=5,
+    )
+
+    # Define a function to offset the position of the labels
+    def offset_pos(pos, offset=0.05):
+        new_pos = {}
+        for k, v in pos.items():
+            new_pos[k] = (v[0], v[1] - offset)
+        return new_pos
+
+    # Draw the labels with an offset position
+    nx.draw_networkx_labels(graph,
+                            labels={node: Node().print_arguments(graph, node, label_tags) for node in graph.nodes},
+                            pos=offset_pos(pos),
+                            ax=ax, font_size=12)
+    nx.draw_networkx_nodes(graph.subgraph(list(node for node,data in graph.nodes.data() if 'image' not in data)), pos=pos, ax=ax, node_size=150, node_color='#c1c1c1')
+                           
+    # Add the respective image to each node
+    for n in graph.nodes:
+        xf, yf = tr_figure(pos[n])
+        xa, ya = tr_axes((xf, yf))
+        # get overlapped axes and plot icon
+        a = plt.axes([xa - icon_center, ya - icon_center, icon_size, icon_size])
+        if "image" in graph.nodes[n]:
+            a.imshow(graph.nodes[n]["image"])
+        a.axis("off")
+        
     if plot:
         plt.show()

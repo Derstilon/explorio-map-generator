@@ -53,6 +53,32 @@ Rule of locking a key[1] to closed lock[1] behind a gate[2] openable from both s
 
 ## Production 5
 
+Rule of locking a closed lock[1] behind a lock[2] with a decider key[2] that changes the obstacle you have to overcome to open the lock[2].
+
+<div style='background:rgb(236,236,254)'>
+
+|pattern graph|replacement graph|
+------------- | -----------------
+|[![pattern graph](https://mermaid.ink/img/pako:eNptkMGKwjAQhl8lzMmCQnvNQVhWb10W9CI0PQzJqME2kSQ9iPS4b7Jvti-yoymo4BDIzJf_ZyZzBe0NgQTdYYwri4eAvXKCw9hAOlnvRL3J5K4RZaPgIxAqaK-Z3-Lv55dPU7Y5yQ_js69iX-316Z1vclftc_kQodYU42xXPFBMmGj2WX9v16vipVspFoulqIT0Z3JRJJ8xzKGn0KM1_Nv7AArSkXpSIDk1GHgy5UbW4ZD89uI0yBQGmsNwNtxsWg7IPXaRKRmbfPia1ne7xn9VLHE6?type=png)](https://mermaid.live/edit#pako:eNptkMGKwjAQhl8lzMmCQnvNQVhWb10W9CI0PQzJqME2kSQ9iPS4b7Jvti-yoymo4BDIzJf_ZyZzBe0NgQTdYYwri4eAvXKCw9hAOlnvRL3J5K4RZaPgIxAqaK-Z3-Lv55dPU7Y5yQ_js69iX-316Z1vclftc_kQodYU42xXPFBMmGj2WX9v16vipVspFoulqIT0Z3JRJJ8xzKGn0KM1_Nv7AArSkXpSIDk1GHgy5UbW4ZD89uI0yBQGmsNwNtxsWg7IPXaRKRmbfPia1ne7xn9VLHE6)|[![replacement graph](https://mermaid.ink/img/pako:eNqlk99ugjAUxl-l6RUukijqDVmWGOViGYiBmMwJF03pHBm0hJYLY7zcm-zN9iI7gJtMUZetIeHw6zl83-mfLaYiYtjENCFSTmOyzkkacAQjinNGVSw4sr2aVDmotwrwOGckwOG25uX4eHuHZ9UL66Ce2DXr-lBnC_raVleW9sPv-DBNKGVSao-dA5KKKKZNbNe3pp0WHQN0bi4IlVpG2Pw8JCViHVPN9U7k3Lk1a8AUFk2bW57TOWv1h6dB6emBbf5gqZDQrDvzF47VEFObDAx4987YW_7Sw7D0cG7jrpi49N_R_3rzrIV_0tnEXlhX2zLQra6jATILnsB2yyYdHdEh0vU71EemyBiXSIka9ypstOPBMTYqPGzPHh1j3MUpy1MSR3C9qpUJsHphKQuwCWFEcjihAd9BHimU8DecYlPlBeviIovg0O1vIzafSSKBsihWInf297V8dXFG-JMQXzm7T19QP9M?type=png)](https://mermaid.live/edit#pako:eNqlk99ugjAUxl-l6RUukijqDVmWGOViGYiBmMwJF03pHBm0hJYLY7zcm-zN9iI7gJtMUZetIeHw6zl83-mfLaYiYtjENCFSTmOyzkkacAQjinNGVSw4sr2aVDmotwrwOGckwOG25uX4eHuHZ9UL66Ce2DXr-lBnC_raVleW9sPv-DBNKGVSao-dA5KKKKZNbNe3pp0WHQN0bi4IlVpG2Pw8JCViHVPN9U7k3Lk1a8AUFk2bW57TOWv1h6dB6emBbf5gqZDQrDvzF47VEFObDAx4987YW_7Sw7D0cG7jrpi49N_R_3rzrIV_0tnEXlhX2zLQra6jATILnsB2yyYdHdEh0vU71EemyBiXSIka9ypstOPBMTYqPGzPHh1j3MUpy1MSR3C9qpUJsHphKQuwCWFEcjihAd9BHimU8DecYlPlBeviIovg0O1vIzafSSKBsihWInf297V8dXFG-JMQXzm7T19QP9M)|
+</div>
+
+---------------------------------
+
+## Production 6
+
+Rule of locking a key[1] to closed lock[1] behind a lock[2] with a decider key[2] that changes the obstacle you have to overcome to open the lock[2].
+
+<div style='background:rgb(236,236,254)'>
+
+|pattern graph|replacement graph|
+------------- | -----------------
+|[![pattern graph](https://mermaid.ink/img/pako:eNqFkcFqwzAMhl_F6NRCA0mPZgzGutNSCutlUOcgbK0zS-xiO4dSctyb7M32IlPqsO4QmDBYfPLv35IvoL0hkKBbjHFj8RiwU05wGBtIJ-udqF8yuZ4R5UHBQyBU0FwyH-P784vXoWxykgvDX92adbXXH3O6UVo1v_mtjFpTjIvX5Q3FhIkWj_Vu_7RZzvhU7PNM59nnVc0_BtNNpSiKe1EJ6U_kokg-47W4K4oR967lTmKmsIKOQofW8ByvngrSO3WkQHJqMHDPyg18Dvvk92enQabQ0wr6k-FmprGDfMM2MiVjkw_b6WPGbfgBA9mLlw?type=png)](https://mermaid.live/edit#pako:eNqFkcFqwzAMhl_F6NRCA0mPZgzGutNSCutlUOcgbK0zS-xiO4dSctyb7M32IlPqsO4QmDBYfPLv35IvoL0hkKBbjHFj8RiwU05wGBtIJ-udqF8yuZ4R5UHBQyBU0FwyH-P784vXoWxykgvDX92adbXXH3O6UVo1v_mtjFpTjIvX5Q3FhIkWj_Vu_7RZzvhU7PNM59nnVc0_BtNNpSiKe1EJ6U_kokg-47W4K4oR967lTmKmsIKOQofW8ByvngrSO3WkQHJqMHDPyg18Dvvk92enQabQ0wr6k-FmprGDfMM2MiVjkw_b6WPGbfgBA9mLlw)|[![replacement graph](https://mermaid.ink/img/pako:eNqllN1qgzAUx18l5MqOCm1teyFjUFovxrQWpbCt9iLErJNpIiZelNLLvcnebC-yo3ZMrLaFBcH4y_n4n-TEA6YiZNjENCZSLiKyy0gScAQjjDJGVSQ4sr2KlDZosAnwLGMkwNtDxYvx_fkFz2awrSbVwrHuNwS_J7Zvczs5D7f1zz8jQimTUnvutUQdQVRb0I-OsPWYnQGLIRVRTJvbrm8t2vIYkOfuQqIi16hDfyx2EdVc7yydu7KWNZjAUWgry3N6t9U-LjRd3tIuSbmEYt2lv3asWjK1T0GA9-jMvJcbNUwKDV3tcEXEpbjT_9XmWWv_rLK5vbaulmWge11HY2TmPIbjlnU6bdBhSUcNOkG6_gBrpkgZl0iJCg9KbLTjcRMbJZ60W0-bGPdxwrKERCFc5XK_AqzeWcICbMI0JBn0bcCPYEdyJfw9p9hUWc76OE9DaMXTzcfmG4klUBZGSmTO6d9QvPo4JfxViF-b4w_AcGaG?type=png)](https://mermaid.live/edit#pako:eNqllN1qgzAUx18l5MqOCm1teyFjUFovxrQWpbCt9iLErJNpIiZelNLLvcnebC-yo3ZMrLaFBcH4y_n4n-TEA6YiZNjENCZSLiKyy0gScAQjjDJGVSQ4sr2KlDZosAnwLGMkwNtDxYvx_fkFz2awrSbVwrHuNwS_J7Zvczs5D7f1zz8jQimTUnvutUQdQVRb0I-OsPWYnQGLIRVRTJvbrm8t2vIYkOfuQqIi16hDfyx2EdVc7yydu7KWNZjAUWgry3N6t9U-LjRd3tIuSbmEYt2lv3asWjK1T0GA9-jMvJcbNUwKDV3tcEXEpbjT_9XmWWv_rLK5vbaulmWge11HY2TmPIbjlnU6bdBhSUcNOkG6_gBrpkgZl0iJCg9KbLTjcRMbJZ60W0-bGPdxwrKERCFc5XK_AqzeWcICbMI0JBn0bcCPYEdyJfw9p9hUWc76OE9DaMXTzcfmG4klUBZGSmTO6d9QvPo4JfxViF-b4w_AcGaG)|
+</div>
+
+---------------------------------
+
+## Production 7
+
 Rule for trapping an area[1] behind a tripwire trap[2].
 
 <div style='background:rgb(236,236,254)'>
@@ -64,7 +90,7 @@ Rule for trapping an area[1] behind a tripwire trap[2].
 
 ---------------------------------
 
-## Production 6
+## Production 8
 
 Rule for trapping an area[1] with loot key[1] inside that punishes for greed.
 
@@ -77,7 +103,7 @@ Rule for trapping an area[1] with loot key[1] inside that punishes for greed.
 
 ---------------------------------
 
-## Production 7
+## Production 9
 
 Rule for locking an area[1] with a obstacle lock[1] traversable using consumable key[1].
 
@@ -90,7 +116,7 @@ Rule for locking an area[1] with a obstacle lock[1] traversable using consumable
 
 ---------------------------------
 
-## Production 8
+## Production 10
 
 Rule for locking an area[1] with a puzzle lock[1] and a trap lock[1] that opens if you fail the puzzle.
 
@@ -103,7 +129,7 @@ Rule for locking an area[1] with a puzzle lock[1] and a trap lock[1] that opens 
 
 ---------------------------------
 
-## Production 9
+## Production 11
 
 Rule of adding a key[1] to a unfailing puzzle lock[1] with less than 3 keys.
 
@@ -116,7 +142,7 @@ Rule of adding a key[1] to a unfailing puzzle lock[1] with less than 3 keys.
 
 ---------------------------------
 
-## Production 10
+## Production 12
 
 Rule of adding a secret passage across the failable lock[1].
 

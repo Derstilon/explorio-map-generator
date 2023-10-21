@@ -53,31 +53,57 @@ Rule of locking a key[1] to closed lock[1] behind a gate[2] openable from both s
 
 ## Production 5
 
-Rule for trapping an optional closed lock[1] behind a tripwire trap[2].
+Rule for trapping an area[1] behind a tripwire trap[2].
 
 <div style='background:rgb(236,236,254)'>
 
 |pattern graph|replacement graph|
 ------------- | -----------------
-|[![pattern graph](https://mermaid.ink/img/pako:eNptUEEKAjEM_ErMSUFh91pQEPQgeHFFEOweQht10W2l7R5E9uhP_JkfsVpBBUMOyWRmSHJBZTWjQHUk7ycV7RzV0kAMXTlWobIG5kVCXhzINhLHjklieUn4M-7XW8xNVqYiDdpvXR518E_0lubld_shkVLsfXfd-_E0NjBsrYM8eq6hM4RiuljNiulEYmJkMBiM4ljYExsPwSYY-1izq6nS8erXLhLDnmuWKGKpyR2eDm3kURPs8mwUiuAa7mNz0hT4_SQUWzp6bh-3wWxx?type=png)](https://mermaid.live/edit#pako:eNptUEEKAjEM_ErMSUFh91pQEPQgeHFFEOweQht10W2l7R5E9uhP_JkfsVpBBUMOyWRmSHJBZTWjQHUk7ycV7RzV0kAMXTlWobIG5kVCXhzINhLHjklieUn4M-7XW8xNVqYiDdpvXR518E_0lubld_shkVLsfXfd-_E0NjBsrYM8eq6hM4RiuljNiulEYmJkMBiM4ljYExsPwSYY-1izq6nS8erXLhLDnmuWKGKpyR2eDm3kURPs8mwUiuAa7mNz0hT4_SQUWzp6bh-3wWxx)|[![replacement graph](https://mermaid.ink/img/pako:eNrFk8tqhDAUhl8lZKUwgteNlELpzKqWGZwuCqOLEE-nUjWSxIUMLvsmfbO-SE91YESsHbppCCH5cs6fP7cT5SIDGlJeMKXWOTtKViYVwZLlErjORUWieCB9DLEPCb2TwBKangb-XT7fP7Ae7HToDBPdOM_BPDKXdE510vHwEsQ4B6WMZ3NG00XNSPC3BVn3B9lCHHNubGPzgpRmGoz7aLvfrEe4xBMynjaPO_M6Ux6aeoD2D54aBUYM2I5W0m0Nxk7mJZPtlQb8hRv6xcGSbPB_-3LJjWURj4RNVeB1qzENJtQnlnVLHBKKGipFtBiw3WN3HntT7PbYn-JBO5hiuqIlyJLlGf6k_nASql-hhISG2M2YxBeaVB3GsUaLfVtxGmrZwIo2dYaP7vzxaPjCCgXdF8tcMyk?type=png)](https://mermaid.live/edit#pako:eNrFk8tqhDAUhl8lZKUwgteNlELpzKqWGZwuCqOLEE-nUjWSxIUMLvsmfbO-SE91YESsHbppCCH5cs6fP7cT5SIDGlJeMKXWOTtKViYVwZLlErjORUWieCB9DLEPCb2TwBKangb-XT7fP7Ae7HToDBPdOM_BPDKXdE510vHwEsQ4B6WMZ3NG00XNSPC3BVn3B9lCHHNubGPzgpRmGoz7aLvfrEe4xBMynjaPO_M6Ux6aeoD2D54aBUYM2I5W0m0Nxk7mJZPtlQb8hRv6xcGSbPB_-3LJjWURj4RNVeB1qzENJtQnlnVLHBKKGipFtBiw3WN3HntT7PbYn-JBO5hiuqIlyJLlGf6k_nASql-hhISG2M2YxBeaVB3GsUaLfVtxGmrZwIo2dYaP7vzxaPjCCgXdF8tcMyk)|
+|[![pattern graph](https://mermaid.ink/img/pako:eNpFj8EKwjAMhl-l5qSww84DDxMVhHnRy3DdIbRRi1s72u4gY0ffxDfzReys4k_gD38-SDKAMJIgA9Ggc2uFF4st1yxIKkvCK6NZcYjJh2FpxSG3hBzqIeaTXo9nqCqtY_MfoBDk3LxcxGiMpo0ndjaWpYxDyWZLts13Rb4qNhwiAQm0ZFtUMlz3WcTBX6klDlloJdrbhI6Bw96b410LyLztKYG-k-jp-wxkZ2xcSEkqb-z---5kCXSoT8b8mPENFvlXjg?type=png)](https://mermaid.live/edit#pako:eNpFj8EKwjAMhl-l5qSww84DDxMVhHnRy3DdIbRRi1s72u4gY0ffxDfzReys4k_gD38-SDKAMJIgA9Ggc2uFF4st1yxIKkvCK6NZcYjJh2FpxSG3hBzqIeaTXo9nqCqtY_MfoBDk3LxcxGiMpo0ndjaWpYxDyWZLts13Rb4qNhwiAQm0ZFtUMlz3WcTBX6klDlloJdrbhI6Bw96b410LyLztKYG-k-jp-wxkZ2xcSEkqb-z---5kCXSoT8b8mPENFvlXjg)|[![replacement graph](https://mermaid.ink/img/pako:eNqdkt1qwjAYhm8l5KiCFX_Oigy6zYGsVakMtlkPQvrNlbVJSdIDkR7uTnZnu5F9_RHDdDswBJI8eXnzJvkOlMsEqEd5xrS-T9lOsTwWBFuSKuAmlYIEUUsaDRluYuorYDHdHlpet-_PL-yb4badnDYY56C189xrUWVbjdAqkPzjklVnON7ay5Mok7uUO4tl1Ds76sGfB_5tMLN2cryks5pFocW0YQac5Wq2uBRtjNEeYX9Fsr9TlBqcu-Vi_RTa1OwLzBbNQz96uZRk8s97XxWlcx8S170hI-LJAoQmRtp4_BuPGjw5x1PXrdWlyPAj9dFjOhjUYgWmVJac9mkOKmdpgiXX3Cam5h1yiKmH04QprIVYVKhjpZHrveDUM6qEPi2LBP-rq1DqvbFMI4UkNVKFXQ3XQ58WTLxKedRUP4ZU8Qw?type=png)](https://mermaid.live/edit#pako:eNqdkt1qwjAYhm8l5KiCFX_Oigy6zYGsVakMtlkPQvrNlbVJSdIDkR7uTnZnu5F9_RHDdDswBJI8eXnzJvkOlMsEqEd5xrS-T9lOsTwWBFuSKuAmlYIEUUsaDRluYuorYDHdHlpet-_PL-yb4badnDYY56C189xrUWVbjdAqkPzjklVnON7ay5Mok7uUO4tl1Ds76sGfB_5tMLN2cryks5pFocW0YQac5Wq2uBRtjNEeYX9Fsr9TlBqcu-Vi_RTa1OwLzBbNQz96uZRk8s97XxWlcx8S170hI-LJAoQmRtp4_BuPGjw5x1PXrdWlyPAj9dFjOhjUYgWmVJac9mkOKmdpgiXX3Cam5h1yiKmH04QprIVYVKhjpZHrveDUM6qEPi2LBP-rq1DqvbFMI4UkNVKFXQ3XQ58WTLxKedRUP4ZU8Qw)|
 </div>
 
 ---------------------------------
 
 ## Production 6
 
-Rule for trapping a node[1] behind a tripwire trap[2] with alternative path.
+Rule for trapping an area[1] with loot key[1] inside that punishes for greed.
 
 <div style='background:rgb(236,236,254)'>
 
 |pattern graph|replacement graph|
 ------------- | -----------------
-|[![pattern graph](https://mermaid.ink/img/pako:eNptUMEKwjAM_ZWSk8IG27UHQfDoSS_CukNooxa3drTdQcaO_ol_5o9Y14ETfOSQvLyXkAwgrSLgIBv0fqfx4rAVhkUo7UgGbQ3bHxIzaVhRCdg6QgH1kPgPXo9njKqoU5Ia49JXRh_7Z5qtZb0svyKUkrxfndY_MwuW5xtWMm47Mp4Fm2jIoCXXolbxpmmTgHCllgTwmCp0NwHCjFGHfbDHu5HAg-spg75TGGh-AfAzNp7GN4gtY0Y?type=png)](https://mermaid.live/edit#pako:eNptUMEKwjAM_ZWSk8IG27UHQfDoSS_CukNooxa3drTdQcaO_ol_5o9Y14ETfOSQvLyXkAwgrSLgIBv0fqfx4rAVhkUo7UgGbQ3bHxIzaVhRCdg6QgH1kPgPXo9njKqoU5Ia49JXRh_7Z5qtZb0svyKUkrxfndY_MwuW5xtWMm47Mp4Fm2jIoCXXolbxpmmTgHCllgTwmCp0NwHCjFGHfbDHu5HAg-spg75TGGh-AfAzNp7GN4gtY0Y)|[![replacement graph](https://mermaid.ink/img/pako:eNrFk8tqhDAUhl8lZKUwgteNlELpzKqWGZwuCqOLEE-nUjWSxIUMLvsmfbO-SE91YESsHbppCCH5cs6fP7cT5SIDGlJeMKXWOTtKViYVwZLlErjORUWieCB9DLEPCb2TwBKangb-XT7fP7Ae7HToDBPdOM_BPDKXdE510vHwEsQ4B6WMZ3NG00XNSPC3BVn3B9lCHHNubGPzgpRmGoz7aLvfrEe4xBMynjaPO_M6Ux6aeoD2D54aBUYM2I5W0m0Nxk7mJZPtlQb8hRv6xcGSbPB_-3LJjWURj4RNVeB1qzENJtQnlnVLHBKKGipFtBiw3WN3HntT7PbYn-JBO5hiuqIlyJLlGf6k_nASql-hhISG2M2YxBeaVB3GsUaLfVtxGmrZwIo2dYaP7vzxaPjCCgXdF8tcMyk?type=png)](https://mermaid.live/edit#pako:eNrFk8tqhDAUhl8lZKUwgteNlELpzKqWGZwuCqOLEE-nUjWSxIUMLvsmfbO-SE91YESsHbppCCH5cs6fP7cT5SIDGlJeMKXWOTtKViYVwZLlErjORUWieCB9DLEPCb2TwBKangb-XT7fP7Ae7HToDBPdOM_BPDKXdE510vHwEsQ4B6WMZ3NG00XNSPC3BVn3B9lCHHNubGPzgpRmGoz7aLvfrEe4xBMynjaPO_M6Ux6aeoD2D54aBUYM2I5W0m0Nxk7mJZPtlQb8hRv6xcGSbPB_-3LJjWURj4RNVeB1qzENJtQnlnVLHBKKGipFtBiw3WN3HntT7PbYn-JBO5hiuqIlyJLlGf6k_nASql-hhISG2M2YxBeaVB3GsUaLfVtxGmrZwIo2dYaP7vzxaPjCCgXdF8tcMyk)|
+|[![pattern graph](https://mermaid.ink/img/pako:eNpFj8EKwjAMhl-l5qSww84DDxMVhHnRy3DdIbRRi1s72u4gY0ffxDfzReys4k_gD38-SDKAMJIgA9Ggc2uFF4st1yxIKkvCK6NZcYjJh2FpxSG3hBzqIeaTXo9nqCqtY_MfoBDk3LxcxGiMpo0ndjaWpYxDyWZLts13Rb4qNhwiAQm0ZFtUMlz3WcTBX6klDlloJdrbhI6Bw96b410LyLztKYG-k-jp-wxkZ2xcSEkqb-z---5kCXSoT8b8mPENFvlXjg?type=png)](https://mermaid.live/edit#pako:eNpFj8EKwjAMhl-l5qSww84DDxMVhHnRy3DdIbRRi1s72u4gY0ffxDfzReys4k_gD38-SDKAMJIgA9Ggc2uFF4st1yxIKkvCK6NZcYjJh2FpxSG3hBzqIeaTXo9nqCqtY_MfoBDk3LxcxGiMpo0ndjaWpYxDyWZLts13Rb4qNhwiAQm0ZFtUMlz3WcTBX6klDlloJdrbhI6Bw96b410LyLztKYG-k-jp-wxkZ2xcSEkqb-z---5kCXSoT8b8mPENFvlXjg)|[![replacement graph](https://mermaid.ink/img/pako:eNqdkt9qgzAUxl8lnCsLFay9kzFwawdlaovdYFvtRYhnnUwTSeJFKV7uTfZme5HFP6OydrtoEHL85ePzM-ccgIkUwQOWU6VmGd1JWiScmJVmEpnOBCdB3JFWQ5xNAr5EmsD20PFmfX18mmfjbLvieEAZQ6Wsp1GH6qHVxFgFgr2fs-oN3e3w9SjKxS5jVuRHs9HJt-78ReDfBPPBSWH-0nqYh6sBU5pqtJareXQum2uy3eP-gmh_p6gUWrfLaP0YDqnel2it4kXox8_nkkz_ufCLovTuDrHtazIhniiRK6JFh6ctdn_jSYunp_jKtht1xXPTSdVRGEOBsqBZakarDZ2AfsMCE_BMmVJpep7w2uhopcV6zxl4WlY4hqpMTVv6SQTvlebKUEwzLWTYz2qzjaGk_EWIH039Da4J6k4?type=png)](https://mermaid.live/edit#pako:eNqdkt9qgzAUxl8lnCsLFay9kzFwawdlaovdYFvtRYhnnUwTSeJFKV7uTfZme5HFP6OydrtoEHL85ePzM-ccgIkUwQOWU6VmGd1JWiScmJVmEpnOBCdB3JFWQ5xNAr5EmsD20PFmfX18mmfjbLvieEAZQ6Wsp1GH6qHVxFgFgr2fs-oN3e3w9SjKxS5jVuRHs9HJt-78ReDfBPPBSWH-0nqYh6sBU5pqtJareXQum2uy3eP-gmh_p6gUWrfLaP0YDqnel2it4kXox8_nkkz_ufCLovTuDrHtazIhniiRK6JFh6ctdn_jSYunp_jKtht1xXPTSdVRGEOBsqBZakarDZ2AfsMCE_BMmVJpep7w2uhopcV6zxl4WlY4hqpMTVv6SQTvlebKUEwzLWTYz2qzjaGk_EWIH039Da4J6k4)|
 </div>
 
 ---------------------------------
 
 ## Production 7
+
+Rule for locking an area[1] with a obstacle lock[1] traversable using consumable key[1].
+
+<div style='background:rgb(236,236,254)'>
+
+|pattern graph|replacement graph|
+------------- | -----------------
+|[![pattern graph](https://mermaid.ink/img/pako:eNpFj8EKwjAMhl-l5qSww84DDxMVhHnRy3DdIbRRi1s72u4gY0ffxDfzReys4k_gD38-SDKAMJIgA9Ggc2uFF4st1yxIKkvCK6NZcYjJh2FpxSG3hBzqIeaTXo9nqCqtY_MfoBDk3LxcxGiMpo0ndjaWpYxDyWZLts13Rb4qNhwiAQm0ZFtUMlz3WcTBX6klDlloJdrbhI6Bw96b410LyLztKYG-k-jp-wxkZ2xcSEkqb-z---5kCXSoT8b8mPENFvlXjg?type=png)](https://mermaid.live/edit#pako:eNpFj8EKwjAMhl-l5qSww84DDxMVhHnRy3DdIbRRi1s72u4gY0ffxDfzReys4k_gD38-SDKAMJIgA9Ggc2uFF4st1yxIKkvCK6NZcYjJh2FpxSG3hBzqIeaTXo9nqCqtY_MfoBDk3LxcxGiMpo0ndjaWpYxDyWZLts13Rb4qNhwiAQm0ZFtUMlz3WcTBX6klDlloJdrbhI6Bw96b410LyLztKYG-k-jp-wxkZ2xcSEkqb-z---5kCXSoT8b8mPENFvlXjg)|[![replacement graph](https://mermaid.ink/img/pako:eNq9k99KwzAUxl8lnKsOVti_qyJCdRWGrRutgrruIqTHWWyTkqQXQ3bpm_hmvojZWlnYqhe7MARy8svhyxdyzjswkSF4wAqq1DSna0nLlBMzslwi07ngJIwbss8hg2UKvkSawuq94bvx9fFp5nKwaoLDAWUMlXIeew3a2lJDIxUK9tYl1QqOVvb2kFSIdc6cedw7uenGn4X-VRhYJ6V5o3MfRAuLKU01OtfhPAmmXd5Gxtstbs6w9ruPWpkb53fJQ2RTvanQWcSzyI-fupyM_9dJsvDjoMvH5I-PP8tIqz4grntJhsQTFXJFtLDxqBuPj_Fwjyen-MJ1dyI1L0yhKZuOjyj0oURZ0jwz_bB_YQr6FUtMwTNhRqUp1JRvTR6ttUg2nIGnZY19qKvMVFPbPuC90EIZilmuhYzaBtstfagofxbiJ2f7DfbAI8U?type=png)](https://mermaid.live/edit#pako:eNq9k99KwzAUxl8lnKsOVti_qyJCdRWGrRutgrruIqTHWWyTkqQXQ3bpm_hmvojZWlnYqhe7MARy8svhyxdyzjswkSF4wAqq1DSna0nLlBMzslwi07ngJIwbss8hg2UKvkSawuq94bvx9fFp5nKwaoLDAWUMlXIeew3a2lJDIxUK9tYl1QqOVvb2kFSIdc6cedw7uenGn4X-VRhYJ6V5o3MfRAuLKU01OtfhPAmmXd5Gxtstbs6w9ruPWpkb53fJQ2RTvanQWcSzyI-fupyM_9dJsvDjoMvH5I-PP8tIqz4grntJhsQTFXJFtLDxqBuPj_Fwjyen-MJ1dyI1L0yhKZuOjyj0oURZ0jwz_bB_YQr6FUtMwTNhRqUp1JRvTR6ttUg2nIGnZY19qKvMVFPbPuC90EIZilmuhYzaBtstfagofxbiJ2f7DfbAI8U)|
+</div>
+
+---------------------------------
+
+## Production 8
+
+Rule for locking an area[1] with a puzzle lock[1] and a trap lock[1] that opens if you fail the puzzle.
+
+<div style='background:rgb(236,236,254)'>
+
+|pattern graph|replacement graph|
+------------- | -----------------
+|[![pattern graph](https://mermaid.ink/img/pako:eNpFj8EKwjAMhl-l5qSww84DDxMVhHnRy3DdIbRRi1s72u4gY0ffxDfzReys4k_gD38-SDKAMJIgA9Ggc2uFF4st1yxIKkvCK6NZcYjJh2FpxSG3hBzqIeaTXo9nqCqtY_MfoBDk3LxcxGiMpo0ndjaWpYxDyWZLts13Rb4qNhwiAQm0ZFtUMlz3WcTBX6klDlloJdrbhI6Bw96b410LyLztKYG-k-jp-wxkZ2xcSEkqb-z---5kCXSoT8b8mPENFvlXjg?type=png)](https://mermaid.live/edit#pako:eNpFj8EKwjAMhl-l5qSww84DDxMVhHnRy3DdIbRRi1s72u4gY0ffxDfzReys4k_gD38-SDKAMJIgA9Ggc2uFF4st1yxIKkvCK6NZcYjJh2FpxSG3hBzqIeaTXo9nqCqtY_MfoBDk3LxcxGiMpo0ndjaWpYxDyWZLts13Rb4qNhwiAQm0ZFtUMlz3WcTBX6klDlloJdrbhI6Bw96b410LyLztKYG-k-jp-wxkZ2xcSEkqb-z---5kCXSoT8b8mPENFvlXjg)|[![replacement graph](https://mermaid.ink/img/pako:eNrNk99qwjAUxl8lnKsKFqx_bsoYdNOBrOqoDNysFyHNXFmblCS9EPFyb7I324vstFXstNuFMFgIJPnl48sXOGcLTEYcXGAJ1XoY07WiaSgIjihWnJlYCuIHFSk1pLMMwVOchrDaVrwYn-8fOJedVbU5XlDGuNbWolWhXd3KQStfsrcmq72hs6ofj6JErmNmedNh6-ypO2_sezf-qHaT4ieth1EwqTFtqOHWrT-bj4ZN4Xr_OVwXw93zzQXZfs6Ra3xxNp0_1oOYTYbhgvHEC56agvR_qYaLknxzH_yRe4fY9jVxiCszLjQxso67zbh3ip0S909xr8SDc_WVbRfeuUiwqvRB3EShDSlXKY0j7Mzy4yGYV57yEFzcRlRhVYZihzqaGznfCAauUTlvQ55FWDn7Rgb3hSYaKY9iI9Vk3-rF0oaMimcpD5rdF3e3Uhk?type=png)](https://mermaid.live/edit#pako:eNrNk99qwjAUxl8lnKsKFqx_bsoYdNOBrOqoDNysFyHNXFmblCS9EPFyb7I324vstFXstNuFMFgIJPnl48sXOGcLTEYcXGAJ1XoY07WiaSgIjihWnJlYCuIHFSk1pLMMwVOchrDaVrwYn-8fOJedVbU5XlDGuNbWolWhXd3KQStfsrcmq72hs6ofj6JErmNmedNh6-ypO2_sezf-qHaT4ieth1EwqTFtqOHWrT-bj4ZN4Xr_OVwXw93zzQXZfs6Ra3xxNp0_1oOYTYbhgvHEC56agvR_qYaLknxzH_yRe4fY9jVxiCszLjQxso67zbh3ip0S909xr8SDc_WVbRfeuUiwqvRB3EShDSlXKY0j7Mzy4yGYV57yEFzcRlRhVYZihzqaGznfCAauUTlvQ55FWDn7Rgb3hSYaKY9iI9Vk3-rF0oaMimcpD5rdF3e3Uhk)|
+</div>
+
+---------------------------------
+
+## Production 9
 
 Rule of adding a key[1] to a unfailing puzzle lock[1] with less than 3 keys.
 
@@ -86,6 +112,19 @@ Rule of adding a key[1] to a unfailing puzzle lock[1] with less than 3 keys.
 |pattern graph|replacement graph|
 ------------- | -----------------
 |[![pattern graph](https://mermaid.ink/img/pako:eNqVkrFOwzAQhl_luMmVGqkpW1SQKhBLg0BFTHUH41yL1cSubGeIqo68CW_Gi3CpK8hQBk4ezt_dL_8--4DaVYQF6lqFcG_U1qtGWuCojCcdjbNQLhM59cBkJXHuSUlcHxLv4-vjk9dqsk5JKhyHupx1pdO7S7pemq9_8t9y7bZGi3L0S0JUkcTdgDR8A_E4AEprCkHMB2hHXRCL0QVbU7a1oO5frmK3J_HsTaN8NzikDSRe__ZxPnYCWXYLORRuTzZAdAnnMMsymELR2pqnFBK1LhJsnOcy24QZXEtp53B1Aw_K1OqtJt5D2YOnpcQkwjE25BtlKn7Y060kxndqSGLBaaX8rm89cp9qo3vprMYi-pbG2O4rHu_5H2CxUXWg4ze57q1L?type=png)](https://mermaid.live/edit#pako:eNqVkrFOwzAQhl_luMmVGqkpW1SQKhBLg0BFTHUH41yL1cSubGeIqo68CW_Gi3CpK8hQBk4ezt_dL_8--4DaVYQF6lqFcG_U1qtGWuCojCcdjbNQLhM59cBkJXHuSUlcHxLv4-vjk9dqsk5JKhyHupx1pdO7S7pemq9_8t9y7bZGi3L0S0JUkcTdgDR8A_E4AEprCkHMB2hHXRCL0QVbU7a1oO5frmK3J_HsTaN8NzikDSRe__ZxPnYCWXYLORRuTzZAdAnnMMsymELR2pqnFBK1LhJsnOcy24QZXEtp53B1Aw_K1OqtJt5D2YOnpcQkwjE25BtlKn7Y060kxndqSGLBaaX8rm89cp9qo3vprMYi-pbG2O4rHu_5H2CxUXWg4ze57q1L)|[![replacement graph](https://mermaid.ink/img/pako:eNqdks1uwjAMx1_FymEKG5Uo3KqxCZWd6D402IlwiFLDKtoGJemhQhz3JnuzvchcikaG2IFFOVg_2_k7trdM6RRZxFQurR1ncmVkIUqgk2YGlct0CclrS_Yx0JsLNjIoBVtsW96cr49PuvPeojVax87PCykv0Wp9Lq9JDRc_9tGd61WmeNI5EuukQx57pKAf8EcPSKXQWj7y0Bpryyc3YedMYX0qbIL1RXW5eoP8xWSFNLUnU1nkb39X8kt2QLLX_9KdXazYgyC4gxAivcHSgtM-HpziEG6DAPoQVWVOA7M-HZzQUjuEpTbkoPHCcAijpzFcQdyYcfI8fRgLUdIf7mE2PDSsBRGBOK9QsPYl1mUFmkJmKa3jviOCuXcsKCAiM5Vm3YTuKE5WTk_rUrHImQq7rNqktBSH7WXRUuYWd9_zzecC?type=png)](https://mermaid.live/edit#pako:eNqdks1uwjAMx1_FymEKG5Uo3KqxCZWd6D402IlwiFLDKtoGJemhQhz3JnuzvchcikaG2IFFOVg_2_k7trdM6RRZxFQurR1ncmVkIUqgk2YGlct0CclrS_Yx0JsLNjIoBVtsW96cr49PuvPeojVax87PCykv0Wp9Lq9JDRc_9tGd61WmeNI5EuukQx57pKAf8EcPSKXQWj7y0Bpryyc3YedMYX0qbIL1RXW5eoP8xWSFNLUnU1nkb39X8kt2QLLX_9KdXazYgyC4gxAivcHSgtM-HpziEG6DAPoQVWVOA7M-HZzQUjuEpTbkoPHCcAijpzFcQdyYcfI8fRgLUdIf7mE2PDSsBRGBOK9QsPYl1mUFmkJmKa3jviOCuXcsKCAiM5Vm3YTuKE5WTk_rUrHImQq7rNqktBSH7WXRUuYWd9_zzecC)|
+</div>
+
+---------------------------------
+
+## Production 10
+
+Rule of adding a secret passage across the failable lock[1].
+
+<div style='background:rgb(236,236,254)'>
+
+|pattern graph|replacement graph|
+------------- | -----------------
+|[![pattern graph](https://mermaid.ink/img/pako:eNqNkcFKAzEQhl8lzKmFLWx6zEFYbQVhRbAXsdnDkIwa7CZLkj1I2aNv4pv5IqablRYt4hDI5Jvhn8nMHpTTBALUDkNYGXz22ErLkmnjSUXjLKvvMxlzWLmVUHlCCc0-84N9vn-ksy2b7BwDqBSFMHuYZzScSvEkVTv1ek5qEuTN6fOX7HV1U1eX9Xp-jISIkWZX9d1mvTpXdPlX_7z5X6FJsWSLxQXjTLiObGDRZcxHvPyJoYCWfItGp4GPtSXEF2pJgkiuRp8mIe2Q8rCPbvNmFYjoeyqg73T61bQfEE-4C4mSNtH522mDh6uADu2jc985wxdkSJ5Y?type=png)](https://mermaid.live/edit#pako:eNqNkcFKAzEQhl8lzKmFLWx6zEFYbQVhRbAXsdnDkIwa7CZLkj1I2aNv4pv5IqablRYt4hDI5Jvhn8nMHpTTBALUDkNYGXz22ErLkmnjSUXjLKvvMxlzWLmVUHlCCc0-84N9vn-ksy2b7BwDqBSFMHuYZzScSvEkVTv1ek5qEuTN6fOX7HV1U1eX9Xp-jISIkWZX9d1mvTpXdPlX_7z5X6FJsWSLxQXjTLiObGDRZcxHvPyJoYCWfItGp4GPtSXEF2pJgkiuRp8mIe2Q8rCPbvNmFYjoeyqg73T61bQfEE-4C4mSNtH522mDh6uADu2jc985wxdkSJ5Y)|[![replacement graph](https://mermaid.ink/img/pako:eNqNkcFKAzEQhl8lzKmFbdntMYiw2grCimAvYrOHIRk12E2WJHuQskffxDfzRUw3qy1axCGQmW-GfyaZHUirCDjILXq_1PjksBGGRVPakQzaGlbdJTLUsHwjoHSEAupd4nv7eHuPZ5PXyTkkUEryfnI_Tag_liqiVGXlyympUbCoj8NfslfldVVeVKvpIeMDBppcVrfr1fJU08Vf8xf1_xqNijmbzc5ZwbhtyXgWbMLFgBc_cc7O5vOBe5KOwncCMmjINahV3MQwlIDwTA0J4NFV6OIXCdPHOuyCXb8aCTy4jjLoWhWfOy4O-CNufaSkdLDuZlzt_sqgRfNg7VdN_wlfHaT9?type=png)](https://mermaid.live/edit#pako:eNqNkcFKAzEQhl8lzKmFbdntMYiw2grCimAvYrOHIRk12E2WJHuQskffxDfzRUw3qy1axCGQmW-GfyaZHUirCDjILXq_1PjksBGGRVPakQzaGlbdJTLUsHwjoHSEAupd4nv7eHuPZ5PXyTkkUEryfnI_Tag_liqiVGXlyympUbCoj8NfslfldVVeVKvpIeMDBppcVrfr1fJU08Vf8xf1_xqNijmbzc5ZwbhtyXgWbMLFgBc_cc7O5vOBe5KOwncCMmjINahV3MQwlIDwTA0J4NFV6OIXCdPHOuyCXb8aCTy4jjLoWhWfOy4O-CNufaSkdLDuZlzt_sqgRfNg7VdN_wlfHaT9)|
 </div>
 
 ---------------------------------

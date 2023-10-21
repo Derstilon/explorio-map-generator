@@ -1,5 +1,6 @@
 from typing import Dict, List
 import networkx as nx
+from networkx.algorithms.approximation import randomized_partitioning
 
 biome_data = {
     "caves": {
@@ -112,40 +113,24 @@ biome_data = {
 class EnvironmentBiomes():
     def apply_environment_biomes(G: nx.DiGraph):
         selected_biomes:tuple[str,str,str] = ("caves","dungeon")
-        
-        # find nodes with middle depth
-        # middle_nodes:Dict[List[str]] = {}
-        # idx = 0
-        # max_depth = 0
-        # while True:
-        #     if G.has_node(f'A{idx}'):
-        #         max_depth = max(max_depth, G.nodes[f'A{idx}']['depth'])
-        #         if G.nodes[f'A{idx}']['depth'] in middle_nodes:
-        #             middle_nodes[G.nodes[f'A{idx}']['depth']].append(f'A{idx}')
-        #         else:
-        #             middle_nodes[G.nodes[f'A{idx}']['depth']] = [f'A{idx}']
-        #         idx += 1
-        #         continue
-        #     break
-        
-        selected_nodes = [['L0'], ['K0']]
-        
-        while any(len(x) > 0 for x in selected_nodes):
-            for i in range(len(selected_nodes)):
-                if len(selected_nodes[i]) == 0:
-                    continue
-                node = None
-                while len(selected_nodes[i]) != 0:
-                    node = selected_nodes[i].pop()
-                    if 'env_biome' not in G.nodes[node]:
-                        break
-                    node = None
-                if node is None:
-                    continue
-                G.nodes[node]['env_biome'] = selected_biomes[i]
-                for neighbor in [x for x in G.predecessors(node)] + [x for x in G.successors(node)]:
-                    edge = G.edges[node,neighbor] if G.has_edge(node,neighbor) else G.edges[neighbor,node]
-                    if edge['mode'] == 'access'  and 'env_biome' not in G.nodes[neighbor]:
-                        selected_nodes[i].append(neighbor)
-            print(selected_nodes)
+        tmp = nx.Graph(G)
+        selected_nodes = ['L0', 'K0']
+        tmp.remove_nodes_from(selected_nodes)
+        print('tmp nodes',tmp.nodes)
+        #Pair of iterables containing an initial partition.
+        _, partition = randomized_partitioning(tmp, seed=42)
+        print('randomized_partitioning',partition)
+        #add selected nodes to partitions
+        start_partition = (list(partition[0])  + [selected_nodes[0]], list(partition[1]) + [selected_nodes[1]])
+        print('start_partition',start_partition)
+        tmp = nx.Graph(G)
+        # remove all edges with mode unlocks
+        tmp.remove_edges_from([(u,v) for u,v,e in tmp.edges(data=True) if e['mode'] == 'unlocks'])
+        partition1, partition2 = nx.community.kernighan_lin_bisection(tmp, start_partition)
+        print('kernighan_lin_bisection','\n',partition1,'\n', partition2)
+        # assign biomes to partitions
+        for node in partition1:
+            G.nodes[node]['env_biome'] = selected_biomes[0]
+        for node in partition2:
+            G.nodes[node]['env_biome'] = selected_biomes[1]
     

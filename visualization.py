@@ -69,12 +69,14 @@ def draw_graph(graph: nx.Graph, layer=None, plot=True):
     if plot:
         plt.show()
 
-def draw_dungeon(graph: nx.Graph, label_tags=['label'] ,plot=True):
+def draw_dungeon(G: nx.Graph, label_tags=['label'] ,plot=True):
     
     
     
     # Get a reproducible layout and create figure
-    pos = nx.planar_layout(graph)
+    pos = nx.kamada_kawai_layout(G)
+    # if 'env_biome' in label_tags:
+    #     pos = nx.bipartite_layout(G, [node for node,data in G.nodes.data() if 'env_biome' in data and data['env_biome'] == 'caves'])
     fig, ax = plt.subplots(figsize=(12, 9))
     
     # Note: the min_source/target_margin kwargs only work with FancyArrowPatch objects.
@@ -90,7 +92,7 @@ def draw_dungeon(graph: nx.Graph, label_tags=['label'] ,plot=True):
     icon_center = icon_size / 2.0
 
     nx.draw_networkx_edges(
-        graph,
+        G,
         pos=pos,
         edge_color="gray",
         ax=ax,
@@ -102,27 +104,27 @@ def draw_dungeon(graph: nx.Graph, label_tags=['label'] ,plot=True):
     )
 
     # Define a function to offset the position of the labels
-    def offset_pos(pos, offset=0.05):
+    def offset_pos(pos, offset=0.04*len(label_tags)):
         new_pos = {}
         for k, v in pos.items():
             new_pos[k] = (v[0], v[1] - offset)
         return new_pos
 
     # Draw the labels with an offset position
-    nx.draw_networkx_labels(graph,
-                            labels={node: Node().print_arguments(graph, node, label_tags) for node in graph.nodes},
+    nx.draw_networkx_labels(G,
+                            labels={node: Node().print_arguments(G, node, label_tags) for node in G.nodes},
                             pos=offset_pos(pos),
                             ax=ax, font_size=12)
-    nx.draw_networkx_nodes(graph.subgraph(list(node for node,data in graph.nodes.data() if 'image' not in data)), pos=pos, ax=ax, node_size=150, node_color='#c1c1c1')
+    nx.draw_networkx_nodes(G.subgraph(list(node for node,data in G.nodes.data() if 'image' not in data)), pos=pos, ax=ax, node_size=150, node_color='#c1c1c1')
                            
     # Add the respective image to each node
-    for n in graph.nodes:
+    for n in G.nodes:
         xf, yf = tr_figure(pos[n])
         xa, ya = tr_axes((xf, yf))
         # get overlapped axes and plot icon
         a = plt.axes([xa - icon_center, ya - icon_center, icon_size, icon_size])
-        if "image" in graph.nodes[n]:
-            a.imshow(graph.nodes[n]["image"])
+        if "image" in G.nodes[n]:
+            a.imshow(G.nodes[n]["image"])
         a.axis("off")
         
     if plot:

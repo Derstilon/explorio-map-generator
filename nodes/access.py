@@ -29,13 +29,13 @@ class Access(Node):
         if math.isinf(depth):
             depth = 0
         G.add_node(new_node, type='access', depth=depth, keys=set(), locks=set())
-        G.add_edges_from([(lock_node,new_node)], mode='access')
+        G.add_edges_from([(lock_node,new_node)], mode='access', weight=.5)
         
         return new_node
     
     @staticmethod
     def add_access_edge(G: nx.DiGraph, access_node: str, accessible_node: str):
-        G.add_edges_from([(access_node,accessible_node)], mode='access')
+        G.add_edges_from([(access_node,accessible_node)], mode='access', weight=.5)
         G.nodes[access_node]['locks' if G.nodes[accessible_node]['type'] == 'lock' else 'keys'].add(accessible_node)
         Access.propagate_depth(G, accessible_node, G.nodes[access_node]['depth'])
     

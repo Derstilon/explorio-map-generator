@@ -47,10 +47,10 @@ class Lock(Node):
         
         G.add_node(new_node, label=new_node, type='lock', complexity=0, keys=set(), logic_gate=logic_gate, lock_state=lock_state, open_mode=open_mode, importance=importance, image=lock_image)
         if(access_node is not None):
-            G.add_edges_from([(access_node,new_node)], mode='access')
+            G.add_edges_from([(access_node,new_node)], mode='access', weight=.5)
         return new_node
     
     @staticmethod
     def add_unlocks_edge(G: nx.DiGraph, key_node: str, lock_node: str):
-        G.add_edges_from([(key_node,lock_node)], mode='unlocks')
+        G.add_edges_from([(key_node,lock_node)], mode='unlocks', weight=.85)
         G.nodes[lock_node]['keys'].add(key_node)

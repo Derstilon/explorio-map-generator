@@ -117,6 +117,11 @@ def draw_dungeon(G: nx.Graph, label_tags=['label'] ,plot=True):
                             ax=ax, font_size=12)
     nx.draw_networkx_nodes(G.subgraph(list(node for node,data in G.nodes.data() if 'image' not in data)), pos=pos, ax=ax, node_size=150, node_color='#c1c1c1')
                            
+
+    # add padding to the axes
+    ax.set_ylim(ax.get_ylim()[0] - 0.1, ax.get_ylim()[1] + 0.1)
+    ax.set_xlim(ax.get_xlim()[0] - 0.1, ax.get_xlim()[1] + 0.1)
+    
     # Add the respective image to each node
     for n in G.nodes:
         xf, yf = tr_figure(pos[n])

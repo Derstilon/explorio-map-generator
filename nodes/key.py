@@ -1,5 +1,5 @@
 from enum import Enum
-import PIL
+from PIL import Image
 import networkx as nx
 
 from nodes.access import Access
@@ -21,7 +21,7 @@ class KeyType(Enum):
     def __str__(self):
         return self.name
 
-key_image = PIL.Image.open('img/key.drawio.png')
+key_image = Image.open('img/key.drawio.png')
 
 class Key(Node):
     

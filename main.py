@@ -1,12 +1,11 @@
 import argparse
 from random import Random
 import sys
-import matplotlib.pyplot as plt
 
 import networkx as nx
 
 from nodes import Lock, LockState, OpenMode, Importance, LogicGate, Key, KeyType, Reusability,Access
-from biome_injections import EnvironmentBiomes
+from biome_injections import EnvironmentBiomes, EncounterBiomes
 
 from lock_and_key_productions import L1, L2
 from visualization import draw_dungeon
@@ -28,6 +27,8 @@ def main(args):
     draw_dungeon(G,['label', 'depth'])
     EnvironmentBiomes.apply_environment_biomes(G)
     draw_dungeon(G,['depth', 'label', 'env_biome'])
+    EncounterBiomes.apply_encounter_biomes(G)
+    draw_dungeon(G,['depth', 'label', 'env_biome', 'enc_biome'])
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

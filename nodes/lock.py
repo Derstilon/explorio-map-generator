@@ -1,6 +1,6 @@
 import networkx as nx
 from enum import Enum
-import PIL
+from PIL import Image
 from .node import Node
 
 class LogicGate(Enum):
@@ -33,7 +33,7 @@ class Importance(Enum):
     def __str__(self):
         return self.name
 
-lock_image = PIL.Image.open('img/lock.drawio.png')
+lock_image = Image.open('img/lock.drawio.png')
 
 class Lock(Node):
     

@@ -1,6 +1,6 @@
 # Generation and visualization of a quadrangular mesh grammar
 
-This is a group project for the 'Graph grammars' class. The goal of this project is to develop a program that generates and visualizes the follwing mesh:
+This is a group project for the 'Graph grammars' class. The goal of this project is to develop a program that generates and visualizes the following mesh:
 
 <img src="grammar.png" alt="grammar" width="500"/>
 

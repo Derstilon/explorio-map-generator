@@ -31,6 +31,18 @@ Main methodology used is Lock and Key system implemented with Graph grammars as 
 -   `python main.py --seed 42` – the same seed gives the same graph
 -   `python main.py --seed 42 --steps 15 --no-plot` – more productions, no plot windows
 
+### Interactive GUI
+
+-   `python gui.py` – starts a local server on http://127.0.0.1:8765/ and opens it in the browser
+    (`--port` to change the port, `--no-browser` to only start the server)
+-   Seed, number of productions, production weights and biome passes in the sidebar; the parameters are kept
+    in the URL, so a link reopens the same graph
+-   Step through the generation with the timeline (keys: ← → Home End, Space plays), hover any node or edge
+    for its attributes, export the final graph as JSON (`explorio.story-graph.v1`, see `story_export.py`)
+    or the current step as PNG or SVG
+-   Browser check: with the GUI server running, `node tools/gui-browser-check.cjs` (needs Playwright; set
+    `PLAYWRIGHT_MODULE` to a playwright package directory if it isn't installed where Node finds it)
+
 ### Run the tests
 
 -   `python -m pytest`

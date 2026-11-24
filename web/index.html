@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explorio Story Graph</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside id="sidebar">
+    <h1>Explorio story graph</h1>
+
+    <section>
+      <h2>Seed</h2>
+      <div class="row">
+        <input id="seed" type="number" step="1" value="42" aria-label="Seed">
+        <button id="random-seed" type="button" title="Random seed">🎲</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Generation</h2>
+      <label class="field">Productions to apply
+        <input id="steps" type="number" min="0" max="200" step="1" value="9">
+      </label>
+      <div id="productions"></div>
+      <label class="check"><input id="env" type="checkbox" checked> Environment biomes</label>
+      <label class="check"><input id="enc" type="checkbox" checked> Encounter biomes</label>
+      <button id="generate" type="button" class="primary">Generate</button>
+      <p id="error" class="error" hidden></p>
+    </section>
+
+    <section>
+      <h2>View</h2>
+      <label class="check"><input id="show-attributes" type="checkbox" checked> Attribute badges</label>
+      <label class="check"><input id="show-removed" type="checkbox" checked> Show removed edges of the step</label>
+      <button id="fit" type="button">Fit to screen</button>
+    </section>
+
+    <section>
+      <h2>Export</h2>
+      <div class="row wrap">
+        <button id="export-json" type="button" title="Final graph, explorio.story-graph.v1">JSON</button>
+        <button id="export-png" type="button" title="Current step as PNG">PNG</button>
+        <button id="export-svg" type="button" title="Current step as SVG">SVG</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Legend</h2>
+      <div id="legend"></div>
+    </section>
+  </aside>
+
+  <main>
+    <header id="status">
+      <span id="status-seed"></span>
+      <span id="status-frame"></span>
+    </header>
+    <div id="graph"></div>
+    <div id="tooltip" role="tooltip" hidden></div>
+    <footer id="timeline">
+      <div class="row">
+        <button id="first" type="button" title="Reset to the seed graph (Home)">⏮</button>
+        <button id="back" type="button" title="Step back (←)">◀</button>
+        <button id="play" type="button" title="Play / pause (Space)">▶︎</button>
+        <button id="forward" type="button" title="Step forward (→)">▶</button>
+        <button id="last" type="button" title="Last step (End)">⏭</button>
+        <input id="frame" type="range" min="0" max="0" value="0" aria-label="Step">
+      </div>
+      <ol id="frames"></ol>
+    </footer>
+  </main>
+
+  <script src="vendor/cytoscape-3.30.4.min.js"></script>
+  <script src="vendor/dagre-0.8.5.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -100,10 +100,10 @@ class EncounterBiomes():
     def apply_encounter_biomes(G: nx.DiGraph, rng: Random):
         # sample = random.sample(biome_data.keys(), 4)
         sample = ['orcs', 'trolls', 'traps', 'riches']
-        #sample 3 nodes from the graph
-        selected_nodes = rng.sample(list(G.nodes()), 4)
+        # one seed node per theme; a graph smaller than the sample gets fewer themes
+        selected_nodes = rng.sample(list(G.nodes()), min(len(sample), G.number_of_nodes()))
         #grow from the selected nodes few steps
-        for i in range(len(sample)):
+        for i in range(len(selected_nodes)):
             tmp = nx.Graph(G)
             node = selected_nodes[i]
             neighbors = [n for n in tmp.neighbors(node) if tmp.edges[node, n]['mode'] == 'access']

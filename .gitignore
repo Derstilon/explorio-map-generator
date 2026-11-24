@@ -169,3 +169,5 @@ poetry.toml
 
 
 # End of https://www.toptal.com/developers/gitignore/api/python
+# Images exported with the Google Docs into the knowledge vault inbox (large, re-exportable)
+knowledge/inbox/*-images/

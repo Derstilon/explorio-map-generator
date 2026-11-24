@@ -1,0 +1,506 @@
+{
+  "generated_at": "2026-11-23T16:00:00Z",
+  "schema": "claude-obsidian.source-ledger.v1",
+  "sources": {
+    "src-0991c1351aec887a1d14": {
+      "authority": "primary",
+      "content_kind": "code",
+      "content_sha256": null,
+      "independence_key": "brogue-ce",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "url",
+        "locator": "https://raw.githubusercontent.com/tmewett/BrogueCE/master/src/brogue/Items.c"
+      },
+      "pages": [
+        "wiki/concepts/brogue-machines-and-population.md",
+        "wiki/sources/source-inspiration-web-research.md"
+      ],
+      "refresh_due": "2027-05-23",
+      "retrieved_at": "2026-11-23",
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Brogue CE Items.c"
+    },
+    "src-0d583aa48675b7c9e415": {
+      "authority": "primary",
+      "content_kind": "document",
+      "content_sha256": "f33fab05a5d964dc9d9abdba46addaf4eef2004056710513253219b9734ef90c",
+      "independence_key": "explorio-owner",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "file",
+        "locator": ".raw/captured/f33fab05a5d964dc9d9abdba46addaf4eef2004056710513253219b9734ef90c.md"
+      },
+      "pages": [
+        "wiki/concepts/backtracking-mitigation.md",
+        "wiki/concepts/biome-and-zone-layering.md",
+        "wiki/concepts/bosses-as-locks-and-gates.md",
+        "wiki/concepts/cyclic-dungeon-generation.md",
+        "wiki/concepts/difficulty-scaling-across-depth.md",
+        "wiki/concepts/five-room-dungeon-biome-template.md",
+        "wiki/concepts/items-as-keys.md",
+        "wiki/concepts/key-dimensions.md",
+        "wiki/concepts/lock-and-key-abstraction.md",
+        "wiki/concepts/story-graph-not-dungeon-layout.md",
+        "wiki/entities/boss-and-elite-catalogue.md",
+        "wiki/maps/explorio-knowledge-map.md",
+        "wiki/questions/inconsistencies-sheet-doc-code.md",
+        "wiki/questions/scope-and-open-questions.md"
+      ],
+      "refresh_due": "2027-11-23",
+      "retrieved_at": null,
+      "review_status": "active",
+      "supersedes": null,
+      "title": "GDD 02 - Difficulty Balance and Bosses"
+    },
+    "src-10678ed886f25aac0726": {
+      "authority": "primary",
+      "content_kind": "code",
+      "content_sha256": null,
+      "independence_key": "brogue-ce",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "url",
+        "locator": "https://raw.githubusercontent.com/tmewett/BrogueCE/master/src/brogue/Rogue.h"
+      },
+      "pages": [
+        "wiki/concepts/brogue-machines-and-population.md",
+        "wiki/sources/source-inspiration-web-research.md"
+      ],
+      "refresh_due": "2027-05-23",
+      "retrieved_at": "2026-11-23",
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Brogue CE Rogue.h"
+    },
+    "src-236b9f9c33e5ccbc98f0": {
+      "authority": "primary",
+      "content_kind": "code",
+      "content_sha256": null,
+      "independence_key": "brogue-ce",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "url",
+        "locator": "https://raw.githubusercontent.com/tmewett/BrogueCE/master/src/brogue/Architect.c"
+      },
+      "pages": [
+        "wiki/concepts/brogue-machines-and-population.md",
+        "wiki/sources/source-inspiration-web-research.md"
+      ],
+      "refresh_due": "2027-05-23",
+      "retrieved_at": "2026-11-23",
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Brogue CE Architect.c"
+    },
+    "src-287c45c953706b2d83c6": {
+      "authority": "primary",
+      "content_kind": "dataset",
+      "content_sha256": "8e3916886ef8870d171881e69a7879f9eb1dad1ae4694d4ad5db266da0b6ebcc",
+      "independence_key": "explorio-owner",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "file",
+        "locator": ".raw/captured/8e3916886ef8870d171881e69a7879f9eb1dad1ae4694d4ad5db266da0b6ebcc.csv"
+      },
+      "pages": [
+        "wiki/sources/source-product-sheet-key-lock-matrix.md"
+      ],
+      "refresh_due": "2027-11-23",
+      "retrieved_at": null,
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Explorio Product Sheet - key/lock matrix"
+    },
+    "src-60c13bc262ba84edc667": {
+      "authority": "primary",
+      "content_kind": "code",
+      "content_sha256": null,
+      "independence_key": "brogue-ce",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "url",
+        "locator": "https://raw.githubusercontent.com/tmewett/BrogueCE/master/src/variants/GlobalsBrogue.c"
+      },
+      "pages": [
+        "wiki/concepts/brogue-machines-and-population.md",
+        "wiki/sources/source-inspiration-web-research.md"
+      ],
+      "refresh_due": "2027-05-23",
+      "retrieved_at": "2026-11-23",
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Brogue CE GlobalsBrogue.c"
+    },
+    "src-638dd4d9612d13cceb33": {
+      "authority": "secondary",
+      "content_kind": "webpage",
+      "content_sha256": null,
+      "independence_key": "boristhebrave",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "url",
+        "locator": "https://www.boristhebrave.com/2021/04/10/dungeon-generation-in-unexplored/"
+      },
+      "pages": [
+        "wiki/concepts/cyclic-dungeon-generation.md",
+        "wiki/sources/source-inspiration-web-research.md"
+      ],
+      "refresh_due": "2027-05-23",
+      "retrieved_at": "2026-11-23",
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Boris the Brave - Dungeon Generation in Unexplored"
+    },
+    "src-864a697b26b9995d38e4": {
+      "authority": "primary",
+      "content_kind": "code",
+      "content_sha256": "68dc64637cbd91e8972b6a07270d904036f9ca62f836a41830fd3f71dcacf8ab",
+      "independence_key": "explorio-owner",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "file",
+        "locator": ".raw/captured/68dc64637cbd91e8972b6a07270d904036f9ca62f836a41830fd3f71dcacf8ab.md"
+      },
+      "pages": [
+        "wiki/sources/source-dev-code-snapshot.md"
+      ],
+      "refresh_due": "2027-11-23",
+      "retrieved_at": null,
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Dev branch code snapshot (5b2372f)"
+    },
+    "src-8c6fef43c7ae0e004fec": {
+      "authority": "primary",
+      "content_kind": "document",
+      "content_sha256": "8b9534afdf833af3f26c44aec8c46330126e2e8ef0b0b23a26070814232db625",
+      "independence_key": "explorio-owner",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "file",
+        "locator": ".raw/captured/8b9534afdf833af3f26c44aec8c46330126e2e8ef0b0b23a26070814232db625.md"
+      },
+      "pages": [
+        "wiki/concepts/brogue-machines-and-population.md",
+        "wiki/concepts/cyclic-dungeon-generation.md",
+        "wiki/concepts/seed-save-and-run-reproducibility.md",
+        "wiki/entities/noita-style-staff-enhancement-ideas.md",
+        "wiki/entities/reference-games-and-borrowed-features.md",
+        "wiki/maps/explorio-knowledge-map.md",
+        "wiki/questions/scope-and-open-questions.md"
+      ],
+      "refresh_due": "2027-11-23",
+      "retrieved_at": null,
+      "review_status": "active",
+      "supersedes": null,
+      "title": "GDD 0x - Misc Ideas"
+    },
+    "src-8e7d61b75fe16f043243": {
+      "authority": "primary",
+      "content_kind": "document",
+      "content_sha256": "b2c24270f439c575f02e1e2c4058169ce53d6dff04cc216dd31df4e4319275d8",
+      "independence_key": "explorio-owner",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "file",
+        "locator": ".raw/captured/b2c24270f439c575f02e1e2c4058169ce53d6dff04cc216dd31df4e4319275d8.md"
+      },
+      "pages": [
+        "wiki/concepts/cyclic-dungeon-generation.md",
+        "wiki/concepts/items-as-keys.md",
+        "wiki/concepts/key-dimensions.md",
+        "wiki/concepts/lock-and-key-abstraction.md",
+        "wiki/entities/cursed-and-unique-items.md",
+        "wiki/entities/item-catalogue.md",
+        "wiki/entities/puzzle-archetype-matrix.md",
+        "wiki/maps/explorio-knowledge-map.md",
+        "wiki/questions/scope-and-open-questions.md"
+      ],
+      "refresh_due": "2027-11-23",
+      "retrieved_at": null,
+      "review_status": "active",
+      "supersedes": null,
+      "title": "GDD 03 - Items Compendium"
+    },
+    "src-8f9da5e2bb0164cf0159": {
+      "authority": "primary",
+      "content_kind": "document",
+      "content_sha256": "e6c8109be75357f2d857236eb2e20e3ca96debfb18e8bdbae76ea8ccc6bfbb37",
+      "independence_key": "explorio-owner",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "file",
+        "locator": ".raw/captured/e6c8109be75357f2d857236eb2e20e3ca96debfb18e8bdbae76ea8ccc6bfbb37.md"
+      },
+      "pages": [
+        "wiki/sources/source-dev-productions-doc.md"
+      ],
+      "refresh_due": "2027-11-23",
+      "retrieved_at": null,
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Lock-and-key productions doc (dev 5b2372f)"
+    },
+    "src-94bab7b32ebb3562de63": {
+      "authority": "community",
+      "content_kind": "webpage",
+      "content_sha256": null,
+      "independence_key": "genshin-fandom",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "url",
+        "locator": "https://genshin-impact.fandom.com/wiki/Elemental_Monument"
+      },
+      "pages": [
+        "wiki/concepts/environmental-puzzle-variety.md",
+        "wiki/sources/source-inspiration-web-research.md"
+      ],
+      "refresh_due": "2027-05-23",
+      "retrieved_at": "2026-11-23",
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Genshin Impact Wiki - Elemental Monument"
+    },
+    "src-9508c73a30f7523cc518": {
+      "authority": "primary",
+      "content_kind": "document",
+      "content_sha256": "1bb890e1de9795568878db5e39a7260139e14f54303ab26cc19b0057ebc7ad03",
+      "independence_key": "explorio-owner",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "file",
+        "locator": ".raw/captured/1bb890e1de9795568878db5e39a7260139e14f54303ab26cc19b0057ebc7ad03.md"
+      },
+      "pages": [
+        "wiki/concepts/biome-and-zone-layering.md",
+        "wiki/concepts/boss-and-race-theme-overlays.md",
+        "wiki/concepts/elements-pantheons-and-seed-campaign-arc.md",
+        "wiki/concepts/key-burden-and-compound-puzzles.md",
+        "wiki/concepts/key-dimensions.md",
+        "wiki/concepts/lock-and-key-abstraction.md",
+        "wiki/concepts/room-shape-types-and-layout-methods.md",
+        "wiki/concepts/story-graph-not-dungeon-layout.md",
+        "wiki/concepts/trap-puzzle-and-encounter-intent-taxonomy.md",
+        "wiki/entities/biome-catalogue-with-generation-hints.md",
+        "wiki/entities/environmental-hazard-and-container-catalogue.md",
+        "wiki/maps/explorio-knowledge-map.md",
+        "wiki/questions/inconsistencies-sheet-doc-code.md",
+        "wiki/questions/scope-and-open-questions.md"
+      ],
+      "refresh_due": "2027-11-23",
+      "retrieved_at": null,
+      "review_status": "active",
+      "supersedes": null,
+      "title": "GDD 06 - World Generation"
+    },
+    "src-9d474d2fd6b0ca7fe4c5": {
+      "authority": "primary",
+      "content_kind": "document",
+      "content_sha256": "837adcae22162fcb95090184fab245872f0886c2f6103a5fb857370859779f8f",
+      "independence_key": "explorio-owner",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "file",
+        "locator": ".raw/captured/837adcae22162fcb95090184fab245872f0886c2f6103a5fb857370859779f8f.md"
+      },
+      "pages": [
+        "wiki/concepts/brogue-machines-and-population.md",
+        "wiki/concepts/damage-over-time-and-health-indicators.md",
+        "wiki/concepts/elemental-status-interactions-as-locks-and-keys.md",
+        "wiki/concepts/environmental-puzzle-variety.md",
+        "wiki/concepts/key-dimensions.md",
+        "wiki/concepts/lock-and-key-abstraction.md",
+        "wiki/concepts/spellcasting-as-limited-key-resource.md",
+        "wiki/entities/puzzle-archetype-matrix.md",
+        "wiki/entities/status-effect-catalogue.md",
+        "wiki/maps/explorio-knowledge-map.md",
+        "wiki/questions/inconsistencies-sheet-doc-code.md",
+        "wiki/questions/scope-and-open-questions.md"
+      ],
+      "refresh_due": "2027-11-23",
+      "retrieved_at": null,
+      "review_status": "active",
+      "supersedes": null,
+      "title": "GDD 04 - Magic and Statuses Overview"
+    },
+    "src-a8d29990ba7b3d081c62": {
+      "authority": "primary",
+      "content_kind": "document",
+      "content_sha256": "d19ca2e7ca5de9996c12efae99c26419d1909562380abf5d6d3a9bcbab75bb67",
+      "independence_key": "explorio-owner",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "file",
+        "locator": ".raw/captured/d19ca2e7ca5de9996c12efae99c26419d1909562380abf5d6d3a9bcbab75bb67.md"
+      },
+      "pages": [
+        "wiki/concepts/biome-and-zone-layering.md",
+        "wiki/concepts/lock-and-key-abstraction.md",
+        "wiki/concepts/meta-progression-and-unlocks.md",
+        "wiki/concepts/player-verbs-and-abilities-as-keys.md",
+        "wiki/concepts/run-structure-seeds-and-biome-tiers.md",
+        "wiki/entities/character-classes-and-starting-kits.md",
+        "wiki/entities/puzzle-archetype-matrix.md",
+        "wiki/maps/explorio-knowledge-map.md",
+        "wiki/questions/inconsistencies-sheet-doc-code.md",
+        "wiki/questions/scope-and-open-questions.md"
+      ],
+      "refresh_due": "2027-11-23",
+      "retrieved_at": null,
+      "review_status": "active",
+      "supersedes": null,
+      "title": "GDD 05 - Gameplay and Progression Systems"
+    },
+    "src-b860453677fb9258faf7": {
+      "authority": "primary",
+      "content_kind": "webpage",
+      "content_sha256": null,
+      "independence_key": "dormans",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "url",
+        "locator": "https://www.gamedeveloper.com/game-platforms/the-theory-of-the-place-a-level-design-philosophy-for-unexplored-2"
+      },
+      "pages": [
+        "wiki/concepts/cyclic-dungeon-generation.md",
+        "wiki/sources/source-inspiration-web-research.md"
+      ],
+      "refresh_due": "2027-05-23",
+      "retrieved_at": "2026-11-23",
+      "review_status": "active",
+      "supersedes": null,
+      "title": "The Theory of the Place (Unexplored 2)"
+    },
+    "src-b9d151842603ec9596c1": {
+      "authority": "primary",
+      "content_kind": "document",
+      "content_sha256": "1f81958c8878420af1dafc7e9ee7fb37715e7de2fc85aa07a13d391ef84858db",
+      "independence_key": "explorio-owner",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "file",
+        "locator": ".raw/captured/1f81958c8878420af1dafc7e9ee7fb37715e7de2fc85aa07a13d391ef84858db.md"
+      },
+      "pages": [
+        "wiki/concepts/biome-and-zone-layering.md",
+        "wiki/concepts/brogue-machines-and-population.md",
+        "wiki/concepts/enemy-lure-and-deterrence.md",
+        "wiki/concepts/key-dimensions.md",
+        "wiki/concepts/lock-and-key-abstraction.md",
+        "wiki/concepts/monsters-as-keys-and-locks.md",
+        "wiki/entities/bestiary-monster-families.md",
+        "wiki/entities/monster-encounter-biome-affinity.md",
+        "wiki/entities/puzzle-archetype-matrix.md",
+        "wiki/maps/explorio-knowledge-map.md",
+        "wiki/questions/inconsistencies-sheet-doc-code.md",
+        "wiki/questions/scope-and-open-questions.md"
+      ],
+      "refresh_due": "2027-11-23",
+      "retrieved_at": null,
+      "review_status": "active",
+      "supersedes": null,
+      "title": "GDD 01 - Bestiary"
+    },
+    "src-c988710abb2bd5651890": {
+      "authority": "community",
+      "content_kind": "webpage",
+      "content_sha256": null,
+      "independence_key": "genshin-fandom",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "url",
+        "locator": "https://genshin-impact.fandom.com/wiki/Ruins_Torch"
+      },
+      "pages": [
+        "wiki/concepts/environmental-puzzle-variety.md",
+        "wiki/sources/source-inspiration-web-research.md"
+      ],
+      "refresh_due": "2027-05-23",
+      "retrieved_at": "2026-11-23",
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Genshin Impact Wiki - Ruins Torch"
+    },
+    "src-d475aef7f690e2736986": {
+      "authority": "primary",
+      "content_kind": "conversation",
+      "content_sha256": null,
+      "independence_key": "explorio-owner",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "manual",
+        "locator": "owner-decisions-conversation-2026-11-23"
+      },
+      "pages": [
+        "wiki/questions/owner-decisions.md"
+      ],
+      "refresh_due": "2027-11-23",
+      "retrieved_at": "2026-11-23",
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Owner decisions in conversation, 2026-11-23"
+    },
+    "src-d66dac828ce22101aa4c": {
+      "authority": "primary",
+      "content_kind": "document",
+      "content_sha256": null,
+      "independence_key": "dormans",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "url",
+        "locator": "https://www.pcgworkshop.com/archive/dormans2010adventures.pdf"
+      },
+      "pages": [
+        "wiki/concepts/cyclic-dungeon-generation.md",
+        "wiki/sources/source-inspiration-web-research.md"
+      ],
+      "refresh_due": "2027-05-23",
+      "retrieved_at": "2026-11-23",
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Dormans 2010 - Adventures in Level Design"
+    },
+    "src-df9f097f2919a4fb07b5": {
+      "authority": "community",
+      "content_kind": "webpage",
+      "content_sha256": null,
+      "independence_key": "genshin-fandom",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "url",
+        "locator": "https://genshin-impact.fandom.com/wiki/Exploration"
+      },
+      "pages": [
+        "wiki/concepts/environmental-puzzle-variety.md",
+        "wiki/sources/source-inspiration-web-research.md"
+      ],
+      "refresh_due": "2027-05-23",
+      "retrieved_at": "2026-11-23",
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Genshin Impact Wiki - Exploration"
+    },
+    "src-e1336f5c4e057bd8b8de": {
+      "authority": "primary",
+      "content_kind": "webpage",
+      "content_sha256": null,
+      "independence_key": "dormans",
+      "ingested_at": "2026-11-23",
+      "origin": {
+        "kind": "url",
+        "locator": "https://www.gamedeveloper.com/design/unexplored-s-secret-cyclic-dungeon-generation-"
+      },
+      "pages": [
+        "wiki/concepts/cyclic-dungeon-generation.md",
+        "wiki/sources/source-inspiration-web-research.md"
+      ],
+      "refresh_due": "2027-05-23",
+      "retrieved_at": "2026-11-23",
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Unexplored's secret cyclic dungeon generation"
+    }
+  }
+}

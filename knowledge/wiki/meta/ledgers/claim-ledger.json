@@ -1,0 +1,1336 @@
+{
+  "claims": {
+    "clm-explorio-biome-todo-attributes": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "To do",
+          "relation": "supports",
+          "source_id": "src-9508c73a30f7523cc518"
+        }
+      ],
+      "location": {
+        "anchor": "Biome attributes still to define",
+        "path": "wiki/entities/biome-catalogue-with-generation-hints.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The GDD's biome to-do list includes biome size (Large, Small, Unique Layer), a Normal/Hard version, and whether a biome can be an end-point/boss biome."
+    },
+    "clm-explorio-brogue-key-chains": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "BP_ADOPT_ITEM, MF_OUTSOURCE_ITEM_TO_MACHINE",
+          "relation": "supports",
+          "source_id": "src-10678ed886f25aac0726"
+        },
+        {
+          "locator": "buildAMachine",
+          "relation": "supports",
+          "source_id": "src-236b9f9c33e5ccbc98f0"
+        }
+      ],
+      "location": {
+        "anchor": "Machines",
+        "path": "wiki/concepts/brogue-machines-and-population.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Brogue builds key chains by outsourcing a feature's item to another machine that adopts it (MF_OUTSOURCE_ITEM_TO_MACHINE, BP_ADOPT_ITEM)."
+    },
+    "clm-explorio-brogue-level-gen-target": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Other similar games > Brogue",
+          "relation": "supports",
+          "source_id": "src-8c6fef43c7ae0e004fec"
+        }
+      ],
+      "location": {
+        "anchor": "Reference games",
+        "path": "wiki/entities/reference-games-and-borrowed-features.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The misc-ideas doc names Brogue as the level generation quality Explorio wants to achieve."
+    },
+    "clm-explorio-burning-wet-plant-rules": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Statuses; Damage over time: > Types > Constant",
+          "relation": "supports",
+          "source_id": "src-9d474d2fd6b0ca7fe4c5"
+        }
+      ],
+      "location": {
+        "anchor": "Element reaction chains",
+        "path": "wiki/concepts/elemental-status-interactions-as-locks-and-keys.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Burning is removed by applying Wet, may spread fire to nearby objects and characters, and its duration can be refreshed only by a plant-type effect."
+    },
+    "clm-explorio-cape-movement-skill": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Inventory",
+          "relation": "supports",
+          "source_id": "src-a8d29990ba7b3d081c62"
+        }
+      ],
+      "location": {
+        "anchor": "Traversal and cape abilities",
+        "path": "wiki/concepts/player-verbs-and-abilities-as-keys.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The cape slot holds one active or passive skill, such as a movement skill with cooldown (dodge, dash, blink), and capes and cape skills are listed as a possible vertical meta unlock."
+    },
+    "clm-explorio-centurion-energy-cell": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Automatons ( Dwarven Defenders )",
+          "relation": "supports",
+          "source_id": "src-b9d151842603ec9596c1"
+        }
+      ],
+      "location": {
+        "anchor": "Key carriers",
+        "path": "wiki/concepts/monsters-as-keys-and-locks.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The dwarven Centurion guards important rooms and is powered by a steam or energy cell that can be used to open doors."
+    },
+    "clm-explorio-cloaks-cooldown-not-charges": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Cloaks",
+          "relation": "supports",
+          "source_id": "src-8e7d61b75fe16f043243"
+        }
+      ],
+      "location": {
+        "anchor": "Reusable vs consumable",
+        "path": "wiki/concepts/items-as-keys.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 03 cloaks are used on a cooldown instead of limited charges, giving movement or protection skills such as blink, dash, burrow and short invisibility."
+    },
+    "clm-explorio-compound-puzzle-trigger": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Compound puzzles",
+          "relation": "supports",
+          "source_id": "src-9508c73a30f7523cc518"
+        }
+      ],
+      "location": {
+        "anchor": "Compound puzzles",
+        "path": "wiki/concepts/key-burden-and-compound-puzzles.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 06 says compound puzzles (on-site clues incomplete, extra clue or tool needed) can be generated when a puzzle with all its keys is locked behind another lock."
+    },
+    "clm-explorio-critters-nonaggressive": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Critters",
+          "relation": "supports",
+          "source_id": "src-b9d151842603ec9596c1"
+        }
+      ],
+      "location": {
+        "anchor": "Threat tiers and pacing hints",
+        "path": "wiki/entities/bestiary-monster-families.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Critters do not attack unless attacked or approached, mostly do not chase a fleeing player, and many flee from bright light, pointy weapons or the death of pack-mates."
+    },
+    "clm-explorio-crowbar-lockpick-break-chance": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Tools",
+          "relation": "supports",
+          "source_id": "src-8e7d61b75fe16f043243"
+        }
+      ],
+      "location": {
+        "anchor": "Key-capable items",
+        "path": "wiki/concepts/items-as-keys.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "In GDD 03 both the crowbar and lockpicks open locked doors and chests and each has a chance to break."
+    },
+    "clm-explorio-curses-lifted-by-condition": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Inventory",
+          "relation": "supports",
+          "source_id": "src-a8d29990ba7b3d081c62"
+        }
+      ],
+      "location": {
+        "anchor": "Curses lifted by a condition",
+        "path": "wiki/concepts/player-verbs-and-abilities-as-keys.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 05 proposes curses lifted by a specific place or a repeated action, with a run or class starting fully cursed so the dungeon can be generated around the player's curses."
+    },
+    "clm-explorio-cyclic-reduces-backtracking": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Cyclic dungeon generation",
+          "relation": "supports",
+          "source_id": "src-0d583aa48675b7c9e415"
+        }
+      ],
+      "location": {
+        "anchor": "Making backtracking unnecessary",
+        "path": "wiki/concepts/backtracking-mitigation.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 02 states that leaning dungeon generation towards cyclic design reduces backtracking because each side objective returns the player to the main path."
+    },
+    "clm-explorio-decision-biome-names-deferred": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "we will fix it later",
+          "relation": "supports",
+          "source_id": "src-d475aef7f690e2736986"
+        }
+      ],
+      "location": {
+        "anchor": "Biome names: fix later",
+        "path": "wiki/questions/owner-decisions.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The biome-name mismatch between code and design docs will be fixed later."
+    },
+    "clm-explorio-decision-graph-first-into-room-map": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "story layout is forced into room map with empty rooms getting standalone stuff",
+          "relation": "supports",
+          "source_id": "src-d475aef7f690e2736986"
+        }
+      ],
+      "location": {
+        "anchor": "Generation order: story graph first, forced into a room map",
+        "path": "wiki/questions/owner-decisions.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The story graph is generated first and forced into a room map; rooms it does not use get standalone content."
+    },
+    "clm-explorio-decision-levitation-crosses-chasms": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "you can cross the chasm, but can't float upwards to go back to the previous layer",
+          "relation": "supports",
+          "source_id": "src-d475aef7f690e2736986"
+        }
+      ],
+      "location": {
+        "anchor": "Levitation crosses chasms, but cannot rise a layer",
+        "path": "wiki/questions/owner-decisions.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Levitation can cross a chasm but cannot float upwards to the previous layer."
+    },
+    "clm-explorio-decision-wfc-both-uses": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "wave function collapse is wave function collapse. We can do both",
+          "relation": "supports",
+          "source_id": "src-d475aef7f690e2736986"
+        }
+      ],
+      "location": {
+        "anchor": "Wave Function Collapse is used for both",
+        "path": "wiki/questions/owner-decisions.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Wave Function Collapse is to be used both for geometry and for abstract-to-concrete content."
+    },
+    "clm-explorio-dex-xp-for-locks": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Perks overview:",
+          "relation": "supports",
+          "source_id": "src-a8d29990ba7b3d081c62"
+        }
+      ],
+      "location": {
+        "anchor": "Experience sources per tree",
+        "path": "wiki/concepts/meta-progression-and-unlocks.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Opening locks and puzzles earns experience in the Dexterity meta talent tree."
+    },
+    "clm-explorio-dormans-lock-properties": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": null,
+          "relation": "supports",
+          "source_id": "src-e1336f5c4e057bd8b8de"
+        }
+      ],
+      "location": {
+        "anchor": "Lock and key properties \u2013 match with the sheet",
+        "path": "wiki/concepts/cyclic-dungeon-generation.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Dormans lists key properties (reusable/consumable, perishable, physical/abstract) and lock properties (conditional, permanent/timed, relockable, unidirectional, unsafe)."
+    },
+    "clm-explorio-enemy-generation-pipeline": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "How enemies are determined",
+          "relation": "supports",
+          "source_id": "src-0d583aa48675b7c9e415"
+        }
+      ],
+      "location": {
+        "anchor": "Enemy composition pipeline",
+        "path": "wiki/concepts/difficulty-scaling-across-depth.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 02 determines enemies as Environment \u2192 Encounter \u2192 possible enemy pool \u2192 enemy, stacking stats by type, variant, class (e.g. Boss) and random gear."
+    },
+    "clm-explorio-fifteen-classes": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Unlockables",
+          "relation": "supports",
+          "source_id": "src-a8d29990ba7b3d081c62"
+        }
+      ],
+      "location": {
+        "anchor": "Class table",
+        "path": "wiki/entities/character-classes-and-starting-kits.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 05 lists 15 classes: 4 base, 6 advanced and 5 challenging, the challenging ones unlocked by achievements."
+    },
+    "clm-explorio-five-room-biome-template": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "5 Room Dungeon",
+          "relation": "supports",
+          "source_id": "src-0d583aa48675b7c9e415"
+        }
+      ],
+      "location": {
+        "anchor": "The five rooms",
+        "path": "wiki/concepts/five-room-dungeon-biome-template.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 02 proposes the Five Room Dungeon (Entrance and Guardian; Puzzle or Challenge; Setback or Red Herring; Climactic Battle or Challenge; Reward, Revelation and Plot Twist) as the structure of each biome, with the Setback room as a place for a one-way entrance to a neighbouring biome."
+    },
+    "clm-explorio-friendly-mimic-key": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Friendly mimic key",
+          "relation": "supports",
+          "source_id": "src-8e7d61b75fe16f043243"
+        }
+      ],
+      "location": {
+        "anchor": "Unique items",
+        "path": "wiki/entities/cursed-and-unique-items.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The Friendly mimic key opens, at a cost of 1-5 HP, any door the player is missing exactly one key for; doors with several keyholes open only if just one key is missing."
+    },
+    "clm-explorio-guard-dog-boss-three-keys": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Main Bosses",
+          "relation": "supports",
+          "source_id": "src-0d583aa48675b7c9e415"
+        }
+      ],
+      "location": {
+        "anchor": "Three main-boss patterns",
+        "path": "wiki/concepts/bosses-as-locks-and-gates.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 02 lists a 'guard dog' main-boss pattern in which the boss is locked behind 3 keys spread throughout the neighbouring regions."
+    },
+    "clm-explorio-key-burden-returns": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Key burden",
+          "relation": "supports",
+          "source_id": "src-9508c73a30f7523cc518"
+        }
+      ],
+      "location": {
+        "anchor": "Key burden",
+        "path": "wiki/concepts/key-burden-and-compound-puzzles.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "In the Key burden pattern the key is far from its lock, burdens the carrier with a debuff or chasing enemies, and the burden ends when the key is returned."
+    },
+    "clm-explorio-keyless-first-boss": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Dungeon Crawler",
+          "relation": "supports",
+          "source_id": "src-a8d29990ba7b3d081c62"
+        }
+      ],
+      "location": {
+        "anchor": "Facts stated in the doc",
+        "path": "wiki/concepts/run-structure-seeds-and-biome-tiers.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The achievement 'Where Did I Put My Keys?' requires defeating the first boss without using a single key and rewards the Prisoner class."
+    },
+    "clm-explorio-keys-indestructible": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Slimes",
+          "relation": "supports",
+          "source_id": "src-b9d151842603ec9596c1"
+        }
+      ],
+      "location": {
+        "anchor": "Key carriers",
+        "path": "wiki/concepts/monsters-as-keys-and-locks.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The Magma Slime melts swallowed metal items but can only destroy basic items, not keys."
+    },
+    "clm-explorio-keys-section-empty": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Keys",
+          "relation": "supports",
+          "source_id": "src-8e7d61b75fe16f043243"
+        }
+      ],
+      "location": {
+        "anchor": "Gaps and contradictions",
+        "path": "wiki/concepts/items-as-keys.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The Keys section of GDD 03 contains only a link to a thread on procedurally generated keys, with no key item design."
+    },
+    "clm-explorio-layer-descent-items": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Tools",
+          "relation": "supports",
+          "source_id": "src-8e7d61b75fe16f043243"
+        }
+      ],
+      "location": {
+        "anchor": "Key-capable items",
+        "path": "wiki/concepts/items-as-keys.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 03's rope lets the player jump to the lower depth without taking damage."
+    },
+    "clm-explorio-levitation-vs-flying-terrain": {
+      "assessment": "contested",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Statuses",
+          "relation": "supports",
+          "source_id": "src-9d474d2fd6b0ca7fe4c5"
+        },
+        {
+          "locator": "levitation over chasms",
+          "relation": "contradicts",
+          "source_id": "src-d475aef7f690e2736986"
+        }
+      ],
+      "location": {
+        "anchor": "Traversal statuses versus terrain",
+        "path": "wiki/concepts/elemental-status-interactions-as-locks-and-keys.md"
+      },
+      "notes": "GDD 04 says levitation cannot cross chasms; the owner decided on 2026-11-23 that it can, but cannot rise a layer. The decision wins for design.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Levitation and Flying both avoid triggering pressure plates; Levitation can cross deep water but not chasms, while Flying can cross both; a net grounds a flyer but not a levitating character."
+    },
+    "clm-explorio-lock-generalised": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "EXAMPLES columns, rows LP 55, 78",
+          "relation": "supports",
+          "source_id": "src-287c45c953706b2d83c6"
+        }
+      ],
+      "location": {
+        "anchor": "Core idea",
+        "path": "wiki/concepts/lock-and-key-abstraction.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Locks and keys are abstract roles: enemies, tools, consumables and environment effects can act as keys or locks."
+    },
+    "clm-explorio-lock-grammar-as-room-purpose": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Generation strategies",
+          "relation": "supports",
+          "source_id": "src-9508c73a30f7523cc518"
+        }
+      ],
+      "location": {
+        "anchor": "Two-step strategy in the doc",
+        "path": "wiki/concepts/room-shape-types-and-layout-methods.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 06 files Lock and Key Grammar under room purpose classification methods, next to 5 Room Dungeon and Cycle Based Generation, while Wave Function Collapse is listed as a walkable-area generation method."
+    },
+    "clm-explorio-lorekeeper-gate-exits": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Lorekeeper ( Desert Lich )",
+          "relation": "supports",
+          "source_id": "src-0d583aa48675b7c9e415"
+        }
+      ],
+      "location": {
+        "anchor": "Boss rooms as lock machines",
+        "path": "wiki/concepts/bosses-as-locks-and-gates.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The Lorekeeper's gate closes behind the player and reopens either by defeating the Lorekeeper or by activating two timed wall buttons; escaping by the buttons permanently closes the gate, leaving only Teleportation Magic to return."
+    },
+    "clm-explorio-lure-lever-example": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Lure and deterrence",
+          "relation": "supports",
+          "source_id": "src-b9d151842603ec9596c1"
+        }
+      ],
+      "location": {
+        "anchor": "Puzzle examples from the doc",
+        "path": "wiki/concepts/enemy-lure-and-deterrence.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The bestiary's lure-and-deterrence examples include throwing a deterrent through bars so an enemy pulls a lever that opens all doors of the room, and luring a sleeping rat off a pressure plate with cheese."
+    },
+    "clm-explorio-magic-limited-usage": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "The point of spellcasting",
+          "relation": "supports",
+          "source_id": "src-9d474d2fd6b0ca7fe4c5"
+        }
+      ],
+      "location": {
+        "anchor": "Design intent",
+        "path": "wiki/concepts/spellcasting-as-limited-key-resource.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Magic is meant as a limited-usage tool for monsters and most classes: non-magical players use charged spellcasting foci as consumables, and magic-focused characters charge staves with mana."
+    },
+    "clm-explorio-matrix-coverage": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "rows LP 0-93",
+          "relation": "supports",
+          "source_id": "src-287c45c953706b2d83c6"
+        }
+      ],
+      "location": {
+        "anchor": "Shape",
+        "path": "wiki/entities/puzzle-archetype-matrix.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The product sheet has 94 distinct rows for 96 possible combinations, with 25 named archetypes."
+    },
+    "clm-explorio-matrix-missing-cells": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "rows LP 64-93",
+          "relation": "supports",
+          "source_id": "src-287c45c953706b2d83c6"
+        }
+      ],
+      "location": {
+        "anchor": "Matrix defects",
+        "path": "wiki/entities/puzzle-archetype-matrix.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Consumable-XOR-Permanent-Required/Optional-Closed and Reusable-XNOR-Permanent-Required/Optional-Closed are missing from the sheet."
+    },
+    "clm-explorio-mimic-boss-two-layers": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Mimic boss",
+          "relation": "supports",
+          "source_id": "src-9508c73a30f7523cc518"
+        }
+      ],
+      "location": {
+        "anchor": "Mimic boss: a layer-generation rule",
+        "path": "wiki/concepts/boss-and-race-theme-overlays.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "A Mimic boss zone generates two layers, one below the other, with identical layout but different machines; a secret entrance on one layer can be a trap on the other."
+    },
+    "clm-explorio-mimic-lab-only": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Chest Mimic",
+          "relation": "supports",
+          "source_id": "src-b9d151842603ec9596c1"
+        }
+      ],
+      "location": {
+        "anchor": "Hard requirements stated in the doc",
+        "path": "wiki/entities/monster-encounter-biome-affinity.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The chest mimic is the only mimic type that can appear outside the laboratory."
+    },
+    "clm-explorio-no-in-run-xp": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Stats / Character Sheet",
+          "relation": "supports",
+          "source_id": "src-a8d29990ba7b3d081c62"
+        }
+      ],
+      "location": {
+        "anchor": "Two layers of progression",
+        "path": "wiki/concepts/meta-progression-and-unlocks.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 05 says the character should not gain experience in a run (improving through items and potions instead), while it places experience sources under Meta Progression talent trees."
+    },
+    "clm-explorio-oil-chasm-parkour": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Other similar games > Noita > Interesting effects",
+          "relation": "supports",
+          "source_id": "src-8c6fef43c7ae0e004fec"
+        }
+      ],
+      "location": {
+        "anchor": "Environment-changing effects",
+        "path": "wiki/entities/noita-style-staff-enhancement-ideas.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "An oil-like status that removes floor traction is proposed as part of a parkour challenge on a narrow passage between chasms."
+    },
+    "clm-explorio-only-p1-implemented": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "lock_and_key_productions/l1.py, l2.py",
+          "relation": "supports",
+          "source_id": "src-864a697b26b9995d38e4"
+        },
+        {
+          "locator": "Production 1",
+          "relation": "supports",
+          "source_id": "src-8f9da5e2bb0164cf0159"
+        }
+      ],
+      "location": {
+        "anchor": "Implementation status",
+        "path": "wiki/entities/production-catalogue.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Only production 1 is implemented in dev, as L1 and L2 with fixed AND/LOCKED/PERMANENT/MANDATORY attributes."
+    },
+    "clm-explorio-p4-p5-swapped": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "rows LP 45, 73",
+          "relation": "supports",
+          "source_id": "src-287c45c953706b2d83c6"
+        },
+        {
+          "locator": "Production 4, Production 5",
+          "relation": "supports",
+          "source_id": "src-8f9da5e2bb0164cf0159"
+        }
+      ],
+      "location": {
+        "anchor": "Sheet vs productions doc",
+        "path": "wiki/questions/inconsistencies-sheet-doc-code.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The sheet numbers Ambush at the Gate as production 4 and Tripwire trap as 5; the productions doc numbers Tripwire 4 and Ambush 5."
+    },
+    "clm-explorio-paralysis-immunity": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Statuses",
+          "relation": "supports",
+          "source_id": "src-9d474d2fd6b0ca7fe4c5"
+        }
+      ],
+      "location": {
+        "anchor": "Control statuses",
+        "path": "wiki/entities/status-effect-catalogue.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Paralysis blocks inventory access, a second application stuns, and the character gains immunity to paralysis when it ends."
+    },
+    "clm-explorio-player-verb-set": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Controls",
+          "relation": "supports",
+          "source_id": "src-a8d29990ba7b3d081c62"
+        }
+      ],
+      "location": {
+        "anchor": "Control verbs",
+        "path": "wiki/concepts/player-verbs-and-abilities-as-keys.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The player's control verbs include grab entity, crouch/investigate (one button), interact, main and alternative use per hand, a quick slot for self-use, and a cape skill with hold-to-sprint on the same button."
+    },
+    "clm-explorio-rain-scroll-puddles": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Other similar games > Noita > Interesting effects",
+          "relation": "supports",
+          "source_id": "src-8c6fef43c7ae0e004fec"
+        }
+      ],
+      "location": {
+        "anchor": "Environment-changing effects",
+        "path": "wiki/entities/noita-style-staff-enhancement-ideas.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "A rain effect, possibly a scroll spell, is proposed to create water puddles and extinguish open fire."
+    },
+    "clm-explorio-rations-as-lures": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Rations",
+          "relation": "supports",
+          "source_id": "src-8e7d61b75fe16f043243"
+        }
+      ],
+      "location": {
+        "anchor": "Key-capable items",
+        "path": "wiki/concepts/items-as-keys.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 03 gives rations non-food uses: cheese lures rats, meat lures carnivores, fruit can be traded with a monkey, garlic fends off vampires and bats, and a fortune cookie gives clues."
+    },
+    "clm-explorio-regional-power-collectibles": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Regional difficulty",
+          "relation": "supports",
+          "source_id": "src-0d583aa48675b7c9e415"
+        }
+      ],
+      "location": {
+        "anchor": "Regional difficulty",
+        "path": "wiki/concepts/difficulty-scaling-across-depth.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 02 proposes biome-specific collectibles that raise the player's power only inside that biome, so each biome stays somewhat difficult after heavy earlier exploration."
+    },
+    "clm-explorio-room-types-eight": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Room types:",
+          "relation": "supports",
+          "source_id": "src-9508c73a30f7523cc518"
+        }
+      ],
+      "location": {
+        "anchor": "Room types",
+        "path": "wiki/concepts/room-shape-types-and-layout-methods.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 06 defines eight room types for layout: Room, Tunnel, Clearance, Cavern, Shelter, Relic, Barrier and Plaza, each with a shape primitive (e.g. Clearance as a giant cellular-automata blob or walker)."
+    },
+    "clm-explorio-rune-vs-enchantment-reuse": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Weapons",
+          "relation": "supports",
+          "source_id": "src-8e7d61b75fe16f043243"
+        }
+      ],
+      "location": {
+        "anchor": "Weapons",
+        "path": "wiki/entities/item-catalogue.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "In GDD 03 a weapon enchantment is used up in combat, while a rune is an enchantment that is not used up."
+    },
+    "clm-explorio-scrolls-need-identification": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Scrolls",
+          "relation": "supports",
+          "source_id": "src-8e7d61b75fe16f043243"
+        }
+      ],
+      "location": {
+        "anchor": "Scrolls",
+        "path": "wiki/entities/item-catalogue.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 03 scrolls must be identified, through high Magic Knowledge, by using them, or by finding books about them."
+    },
+    "clm-explorio-seed-save-metadata": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Game Menu Features > Seed Save",
+          "relation": "supports",
+          "source_id": "src-8c6fef43c7ae0e004fec"
+        }
+      ],
+      "location": {
+        "anchor": "Proposed seed save",
+        "path": "wiki/concepts/seed-save-and-run-reproducibility.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The proposed seed save stores a list of map seeds with the game version and date of each seed's creation in a text file, and shows recent or all seeds in an in-game menu."
+    },
+    "clm-explorio-six-dot-types": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Damage over time: > Types",
+          "relation": "supports",
+          "source_id": "src-9d474d2fd6b0ca7fe4c5"
+        }
+      ],
+      "location": {
+        "anchor": "DoT mechanic types",
+        "path": "wiki/concepts/damage-over-time-and-health-indicators.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 04 defines six damage-over-time mechanic types: percentage, decreasing, increasing, constant, evenly from pool, and ticking bomb."
+    },
+    "clm-explorio-six-elements": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Cosmology",
+          "relation": "supports",
+          "source_id": "src-9508c73a30f7523cc518"
+        }
+      ],
+      "location": {
+        "anchor": "Elements and alignments",
+        "path": "wiki/concepts/elements-pantheons-and-seed-campaign-arc.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Explorio's cosmology has six elements (Earth, Water, Air, Fire, Wild, Power), each with positive, negative and neutral alignments."
+    },
+    "clm-explorio-slime-encounter-requirement": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Slimes",
+          "relation": "supports",
+          "source_id": "src-b9d151842603ec9596c1"
+        }
+      ],
+      "location": {
+        "anchor": "Hard requirements stated in the doc",
+        "path": "wiki/entities/monster-encounter-biome-affinity.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The Blood Slime requires a necromancy or vampires encounter and the Holy Water Slime requires a sacral or werewolves encounter."
+    },
+    "clm-explorio-slime-key-carrier": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Elemental Lifeforms > Behavior",
+          "relation": "supports",
+          "source_id": "src-b9d151842603ec9596c1"
+        }
+      ],
+      "location": {
+        "anchor": "Key carriers",
+        "path": "wiki/concepts/monsters-as-keys-and-locks.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Slimes can carry a key inside them; when a slime splits the key may drop (and be swallowed again by another slime) or pass to a smaller slime."
+    },
+    "clm-explorio-slime-size-split": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Slimes",
+          "relation": "supports",
+          "source_id": "src-b9d151842603ec9596c1"
+        }
+      ],
+      "location": {
+        "anchor": "Threat tiers and pacing hints",
+        "path": "wiki/entities/bestiary-monster-families.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "A larger slime splits into at most two slimes of the next size, or one of the next size plus two of the size below; stone, golden and titan slimes do not split."
+    },
+    "clm-explorio-spell-schools-list": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Spells > Base Spellschools; Quasi Elements",
+          "relation": "supports",
+          "source_id": "src-9d474d2fd6b0ca7fe4c5"
+        }
+      ],
+      "location": {
+        "anchor": "Spell schools",
+        "path": "wiki/concepts/spellcasting-as-limited-key-resource.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 04 names six base spell schools (Pyromancy, Water, Power, Air, Earth, Wild) and three quasi elements (Wood, Metal, Magma); only Water has any content."
+    },
+    "clm-explorio-tests-broken": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "readme.md; repo tests/ read directly",
+          "relation": "supports",
+          "source_id": "src-864a697b26b9995d38e4"
+        }
+      ],
+      "location": {
+        "anchor": "Broken",
+        "path": "wiki/questions/implementation-status-and-gaps.md"
+      },
+      "notes": "Checked by grep in the repo working tree; tests/ is not part of the captured snapshot.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Tests and examples on dev import the productions package that dev deleted."
+    },
+    "clm-explorio-three-act-bosses": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Three Act Structure",
+          "relation": "supports",
+          "source_id": "src-0d583aa48675b7c9e415"
+        }
+      ],
+      "location": {
+        "anchor": "Three acts and bosses A, B, C",
+        "path": "wiki/concepts/five-room-dungeon-biome-template.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 02 structures a run in three acts with one main boss each (A, B, C), where act 1 should work standalone and the final boss climax builds on mechanics from previous lairs."
+    },
+    "clm-explorio-three-bosses-per-run": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Dungeon Crawler",
+          "relation": "supports",
+          "source_id": "src-a8d29990ba7b3d081c62"
+        }
+      ],
+      "location": {
+        "anchor": "Facts stated in the doc",
+        "path": "wiki/concepts/run-structure-seeds-and-biome-tiers.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "A run contains up to three bosses and several layers."
+    },
+    "clm-explorio-trap-intent-three": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Traps Overview",
+          "relation": "supports",
+          "source_id": "src-9508c73a30f7523cc518"
+        }
+      ],
+      "location": {
+        "anchor": "Traps by intent",
+        "path": "wiki/concepts/trap-puzzle-and-encounter-intent-taxonomy.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "GDD 06 splits traps by intent into three types: traps that lure, traps that deter and traps that alarm."
+    },
+    "clm-explorio-unexplored-game-to-beat": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Other similar games > Unexplored; Game Menu Features > Seed Save",
+          "relation": "supports",
+          "source_id": "src-8c6fef43c7ae0e004fec"
+        }
+      ],
+      "location": {
+        "anchor": "Reference games",
+        "path": "wiki/entities/reference-games-and-borrowed-features.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The misc-ideas doc calls Unexplored 'the game we want to kill' and uses it as the model for three default save slots."
+    },
+    "clm-explorio-vocabulary-drift": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "nodes/lock.py, nodes/key.py",
+          "relation": "supports",
+          "source_id": "src-864a697b26b9995d38e4"
+        },
+        {
+          "locator": "header row",
+          "relation": "supports",
+          "source_id": "src-287c45c953706b2d83c6"
+        },
+        {
+          "locator": "Production 1",
+          "relation": "supports",
+          "source_id": "src-8f9da5e2bb0164cf0159"
+        }
+      ],
+      "location": {
+        "anchor": "Doc / sheet vs code vocabulary",
+        "path": "wiki/questions/inconsistencies-sheet-doc-code.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Code enums use LOCKED/UNLOCKED, MANDATORY/MISSABLE/FAILABLE and MAIN where sheet and doc use Closed/Open, Required/Optional/Failable and PRIMARY."
+    },
+    "clm-explorio-wet-element-reactions": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "Statuses",
+          "relation": "supports",
+          "source_id": "src-9d474d2fd6b0ca7fe4c5"
+        }
+      ],
+      "location": {
+        "anchor": "Element reaction chains",
+        "path": "wiki/concepts/elemental-status-interactions-as-locks-and-keys.md"
+      },
+      "notes": "Drafted by a reading agent; anchors and key facts spot-checked against the source.",
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "A Wet character hit by an Electric spell takes double damage and becomes Electrified, by a Fire spell takes half damage and creates a steam cloud, and by a Cold spell is stunned and becomes Frozen; it loses Wet in each case."
+    },
+    "clm-explorio-wfc-empty": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "machine_wfc/machines.py",
+          "relation": "supports",
+          "source_id": "src-864a697b26b9995d38e4"
+        }
+      ],
+      "location": {
+        "anchor": "Missing",
+        "path": "wiki/questions/implementation-status-and-gaps.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-23",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "The WFC/machines module on dev is an empty dict."
+    }
+  },
+  "generated_at": "2026-11-23T16:00:00Z",
+  "schema": "claude-obsidian.claim-ledger.v1"
+}

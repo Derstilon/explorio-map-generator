@@ -1,23 +1,42 @@
-from typing import Dict, List
+from typing import Any, Dict, List
 
-from networkx import Graph
-from networkx.algorithms.isomorphism import GraphMatcher
-
-
-def get_adj_in_isomorphism(G_main: Graph, isomorphism_nodes: list, node: int) -> List[int]:
-    adjacency = list(G_main.adj[node])
-    for neighbour in adjacency:
-        if neighbour not in isomorphism_nodes:
-            adjacency.remove(neighbour)
-    return adjacency
+from networkx import DiGraph
+from networkx.algorithms.isomorphism import DiGraphMatcher
 
 
-def find_isomorphisms(G_main: Graph, G_to_find: Graph) -> List[Dict]:
-    GM = GraphMatcher(G_main, G_to_find, node_match=lambda n1, n2: n1['type'] == n2['type'] if 'type' in n1 and 'type' in n2 else True, edge_match=lambda e1, e2: e1['mode'] == e2['mode'] if 'mode' in e1 and 'mode' in e2 else True)
+def attributes_match(graph_data: Dict[str, Any], pattern_data: Dict[str, Any]) -> bool:
+    """Check a graph node or edge against a pattern node or edge.
+
+    Each pattern attribute is either a value, which must equal the graph
+    attribute, or a callable predicate that receives the graph attribute
+    (None when the graph element lacks it). The special key `where` holds a
+    predicate over the whole attribute dict of the graph element.
+    """
+    for key, expected in pattern_data.items():
+        if key == 'where':
+            if not expected(graph_data):
+                return False
+        elif callable(expected):
+            if not expected(graph_data.get(key)):
+                return False
+        elif graph_data.get(key) != expected:
+            return False
+    return True
+
+
+def find_isomorphisms(G_main: DiGraph, G_to_find: DiGraph) -> List[Dict]:
+    """Return matches of the pattern G_to_find in G_main as {graph node: pattern node} dicts.
+
+    Matches are induced subgraph isomorphisms; matches covering the same set of
+    graph nodes are reported once. The list is sorted by its node mapping,
+    because networkx yields matches in an order that depends on Python's
+    per-process hash seed; callers pick from it with a seeded RNG.
+    """
+    GM = DiGraphMatcher(G_main, G_to_find, node_match=attributes_match, edge_match=attributes_match)
 
     filtered_isomorphisms = []
     for isomorphism in GM.subgraph_isomorphisms_iter():
-        if all([isomorphism.keys() != filtered_isomorphism.keys() for filtered_isomorphism in filtered_isomorphisms]):
+        if all(isomorphism.keys() != filtered.keys() for filtered in filtered_isomorphisms):
             filtered_isomorphisms.append(isomorphism)
 
-    return filtered_isomorphisms
+    return sorted(filtered_isomorphisms, key=lambda isomorphism: sorted(isomorphism.items(), key=repr))

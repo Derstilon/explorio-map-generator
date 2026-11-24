@@ -27,7 +27,9 @@ Main methodology used is Lock and Key system implemented with Graph grammars as 
 
 ### Run the example script to validate the environment
 
--   `python main.py`
+-   `python main.py` – random seed, printed at the start
+-   `python main.py --seed 42` – the same seed gives the same graph
+-   `python main.py --seed 42 --steps 15 --no-plot` – more productions, no plot windows
 
 ### Run the tests
 

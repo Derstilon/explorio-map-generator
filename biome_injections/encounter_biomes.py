@@ -1,4 +1,4 @@
-import random
+from random import Random
 from typing import Dict, List
 import networkx as nx
 from networkx.algorithms.approximation import randomized_partitioning
@@ -97,18 +97,18 @@ biome_data = {
 }
 
 class EncounterBiomes():
-    def apply_encounter_biomes(G: nx.DiGraph):
+    def apply_encounter_biomes(G: nx.DiGraph, rng: Random):
         # sample = random.sample(biome_data.keys(), 4)
         sample = ['orcs', 'trolls', 'traps', 'riches']
         #sample 3 nodes from the graph
-        selected_nodes = random.sample(list(G.nodes()), 4)
+        selected_nodes = rng.sample(list(G.nodes()), 4)
         #grow from the selected nodes few steps
         for i in range(len(sample)):
             tmp = nx.Graph(G)
             node = selected_nodes[i]
             neighbors = [n for n in tmp.neighbors(node) if tmp.edges[node, n]['mode'] == 'access']
             #get at most 3 neighbors
-            neighbors = random.sample(neighbors, min(len(neighbors), 3))
+            neighbors = rng.sample(neighbors, min(len(neighbors), 3))
             #add sample enc_biome to the neighbors and node
             for n in neighbors + [node]:
                 G.nodes[n]['enc_biome'] = [sample[i]] if 'enc_biome' not in G.nodes[n] else G.nodes[n]['enc_biome'] + [sample[i]]

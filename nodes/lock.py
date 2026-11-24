@@ -1,5 +1,6 @@
 import networkx as nx
 from enum import Enum
+from pathlib import Path
 from PIL import Image
 from .node import Node
 
@@ -14,8 +15,8 @@ class LogicGate(Enum):
         return self.name
 
 class LockState(Enum):
-    LOCKED = 1
-    UNLOCKED = 2
+    CLOSED = 1
+    OPEN = 2
     def __str__(self):
         return self.name
 
@@ -26,30 +27,30 @@ class OpenMode(Enum):
     def __str__(self):
         return self.name
 
-class Importance(Enum):
-    FAILABLE = 1
-    MISSABLE = 2
-    MANDATORY = 3
+class AccessMode(Enum):
+    REQUIRED = 1
+    OPTIONAL = 2
+    FAILABLE = 3
     def __str__(self):
         return self.name
 
-lock_image = Image.open('img/lock.drawio.png')
+lock_image = Image.open(Path(__file__).parent.parent / 'img' / 'lock.drawio.png')
 
 class Lock(Node):
-    
+
     @staticmethod
     def increment_label_counter(G: nx.DiGraph, counter: str = 'lock_count'):
         return Node().increment_label_counter(G, counter)
-    
+
     @staticmethod
-    def add_new_lock(G: nx.DiGraph, logic_gate: LogicGate, lock_state: LockState, open_mode: OpenMode, importance: Importance, access_node: str | None = None):
+    def add_new_lock(G: nx.DiGraph, logic_gate: LogicGate, lock_state: LockState, open_mode: OpenMode, access_mode: AccessMode, access_node: str | None = None):
         new_node = f'L{Lock.increment_label_counter(G)}'
-        
-        G.add_node(new_node, label=new_node, type='lock', complexity=0, keys=set(), logic_gate=logic_gate, lock_state=lock_state, open_mode=open_mode, importance=importance, image=lock_image)
+
+        G.add_node(new_node, label=new_node, type='lock', complexity=0, keys=set(), logic_gate=logic_gate, lock_state=lock_state, open_mode=open_mode, access_mode=access_mode, image=lock_image)
         if(access_node is not None):
             G.add_edges_from([(access_node,new_node)], mode='access', weight=.5)
         return new_node
-    
+
     @staticmethod
     def add_unlocks_edge(G: nx.DiGraph, key_node: str, lock_node: str):
         G.add_edges_from([(key_node,lock_node)], mode='unlocks', weight=.85)

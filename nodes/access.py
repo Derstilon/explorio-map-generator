@@ -3,20 +3,40 @@ from .node import Node
 import math
 
 class Access(Node):
-       
-    @staticmethod 
-    def propagate_depth(G: nx.DiGraph, target: str, start_depth: int = 0):
-        next_access_nodes = []
-        depth = start_depth
-        while True:
-            successors = [node for node in G.successors(target) if G.edges[target,node]['mode'] == 'access']
-            [next_access_nodes.append((successor, G.nodes[target]['depth'] if 'depth' in G.nodes[target] else depth)) for successor in successors]
-            if len(next_access_nodes) == 0:
-                break
-            (target, depth) = next_access_nodes.pop()
-            if(G.nodes[target]['type'] == 'access'):
-                G.nodes[target]['depth'] = depth+ 1
-    
+
+    @staticmethod
+    def access_successors(G: nx.DiGraph, node: str):
+        return [successor for successor in G.successors(node) if G.edges[node, successor]['mode'] == 'access']
+
+    @staticmethod
+    def recompute_depths(G: nx.DiGraph):
+        """Set each access node's depth to the fewest locks crossed from a root lock.
+
+        Root locks have no incoming access edge; the access nodes they open have
+        depth 0. Breadth-first, so cycles terminate and each node gets its
+        shortest depth. Access nodes not reachable from a root keep their depth.
+        """
+        root_locks = [node for node, data in G.nodes(data=True)
+                      if data['type'] == 'lock'
+                      and not any(G.edges[p, node]['mode'] == 'access' for p in G.predecessors(node))]
+        frontier = [access for lock in root_locks for access in Access.access_successors(G, lock)
+                    if G.nodes[access]['type'] == 'access']
+        visited = set(frontier)
+        depth = 0
+        while frontier:
+            next_frontier = []
+            for access in frontier:
+                G.nodes[access]['depth'] = depth
+                for lock in Access.access_successors(G, access):
+                    if G.nodes[lock]['type'] != 'lock':
+                        continue
+                    for successor in Access.access_successors(G, lock):
+                        if G.nodes[successor]['type'] == 'access' and successor not in visited:
+                            visited.add(successor)
+                            next_frontier.append(successor)
+            frontier = next_frontier
+            depth += 1
+
     @staticmethod
     def increment_label_counter(G: nx.DiGraph, counter: str = 'access_count'):
         return Node().increment_label_counter(G, counter)
@@ -37,7 +57,7 @@ class Access(Node):
     def add_access_edge(G: nx.DiGraph, access_node: str, accessible_node: str):
         G.add_edges_from([(access_node,accessible_node)], mode='access', weight=.5)
         G.nodes[access_node]['locks' if G.nodes[accessible_node]['type'] == 'lock' else 'keys'].add(accessible_node)
-        Access.propagate_depth(G, accessible_node, G.nodes[access_node]['depth'])
+        Access.recompute_depths(G)
     
     # @staticmethod
     # def propagate_complexity(G: nx.DiGraph, access_node: str, complexity_increase: int, over_horizon_nodes: Set[str] = set()):

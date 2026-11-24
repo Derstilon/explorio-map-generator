@@ -1,4 +1,5 @@
 from enum import Enum
+from pathlib import Path
 from PIL import Image
 import networkx as nx
 
@@ -15,13 +16,13 @@ class Reusability(Enum):
         return self.name
 
 class KeyType(Enum):
-    MAIN = 1
+    PRIMARY = 1
     SPARE = 2
     CLUE = 3
     def __str__(self):
         return self.name
 
-key_image = Image.open('img/key.drawio.png')
+key_image = Image.open(Path(__file__).parent.parent / 'img' / 'key.drawio.png')
 
 class Key(Node):
     

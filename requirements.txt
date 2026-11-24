@@ -1,2 +1,4 @@
 matplotlib
-networkx[default]
+networkx[default]>=3
+pillow
+pytest

@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import networkx as nx
 import PIL
-from nodes import Lock, LockState, OpenMode, Importance, LogicGate, Key, KeyType, Reusability,Access
+from nodes import Lock, LockState, OpenMode, AccessMode, LogicGate, Key, KeyType, Reusability,Access
 
 # Image URLs for graph nodes
 icons = {

@@ -325,6 +325,25 @@
       "supersedes": null,
       "title": "GDD 04 - Magic and Statuses Overview"
     },
+    "src-a331d8f5a2f06c126143": {
+      "authority": "primary",
+      "content_kind": "conversation",
+      "content_sha256": null,
+      "independence_key": "explorio-owner",
+      "ingested_at": "2026-11-24",
+      "origin": {
+        "kind": "manual",
+        "locator": "owner-decisions-conversation-2026-11-24"
+      },
+      "pages": [
+        "wiki/questions/owner-decisions.md"
+      ],
+      "refresh_due": "2027-11-24",
+      "retrieved_at": "2026-11-24",
+      "review_status": "active",
+      "supersedes": null,
+      "title": "Owner decisions in conversation, 2026-11-24"
+    },
     "src-a8d29990ba7b3d081c62": {
       "authority": "primary",
       "content_kind": "document",

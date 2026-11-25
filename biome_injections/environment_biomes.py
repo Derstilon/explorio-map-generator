@@ -117,18 +117,14 @@ class EnvironmentBiomes():
         tmp = nx.Graph(G)
         selected_nodes = ['L0', 'K0']
         tmp.remove_nodes_from(selected_nodes)
-        print('tmp nodes',tmp.nodes)
         #Pair of iterables containing an initial partition.
         _, partition = randomized_partitioning(tmp, seed=rng)
-        print('randomized_partitioning',partition)
         #add selected nodes to partitions
         start_partition = (sorted(partition[0]) + [selected_nodes[0]], sorted(partition[1]) + [selected_nodes[1]])
-        print('start_partition',start_partition)
         tmp = nx.Graph(G)
         # remove all edges with mode unlocks
         tmp.remove_edges_from([(u,v) for u,v,e in tmp.edges(data=True) if e['mode'] == 'unlocks'])
         partition1, partition2 = nx.community.kernighan_lin_bisection(tmp, start_partition, seed=rng)
-        print('kernighan_lin_bisection','\n',partition1,'\n', partition2)
         # assign biomes to partitions
         for node in partition1:
             G.nodes[node]['env_biome'] = selected_biomes[0]

@@ -6,6 +6,7 @@ from nodes import Lock, LockState, OpenMode, AccessMode, LogicGate, Key, KeyType
 
 
 class L1():
+    description = 'Lock a key: put an existing key behind a new AND lock (production 1c)'
     left = nx.DiGraph()
     left.add_node(0, type='access')
     left.add_node(1, type='key')

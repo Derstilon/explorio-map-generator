@@ -305,6 +305,46 @@
       "supersedes": null,
       "text": "Levitation can cross a chasm but cannot float upwards to the previous layer."
     },
+    "clm-explorio-decision-no-short-way-back": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "no short way back is ok",
+          "relation": "supports",
+          "source_id": "src-a331d8f5a2f06c126143"
+        }
+      ],
+      "location": {
+        "anchor": "Point of no return and Burning bridges: no short way back",
+        "path": "wiki/questions/owner-decisions.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-24",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Point of no return and Burning bridges mean no short way back; a long way back must still exist."
+    },
+    "clm-explorio-decision-way-back-after-one-way-link": {
+      "assessment": "accepted",
+      "confidence": "high",
+      "evidence": [
+        {
+          "locator": "any layout with drop needs a accesible path to stairs back up",
+          "relation": "supports",
+          "source_id": "src-a331d8f5a2f06c126143"
+        }
+      ],
+      "location": {
+        "anchor": "Every one-way link needs a way back",
+        "path": "wiki/questions/owner-decisions.md"
+      },
+      "notes": null,
+      "reviewed_at": "2026-11-24",
+      "risk": "normal",
+      "supersedes": null,
+      "text": "Every drop needs an accessible way back up; the way back may cross locks whose keys are reachable from the landing, and a config option can limit it to locks that can't be failed (no wastable consumable keys)."
+    },
     "clm-explorio-decision-wfc-both-uses": {
       "assessment": "accepted",
       "confidence": "high",

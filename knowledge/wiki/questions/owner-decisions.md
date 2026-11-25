@@ -2,7 +2,7 @@
 type: question
 title: "Owner decisions"
 created: 2026-11-23
-updated: 2026-11-23
+updated: 2026-11-24
 status: developing
 tags:
   - question
@@ -14,6 +14,8 @@ related:
   - "[[wiki/questions/inconsistencies-sheet-doc-code|Inconsistencies]]"
   - "[[wiki/questions/scope-and-open-questions|Scope and open questions]]"
 claim_ids:
+  - clm-explorio-decision-way-back-after-one-way-link
+  - clm-explorio-decision-no-short-way-back
   - clm-explorio-decision-graph-first-into-room-map
   - clm-explorio-decision-wfc-both-uses
   - clm-explorio-decision-levitation-crosses-chasms
@@ -27,6 +29,29 @@ Navigation: [[wiki/maps/explorio-knowledge-map|Knowledge map]]
 Decisions the project owner gave in conversation. Newest first. Each one
 resolves an item in [[wiki/questions/inconsistencies-sheet-doc-code|Inconsistencies]]
 or [[wiki/questions/scope-and-open-questions|Scope and open questions]].
+
+## 2026-11-24
+
+### Every one-way link needs a way back
+
+After a one-way link, the player must have a way back. In the later room map
+this means every drop needs an accessible path to stairs back up.
+
+- **Accessible:** the way back may cross locks, as long as their keys can be
+  reached from where the player lands.
+- **Strict mode (config option):** the locks on the way back must not be
+  failable. That rules out locks with access FAILABLE and locks opened by a
+  consumable key that could be wasted before reaching them.
+- Consequence (synthesis): the solver needs reachability from any node with a
+  given set of keys, not only from the start, and treats a wastable consumable
+  key as a failable path.
+
+### Point of no return and Burning bridges: no short way back
+
+[[wiki/entities/puzzle-archetype-matrix|Point of no return]] (LP 57) and
+Burning bridges (LP 13) mean **no short way back**: the collapse removes the
+quick route, and the long way back must still exist. Both archetypes stay
+usable under the rule above.
 
 ## 2026-11-23
 

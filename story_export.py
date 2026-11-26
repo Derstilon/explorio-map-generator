@@ -11,12 +11,15 @@ Export schema `explorio.story-graph.v1`:
 Edge mode `access`: the source makes the target reachable (a physical
 connection). Edge mode `unlocks`: the key opens the lock (logic only).
 Enum attributes are their names, sets are sorted lists.
+Lock nodes carry `archetype`: the id of their entry in data/archetypes.yaml.
+The zone entrance (role `start`, open mode DUNGEON) lies outside the matrix
+and has none.
 """
 from enum import Enum
 
 import networkx as nx
 
-from main import PRODUCTIONS, generate
+from main import ARCHETYPES, PRODUCTIONS, generate
 
 SCHEMA = 'explorio.story-graph.v1'
 HIDDEN_ATTRIBUTES = {'image', 'label'}
@@ -51,6 +54,8 @@ def derive(seed: int, steps: int = 9, weights: dict | None = None,
     (name or null), `graph`, and the changes against the previous frame:
     `added_nodes`, `added_edges`, `removed_edges` ([source, target, mode]) and
     `changed_nodes` (ids whose attributes changed).
+    `archetypes` maps each archetype id used in the frames to its `name`,
+    `status` and `play_pattern`, for the GUI tooltip.
     """
     weights = dict(weights) if weights is not None else {name: 1 for name in PRODUCTIONS}
     frames = []
@@ -88,11 +93,16 @@ def derive(seed: int, steps: int = 9, weights: dict | None = None,
                  encounter_biomes=encounter_biomes, on_step=on_step)
     params = {'steps': steps, 'weights': weights, 'environment_biomes': environment_biomes,
               'encounter_biomes': encounter_biomes}
+    used = {node['archetype'] for frame in frames for node in frame['graph']['nodes'] if 'archetype' in node}
     return {
         'schema': SCHEMA,
         'seed': seed,
         'params': params,
         'productions_applied': G.graph['productions_applied'],
         'frames': frames,
+        'archetypes': {archetype_id: {'name': ARCHETYPES.by_id[archetype_id].label,
+                                      'status': ARCHETYPES.by_id[archetype_id].status,
+                                      'play_pattern': ARCHETYPES.by_id[archetype_id].play_pattern}
+                       for archetype_id in sorted(used)},
         'export': {'schema': SCHEMA, 'seed': seed, 'params': params, **graph_to_json(G)},
     }

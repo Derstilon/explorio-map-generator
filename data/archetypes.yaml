@@ -1,0 +1,1594 @@
+# Abstract puzzle archetypes: one entry per cell of the 96-cell lock/key matrix.
+# Loaded and validated by archetypes.py; seeded once by tools/import_archetype_sheet.py, then edited by hand.
+#
+# id               stable slug, used in the code and the JSON export
+# combination      key_usage (REUSABLE, CONSUMABLE), gate (AND, OR, NAND, NOR, XOR, XNOR),
+#                  open_mode (PERMANENT, TEMPORARY), access (REQUIRED_OR_OPTIONAL, FAILABLE),
+#                  base_state (CLOSED, OPEN)
+# name             archetype name; empty only for unusable cells
+# status           named (confirmed by the owner), proposed (waiting for the owner) or unusable
+# play_pattern     one abstract line: what the player does, no theme (named and proposed)
+# unusable_reason  why the cell can't be used (unusable only)
+# productions      production numbers that create this archetype, e.g. ['1'], ['7a']
+# sheet_lp         LP number of the product sheet row; empty for cells the sheet lacks
+# examples         the sheet's examples, translated and shortened; for cells the sheet left empty,
+#                  proposed ones drawn from the GDDs; reference for flavours, not read by the generator
+#
+# Gates count the active inputs: AND all, OR at least one, NAND not all, NOR none, XOR exactly one,
+# XNOR none or all. Order and timing between inputs are left to the room-map and content steps.
+
+- id: advanced-puzzle
+  combination:
+    key_usage: REUSABLE
+    gate: AND
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Advanced Puzzle
+  status: named
+  play_pattern: Set every input to its required state; the lock opens for good and the inputs stay usable.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 0
+  examples:
+  - activate elements in order
+  - rotate elements until all match
+  - toggling one element toggles its neighbours (lights-out)
+  - hourglasses within a time window, the last one beyond the door
+- id: borrowed-support
+  combination:
+    key_usage: REUSABLE
+    gate: AND
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Borrowed Support
+  status: proposed
+  play_pattern: A shortcut stays open while all its reusable supports stay in place; taking one away to use elsewhere
+    closes the shortcut for good, leaving the longer way.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 8
+  examples:
+  - crystals hold up a light bridge; taking one to power a machine elsewhere drops the bridge
+- id: legendary-quest
+  combination:
+    key_usage: REUSABLE
+    gate: AND
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: CLOSED
+  name: Legendary Quest
+  status: named
+  play_pattern: Gather every piece of a set; losing or misusing a piece forfeits the lock.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 4
+  examples:
+  - assemble a legendary warrior's outfit to open his chambers or enchant a weapon
+- id: fragile-balance
+  combination:
+    key_usage: REUSABLE
+    gate: AND
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: OPEN
+  name: Fragile Balance
+  status: proposed
+  play_pattern: The path holds only while every input stays undisturbed; a misstep that disturbs one closes it for
+    good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 12
+  examples:
+  - a ledge of stacked crates collapses for good if the player knocks any crate loose
+  - a balance bridge over a pit tips over if any counterweight is moved
+- id: broken-cycle
+  combination:
+    key_usage: REUSABLE
+    gate: AND
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Broken Cycle
+  status: named
+  play_pattern: Restore every missing link with reusable inputs; the lock works while all links stay in place.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 2
+  examples:
+  - 'broken circuit: throw a metal item or find wire'
+  - crates block a laser
+  - crystal not in the fire
+  - water wheel without a current
+- id: maintained-passage
+  combination:
+    key_usage: REUSABLE
+    gate: AND
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Maintained Passage
+  status: proposed
+  play_pattern: The path is open while every reusable input stays active; removing one closes it until it is restored.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 10
+  examples:
+  - moving platforms run while all their activator plates stay weighed down
+  - a light bridge stays up while every mirror keeps the beam on it
+- id: parkour
+  combination:
+    key_usage: REUSABLE
+    gate: AND
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: CLOSED
+  name: Parkour
+  status: named
+  play_pattern: Trigger every input to open the path for a short time and cross before it closes; a slip sends the
+    player back.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 6
+  examples:
+  - buttons start an obstacle course with a safe way back
+  - turning bridge whose route you must remember
+  - lava blocks
+  - door open for a short moment
+- id: juggling-act
+  combination:
+    key_usage: REUSABLE
+    gate: AND
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: OPEN
+  name: Juggling Act
+  status: proposed
+  play_pattern: Keep several reusable inputs active at once to keep the path open; dropping any closes it and drops
+    whoever is on it into a fail area to escape before retrying.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 14
+  examples:
+  - boulders or summons hold several plates down while the player crosses moving platforms; a released plate drops
+    the player into the pit below
+- id: locked-chest
+  combination:
+    key_usage: CONSUMABLE
+    gate: AND
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Locked Chest
+  status: named
+  play_pattern: Bring every required key and spend it on the lock; it opens for good.
+  unusable_reason: ''
+  productions:
+  - '1'
+  sheet_lp: 1
+  examples:
+  - key or shaped item in a socket
+  - door needs 2 gems / 3 obelisks
+  - multi-stage drawbridge
+- id: toll-path
+  combination:
+    key_usage: CONSUMABLE
+    gate: AND
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Toll Path
+  status: proposed
+  play_pattern: A shortcut stays open while the player pays every required consumable when asked; refusing closes
+    it for good, leaving the longer way.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 9
+  examples:
+  - a troll lets the player use its bridge while fed meat at each crossing; refuse once and it breaks the bridge
+- id: sequence-lock
+  combination:
+    key_usage: CONSUMABLE
+    gate: AND
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: CLOSED
+  name: Sequence Lock
+  status: named
+  play_pattern: Spend every required key on the lock; a wrong use wastes the key and opens the trap side instead
+    of the success side.
+  unusable_reason: ''
+  productions:
+  - 7a
+  sheet_lp: 5
+  examples:
+  - offering of loot from enemies who desecrated a temple
+  - item to destroy in a gas room; gas potions or vent switches as a spare key
+- id: burning-bridges
+  combination:
+    key_usage: CONSUMABLE
+    gate: AND
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: OPEN
+  name: Burning bridges
+  status: named
+  play_pattern: The open path is being destroyed; spend every required consumable in time to save it, or lose it
+    for good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 13
+  examples:
+  - 'bridge burning from both ends: water or ice potions'
+  - closing trash compactor drops you a floor
+  - drills destroy a ledge
+  - corridor filling with water or sand
+- id: recharge-lock
+  combination:
+    key_usage: CONSUMABLE
+    gate: AND
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Recharge Lock
+  status: proposed
+  play_pattern: Spend every required consumable to open the lock for a while; when it closes, it needs a new set.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 3
+  examples:
+  - a dwarven furnace door opens while coal burns in it and needs new coal each time
+  - a door powered by magic batteries that drain after it opens
+- id: fuelled-passage
+  combination:
+    key_usage: CONSUMABLE
+    gate: AND
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Fuelled Passage
+  status: proposed
+  play_pattern: The path is open while it is fed; when it runs dry, every required consumable must be refilled to
+    reopen it.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 11
+  examples:
+  - a lift runs while its furnace burns; refill it with coal to run it again
+  - a hall where shadows deal damage stays safe while its braziers burn
+- id: timed-offering
+  combination:
+    key_usage: CONSUMABLE
+    gate: AND
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: CLOSED
+  name: Timed Offering
+  status: proposed
+  play_pattern: Spend every required consumable to open the lock for a short time; missing the window wastes them.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 7
+  examples:
+  - blood in every bowl opens a shrine door for a few seconds; the offerings are gone either way
+- id: race-the-fuel
+  combination:
+    key_usage: CONSUMABLE
+    gate: AND
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: OPEN
+  name: Race the Fuel
+  status: proposed
+  play_pattern: Spend every required consumable to keep the path open while crossing; running out midway drops the
+    player back.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 15
+  examples:
+  - a boat across a lava lake moves while it burns coal; running out drifts it back to the shore
+- id: any-means
+  combination:
+    key_usage: REUSABLE
+    gate: OR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Any Means
+  status: proposed
+  play_pattern: Use any one of several reusable sources on the lock; it opens for good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 48
+  examples:
+  - 'use any nearby effect source: a coil to charge a battery, move a crate out of a laser, lure a sandworm to break
+    rocks'
+- id: anchored-path
+  combination:
+    key_usage: REUSABLE
+    gate: OR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Anchored Path
+  status: proposed
+  play_pattern: A shortcut stays open while at least one reusable anchor holds it; taking the last anchor to use
+    elsewhere closes the shortcut for good, leaving the longer way.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 56
+  examples:
+  - a chain bridge held by two winches; unhooking both to use their chains elsewhere drops it
+- id: alarm
+  combination:
+    key_usage: REUSABLE
+    gate: OR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: CLOSED
+  name: Alarm
+  status: named
+  play_pattern: Any one trigger the player sets off springs the lock for good and releases what it holds.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 52
+  examples:
+  - turret spots the player and opens monster cages
+- id: guarded-hoard
+  combination:
+    key_usage: REUSABLE
+    gate: OR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: OPEN
+  name: Guarded Hoard
+  status: proposed
+  play_pattern: Taking any guarded item springs a trap; putting it back in time cancels it, otherwise the trap destroys
+    a consumable or reward the player carries.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 60
+  examples:
+  - looting the whole vault springs a trap; put items back to cancel it
+- id: gate-lock
+  combination:
+    key_usage: REUSABLE
+    gate: OR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Gate Lock
+  status: named
+  play_pattern: Activate any one of the inputs (one on each side) to open the lock for a while.
+  unusable_reason: ''
+  productions:
+  - '2'
+  sheet_lp: 50
+  examples:
+  - pressure plates on both sides of a door
+  - two teleport pairs
+- id: kept-open-gate
+  combination:
+    key_usage: REUSABLE
+    gate: OR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Kept-Open Gate
+  status: proposed
+  play_pattern: The path is open while any one input is active; when all are off it closes until one is switched
+    on again.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 58
+  examples:
+  - a portcullis held up by either of two levers; release both and it drops until one is pulled again
+  - a light bridge stays lit while any one sunlight crack shines on its runestone
+- id: endless-tool
+  combination:
+    key_usage: REUSABLE
+    gate: OR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: CLOSED
+  name: Endless Tool
+  status: proposed
+  play_pattern: Use any one of several reusable tools or abilities to pass the hazard for a while; failing midway
+    lets the hazard destroy a consumable the player carries.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 54
+  examples:
+  - gas room full of dead enemies, vent switch, elemental boss
+- id: last-light
+  combination:
+    key_usage: REUSABLE
+    gate: OR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: OPEN
+  name: Last Light
+  status: proposed
+  play_pattern: The path stays open while at least one input is kept active; if all drop, it closes and the hazard
+    destroys a consumable or reward the player carries.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 62
+  examples:
+  - a dark hall where shadows hurt stays safe while any torch or light spell burns; when all go out the shadows
+    destroy a carried scroll
+- id: pick-your-poison
+  combination:
+    key_usage: CONSUMABLE
+    gate: OR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Pick your poison
+  status: named
+  play_pattern: Spend any one of several consumables, each with its own cost, to open the lock for good.
+  unusable_reason: ''
+  productions:
+  - '3'
+  sheet_lp: 49
+  examples:
+  - tripwire in the corridor triggers a trap
+- id: point-of-no-return
+  combination:
+    key_usage: CONSUMABLE
+    gate: OR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Point of no return
+  status: named
+  play_pattern: The path is open until the player crosses; the crossing closes it for good, so the way back must
+    be found elsewhere.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 57
+  examples:
+  - passage collapses; the player must find another way back
+- id: gambit-puzzle
+  combination:
+    key_usage: CONSUMABLE
+    gate: OR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: CLOSED
+  name: Gambit puzzle
+  status: named
+  play_pattern: Spend a key on one of two equal options; only the chosen side opens for good.
+  unusable_reason: ''
+  productions:
+  - 7b
+  sheet_lp: 53
+  examples:
+  - 'failed ritual: finish the blood circle to summon an enemy, or use holy water to summon a chest'
+- id: quick-patch
+  combination:
+    key_usage: CONSUMABLE
+    gate: OR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: OPEN
+  name: Quick Patch
+  status: proposed
+  play_pattern: The open path is breaking; patch it with any one of several consumables in time, or lose it for
+    good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 61
+  examples:
+  - 'a cracking ice bridge over lava: refreeze it with a freezing potion or an ice scroll before it breaks'
+- id: coin-door
+  combination:
+    key_usage: CONSUMABLE
+    gate: OR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Coin Door
+  status: proposed
+  play_pattern: Spend any one consumable to open the lock for a while; it closes again afterwards.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 51
+  examples:
+  - a toll gate takes one coin, gem or token and opens for a minute
+- id: fed-passage
+  combination:
+    key_usage: CONSUMABLE
+    gate: OR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Fed Passage
+  status: proposed
+  play_pattern: The open path starts to close at times; spend any one consumable to keep it open, otherwise it closes
+    until fed.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 59
+  examples:
+  - a path through a beast pen stays calm while the player throws meat whenever the beasts get restless
+  - a portal flickers out unless fed any magic battery
+- id: tool-assist
+  combination:
+    key_usage: CONSUMABLE
+    gate: OR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: CLOSED
+  name: Tool assist
+  status: named
+  play_pattern: Use any one consumable tool (primary or spare) to pass the hazard for a while; running out midway
+    sends the player back, and the spent tool is gone.
+  unusable_reason: ''
+  productions:
+  - '6'
+  sheet_lp: 55
+  examples:
+  - invisibility potion across a battlefield
+  - iron-skin potion in a magnetic room over lava
+  - levitation over a chasm
+  - holy-light scroll through cursed shadows
+  - speed potion or teleport wand for a timed puzzle
+- id: weather-the-hazard
+  combination:
+    key_usage: CONSUMABLE
+    gate: OR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: OPEN
+  name: Weather the Hazard
+  status: proposed
+  play_pattern: The open path turns hazardous at times; any one consumable protects the player for a while, and
+    without one the hazard destroys a consumable or reward they carry.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 63
+  examples:
+  - 'vents sweep a bridge with fire: a resist-fire potion or a frost scroll protects for a while; without one a
+    scroll in the backpack burns'
+- id: pull-a-pin
+  combination:
+    key_usage: REUSABLE
+    gate: NAND
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Pull a Pin
+  status: proposed
+  play_pattern: All inputs together hold the lock shut; remove any one of them to open it for good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 16
+  examples:
+  - a gate held shut by several counterweights opens when any one is taken
+  - a door held by three wards opens when any rune is broken
+- id: leave-one-out
+  combination:
+    key_usage: REUSABLE
+    gate: NAND
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Leave One Out
+  status: proposed
+  play_pattern: A shortcut stays open while at least one input is left untouched; triggering all of them closes
+    it for good, leaving the longer way.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 24
+  examples:
+  - a shortcut lift holds while any of its counterweights stays; using them all to press plates elsewhere stops
+    it for good
+- id: punishment
+  combination:
+    key_usage: REUSABLE
+    gate: NAND
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: CLOSED
+  name: Punishment
+  status: named
+  play_pattern: Inputs hold the lock shut; breaking the wrong one opens it for good and releases a threat the player
+    must survive.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 20
+  examples:
+  - cages open on a wrong three-lever combination
+- id: mouse-trap
+  combination:
+    key_usage: REUSABLE
+    gate: NAND
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: OPEN
+  name: Mouse Trap
+  status: named
+  play_pattern: The path stays open until the player takes every item; taking the last one springs the trap for
+    good, closing the way out and leaving the player a fail area to escape.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 28
+  examples:
+  - magnetic sandworm pulls you by the items you pick up
+  - whole room is a mimic that grows with loot taken
+  - trap fires if you loot the whole vault or temple feast
+- id: system-shutdown
+  combination:
+    key_usage: REUSABLE
+    gate: NAND
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: System Shutdown
+  status: named
+  play_pattern: All inputs together hold the lock shut; disable any one of them to open it for a while.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 18
+  examples:
+  - pull any battery of a force field (batteries on both sides)
+  - lower any beacon to calm quicksand
+- id: overloaded-circuit
+  combination:
+    key_usage: REUSABLE
+    gate: NAND
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Overloaded Circuit
+  status: proposed
+  play_pattern: The path is open until every input is active at once; it reopens when any of them is released.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 26
+  examples:
+  - a lift works until every generator runs at once and overloads; switching one off restores it
+- id: hot-wiring
+  combination:
+    key_usage: REUSABLE
+    gate: NAND
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: CLOSED
+  name: Hot Wiring
+  status: proposed
+  play_pattern: All inputs hold the lock shut; disable any one to open it for a while, but disabling the wrong one
+    jams the lock until a spare key from elsewhere frees it.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 22
+  examples:
+  - 'a force field fed by several batteries: pull any one to drop it for a while, but the wrong one shorts the lock
+    until a spare battery is found'
+- id: alarm-threshold
+  combination:
+    key_usage: REUSABLE
+    gate: NAND
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: OPEN
+  name: Alarm Threshold
+  status: proposed
+  play_pattern: The player may set off some triggers but not all at once; setting off the last one closes the path
+    for a while and sends a threat after a reward elsewhere, lost unless the player gets there first.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 30
+  examples:
+  - 'sight sensors along a hall: being seen by one or two is fine, but all at once raises an alarm and a thief runs
+    for the treasure room'
+- id: break-a-seal
+  combination:
+    key_usage: CONSUMABLE
+    gate: NAND
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Break a Seal
+  status: proposed
+  play_pattern: Several seals hold the lock shut; spend a consumable to break any one of them and it opens for good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 17
+  examples:
+  - 'a door bound by several seals: a dispel scroll or blessed water on any one breaks it'
+  - 'a gate chained with padlocks: an acid flask on any one frees it'
+- id: take-all-but-one
+  combination:
+    key_usage: CONSUMABLE
+    gate: NAND
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Take All But One
+  status: proposed
+  play_pattern: A shortcut stays open while at least one of its consumables is left in place; the player may take
+    the rest for use elsewhere, but taking the last closes the shortcut for good, leaving the longer way.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 25
+  examples:
+  - wall torches light a shortcut through a dark hall; the player can take all but one
+  - 'a vault that doesn''t let the player take every item: altar cages close on the rest (Brogue)'
+- id: sabotage
+  combination:
+    key_usage: CONSUMABLE
+    gate: NAND
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: CLOSED
+  name: Sabotage
+  status: proposed
+  play_pattern: Spend a consumable to break any one of the inputs holding the lock shut; breaking the wrong one
+    opens it for good but destroys part of the reward behind it.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 21
+  examples:
+  - bomb any strut holding a vault shut; the wrong strut brings the ceiling down on part of the treasure
+- id: last-charge
+  combination:
+    key_usage: CONSUMABLE
+    gate: NAND
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: OPEN
+  name: Last Charge
+  status: proposed
+  play_pattern: The path stays open until the player has used up every charge here; using the last one springs the
+    trap and closes the path for good, cutting off what lies beyond.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 29
+  examples:
+  - a magic lamp keeps a passage safe while it has oil; burning the last drop sets off the trap
+- id: jam-the-mechanism
+  combination:
+    key_usage: CONSUMABLE
+    gate: NAND
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Jam the Mechanism
+  status: proposed
+  play_pattern: Spend a consumable to jam any one of the inputs holding the lock shut; it opens for a while.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 19
+  examples:
+  - a net or a crate jammed into any gear of the mechanism holding a gate shut opens it until the gear tears it
+    apart
+- id: faulty-mechanism
+  combination:
+    key_usage: CONSUMABLE
+    gate: NAND
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Faulty Mechanism
+  status: proposed
+  play_pattern: 'A path that looks permanently open runs on consumables and malfunctions: once they are used up
+    it closes, then switches back open on its own after a while.'
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 27
+  examples:
+  - 'a lever that keeps switching back: a door a permanent production would make is temporary here'
+  - a malfunction-themed area where everything can break, in the player's favour or not
+- id: short-circuit
+  combination:
+    key_usage: CONSUMABLE
+    gate: NAND
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: CLOSED
+  name: Short Circuit
+  status: proposed
+  play_pattern: Spend a consumable to disable one input holding the lock shut for a while; the wrong one wastes
+    the consumable, so another must be fetched from elsewhere.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 23
+  examples:
+  - a water potion on one of the coils keeping a gate shut opens it briefly; the wrong coil sparks and the potion
+    is wasted
+- id: misfire
+  combination:
+    key_usage: CONSUMABLE
+    gate: NAND
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: OPEN
+  name: Misfire
+  status: proposed
+  play_pattern: Taking the last guarded consumable springs a trap that runs for a while but may misfire in the player's
+    favour; when it doesn't, it destroys a consumable the player carries.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 31
+  examples:
+  - the released threat is killed by something else before it reaches the player
+  - a malfunction-themed area where everything can break, in the player's favour or not
+- id: all-quiet
+  combination:
+    key_usage: REUSABLE
+    gate: NOR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: All Quiet
+  status: proposed
+  play_pattern: Switch every input off; the lock opens for good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 32
+  examples:
+  - a vault door opens once every alarm bell on the floor is silenced
+  - a door opens when all its flame vents are switched off
+- id: spent-shortcuts
+  combination:
+    key_usage: REUSABLE
+    gate: NOR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Spent Shortcuts
+  status: proposed
+  play_pattern: Several shortcuts start intact and run on one reusable key the player carries; each breaks for good
+    after one use, leaving the longer way, and the key still works on the others.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 40
+  examples:
+  - teleporters run on a power cell the player carries; each teleporter breaks after one use and the cell moves
+    on to the next
+  - a broken teleporter's destination still works from the other teleporters
+- id: disarm-all
+  combination:
+    key_usage: REUSABLE
+    gate: NOR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: CLOSED
+  name: Disarm All
+  status: proposed
+  play_pattern: Switch every input off to open the lock for good; a wrong move locks it for good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 36
+  examples:
+  - switch off every turret on a control panel; a wrong switch locks the panel for good
+- id: sentry-watch
+  combination:
+    key_usage: REUSABLE
+    gate: NOR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: OPEN
+  name: Sentry Watch
+  status: proposed
+  play_pattern: Pass without any reusable sensor spotting the player; one sighting closes the way for good and sends
+    a threat after a reward elsewhere, lost unless the player gets there first.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 44
+  examples:
+  - watchers line a hall; one sighting seals it and sends a goblin to loot the treasury first
+- id: rotating-passage
+  combination:
+    key_usage: REUSABLE
+    gate: NOR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Rotating Passage
+  status: named
+  play_pattern: Switch every input off to open the passage for a while; turning any back on closes it.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 34
+  examples:
+  - rotating bridge can't open all routes at once
+  - switch which portals work
+  - kill the ice elemental freezing the mill's river
+- id: stealth-mission
+  combination:
+    key_usage: REUSABLE
+    gate: NOR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Stealth Mission
+  status: named
+  play_pattern: Pass without setting off any trigger; a triggered alarm closes the way for a while and the player
+    starts over.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 42
+  examples:
+  - trigger no alarm; alarms reset after a while but you start over
+- id: death-trap
+  combination:
+    key_usage: REUSABLE
+    gate: NOR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: CLOSED
+  name: Death Trap
+  status: named
+  play_pattern: Cross without activating any wrong input; one wrong step drops the player into the fail area, from
+    which they can retry.
+  unusable_reason: ''
+  productions:
+  - 7c
+  sheet_lp: 38
+  examples:
+  - spikes under a wrong panel
+  - floor collapses on a wrong panel or a reversed combination
+- id: guarded-crossing
+  combination:
+    key_usage: REUSABLE
+    gate: NOR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: OPEN
+  name: Guarded Crossing
+  status: proposed
+  play_pattern: Pass while no trigger is active; a triggered one closes the path for a while and drops the player
+    into a fail area to escape before retrying.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 46
+  examples:
+  - a guard who sees the player on the bridge raises it and drops them into the moat cells
+- id: clear-the-field
+  combination:
+    key_usage: CONSUMABLE
+    gate: NOR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Clear the Field
+  status: proposed
+  play_pattern: Spend consumables to neutralise every active input; the lock opens for good once none is left.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 33
+  examples:
+  - monster trinket from one of several camps opens a monster door or chest
+- id: tripwire-shortcut
+  combination:
+    key_usage: CONSUMABLE
+    gate: NOR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Tripwire Shortcut
+  status: proposed
+  play_pattern: A shortcut is guarded by a single-use trigger; setting it off closes the shortcut for good, leaving
+    the longer way.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 41
+  examples:
+  - a tripwire across a crumbling tunnel brings the roof down; the long way round stays open
+  - a teleporter that breaks after one use
+- id: defuse
+  combination:
+    key_usage: CONSUMABLE
+    gate: NOR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: CLOSED
+  name: Defuse
+  status: proposed
+  play_pattern: Spend consumables to neutralise every input; one mistake locks the lock for good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 37
+  examples:
+  - disarm every trap on a chest with lockpicks; a broken pick jams the chest for good
+- id: tripwire-trap
+  combination:
+    key_usage: CONSUMABLE
+    gate: NOR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: OPEN
+  name: Tripwire trap
+  status: named
+  play_pattern: Pass without setting off the single-use trigger; setting it off closes the path for good.
+  unusable_reason: ''
+  productions:
+  - '5'
+  sheet_lp: 45
+  examples:
+  - simple room guard with no second chance
+  - tripwire closes the door
+- id: suppress-all
+  combination:
+    key_usage: CONSUMABLE
+    gate: NOR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Suppress All
+  status: proposed
+  play_pattern: Spend a consumable to suppress every input for a while; the lock is open while they stay suppressed.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 35
+  examples:
+  - smoke pots blind every turret for a while so the door behind them opens
+- id: snare-field
+  combination:
+    key_usage: CONSUMABLE
+    gate: NOR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Snare Field
+  status: proposed
+  play_pattern: Pass without setting off any single-use trigger; a fired one closes the path for a while.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 43
+  examples:
+  - 'nets and snares along a corridor: a sprung snare blocks the way until cut loose'
+- id: timed-defuse
+  combination:
+    key_usage: CONSUMABLE
+    gate: NOR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: CLOSED
+  name: Timed Defuse
+  status: proposed
+  play_pattern: Spend consumables to suppress every input for a short time and cross; failing wastes them, so new
+    ones must be fetched from elsewhere.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 39
+  examples:
+  - freezing potions stop every flame vent for a few seconds; failing wastes them
+- id: minefield
+  combination:
+    key_usage: CONSUMABLE
+    gate: NOR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: OPEN
+  name: Minefield
+  status: proposed
+  play_pattern: Pass without setting off any single-use trap; a fired one closes the path for a while and destroys
+    a consumable the player carries.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 47
+  examples:
+  - 'buried mines in a sand field: a blast closes the path with rubble for a while and breaks a potion in the backpack'
+- id: single-choice
+  combination:
+    key_usage: REUSABLE
+    gate: XOR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Single Choice
+  status: proposed
+  play_pattern: Activate exactly one of several inputs and the lock opens for good; a second activation before it
+    opens resets the inputs, so the player can try again.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 64
+  examples:
+  - three levers each open the door, but pulling two at once resets them all
+- id: single-anchor
+  combination:
+    key_usage: REUSABLE
+    gate: XOR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Single Anchor
+  status: proposed
+  play_pattern: A shortcut is open while exactly one input is active; activating none or a second closes it for
+    good, leaving the longer way.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 72
+  examples:
+  - a shortcut lift balanced by exactly one counterweight; none or two jam it for good
+- id: right-lever
+  combination:
+    key_usage: REUSABLE
+    gate: XOR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: CLOSED
+  name: Right Lever
+  status: proposed
+  play_pattern: Choose exactly one of several reusable inputs; the right one opens the lock for good, a wrong one
+    locks it for good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 68
+  examples:
+  - pick the real lever among mirage levers that turn into snakes; a wrong pick seals the door for good
+- id: single-weight
+  combination:
+    key_usage: REUSABLE
+    gate: XOR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: OPEN
+  name: Single Weight
+  status: proposed
+  play_pattern: The path holds while exactly one input is active; activating a second collapses it for good and
+    destroys a consumable the player carries.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 76
+  examples:
+  - a rope bridge takes exactly one rider or boulder; a second weight snaps it and the fall breaks a potion
+- id: selector-switch
+  combination:
+    key_usage: REUSABLE
+    gate: XOR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Selector Switch
+  status: proposed
+  play_pattern: Activate exactly one input to open the lock for a while; activating another switches or closes it.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 66
+  examples:
+  - a dial opens one of several doors at a time
+- id: two-state-obstacle
+  combination:
+    key_usage: REUSABLE
+    gate: XOR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Two state obstacle
+  status: named
+  play_pattern: Only one of two states is active at a time; toggle between them to cross both halves.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 74
+  examples:
+  - room toggles between states (bridges, magnetism, lasers or force fields, lighting that holds back ghosts); use
+    both
+- id: quick-choice
+  combination:
+    key_usage: REUSABLE
+    gate: XOR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: CLOSED
+  name: Quick Choice
+  status: proposed
+  play_pattern: Activate exactly one input under time pressure; the right one opens the lock for a while, a wrong
+    one drops the player into a fail area to escape before retrying.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 70
+  examples:
+  - pick the right rune while the floor drops away; the wrong one drops the player into the cellar to climb back
+- id: monster-assist
+  combination:
+    key_usage: REUSABLE
+    gate: XOR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: OPEN
+  name: Monster Assist
+  status: named
+  play_pattern: Steer exactly one outside agent onto the obstacle to pass it for a while; misusing it turns it against
+    the player.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 78
+  examples:
+  - use enemy AI to cross a gap (spider over a chasm, ice elemental over a bog, water elemental over lava, treant
+    over acid)
+  - charging enemy breaks the crystal holding a key
+  - laser automaton fires a mechanism
+- id: one-offering
+  combination:
+    key_usage: CONSUMABLE
+    gate: XOR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: One Offering
+  status: proposed
+  play_pattern: Place exactly one of several consumables; it opens the lock for good, and offering more wastes them.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: null
+  examples:
+  - 'an altar takes exactly one offering: a gem, a potion or a scroll'
+- id: fork-in-the-road
+  combination:
+    key_usage: CONSUMABLE
+    gate: XOR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Fork in the Road
+  status: proposed
+  play_pattern: Several open routes each lead on; taking one closes the others for good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 71
+  examples:
+  - a collapsing cave with several tunnels on; entering one brings down the others
+- id: cipher
+  combination:
+    key_usage: CONSUMABLE
+    gate: XOR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: CLOSED
+  name: Cipher
+  status: named
+  play_pattern: Choose exactly one of several solutions; the right one opens the lock for good, a wrong one seals
+    it for good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 67
+  examples:
+  - one solution opens, the other seals forever
+  - magic seal to remove or strengthen
+  - glowing symbols
+  - cultist blood symbols on crates
+  - generator codes overload
+  - one true statuette among false ones
+- id: fateful-fork
+  combination:
+    key_usage: CONSUMABLE
+    gate: XOR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: OPEN
+  name: Fateful Fork
+  status: proposed
+  play_pattern: Several routes are open; taking one closes the others for good, and the wrong one leads into a fail
+    area while the routes it closed stay closed.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 75
+  examples:
+  - several one-use portals; the wrong one drops the player into a monster pit
+- id: ticket-choice
+  combination:
+    key_usage: CONSUMABLE
+    gate: XOR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Ticket Choice
+  status: proposed
+  play_pattern: Spend exactly one consumable to open one of several locks for a while; another consumable lets the
+    player choose again.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 65
+  examples:
+  - a gem in one of several sockets opens its door for a while; another gem lets the player try a different door
+- id: ambush-at-the-gate
+  combination:
+    key_usage: CONSUMABLE
+    gate: XOR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Ambush at the Gate
+  status: named
+  play_pattern: Entering through a single-use passage closes the way back for a while; the player must get through
+    the fight to reopen it.
+  unusable_reason: ''
+  productions:
+  - '4'
+  sheet_lp: 73
+  examples:
+  - ambush beyond a portal
+  - enemy disables portals with a lever after you teleport
+- id: wager
+  combination:
+    key_usage: CONSUMABLE
+    gate: XOR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: CLOSED
+  name: Wager
+  status: proposed
+  play_pattern: Spend one consumable on exactly one of several options for a while; a wrong one wastes it, and another
+    must be fetched from elsewhere before trying again.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 69
+  examples:
+  - place a gem on one of three pressure plates; the wrong one swallows the gem
+- id: shifting-fork
+  combination:
+    key_usage: CONSUMABLE
+    gate: XOR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: OPEN
+  name: Shifting Fork
+  status: proposed
+  play_pattern: Several routes are open; taking one closes the others for a while, and the wrong one leads into
+    a fail area to escape before choosing again.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 77
+  examples:
+  - 'mine carts on several tracks: taking one switches the others off for a while, and the wrong track ends in a
+    cell'
+- id: make-them-match
+  combination:
+    key_usage: REUSABLE
+    gate: XNOR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Make Them Match
+  status: proposed
+  play_pattern: The inputs start in mixed states; set them all alike (all on or all off) to open the lock for good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: null
+  examples:
+  - 'half the braziers in a hall are lit: light them all or put them all out'
+- id: all-or-nothing
+  combination:
+    key_usage: REUSABLE
+    gate: XNOR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: All or Nothing
+  status: proposed
+  play_pattern: A shortcut is open while all inputs agree; leaving them half done closes it for good, leaving the
+    longer way.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 86
+  examples:
+  - 'a shortcut over twin drawbridges: raise both or neither; one up and one down jams them for good'
+- id: mirror-lock
+  combination:
+    key_usage: REUSABLE
+    gate: XNOR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: CLOSED
+  name: Mirror Lock
+  status: proposed
+  play_pattern: Set every input alike to open the lock for good; a wrong move locks it for good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 82
+  examples:
+  - turn every mirror in a hall to face the same way; a wrong turn shatters the mechanism
+- id: half-measures
+  combination:
+    key_usage: REUSABLE
+    gate: XNOR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: OPEN
+  name: Half Measures
+  status: proposed
+  play_pattern: The path is open while all inputs agree; a partial action closes it for good and lets a threat use
+    up consumables the player needs elsewhere.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 90
+  examples:
+  - 'a guard post: lure all sentries away or none; luring only some alerts the rest, who block the path and burn
+    the supplies in the next camp'
+- id: synchronise
+  combination:
+    key_usage: REUSABLE
+    gate: XNOR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Synchronise
+  status: proposed
+  play_pattern: Set every input alike to open the lock for a while; the inputs drift apart again.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 80
+  examples:
+  - pendulums open a gate while they swing in step and drift apart after a while
+- id: keep-in-step
+  combination:
+    key_usage: REUSABLE
+    gate: XNOR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Keep in Step
+  status: proposed
+  play_pattern: The path is open while all inputs agree; a mismatch closes it until they are set alike again.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 88
+  examples:
+  - twin moving platforms carry the shortcut while their plates match; a mismatch stops them until reset
+- id: synchronised-strike
+  combination:
+    key_usage: REUSABLE
+    gate: XNOR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: CLOSED
+  name: Synchronised Strike
+  status: proposed
+  play_pattern: Set every input alike within a time limit to open the lock for a while; failing drops the player
+    into a fail area to escape before retrying.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 84
+  examples:
+  - enemies that regenerate unless all die at the same time
+- id: lockstep
+  combination:
+    key_usage: REUSABLE
+    gate: XNOR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: OPEN
+  name: Lockstep
+  status: proposed
+  play_pattern: The path is open while all inputs agree; a mismatch closes it for a while and destroys a consumable
+    the player carries.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 92
+  examples:
+  - 'paired pressure plates over a chasm: both held or both free; one alone tips the bridge for a while and a flask
+    breaks in the fall'
+- id: complete-the-set
+  combination:
+    key_usage: CONSUMABLE
+    gate: XNOR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Complete the Set
+  status: proposed
+  play_pattern: Spend a consumable on every remaining input so they all match; the lock opens for good, and a partial
+    set does nothing.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 79
+  examples:
+  - 'elemental riddle: the right rune orb on every pillar; a partial set does nothing'
+- id: commit-fully
+  combination:
+    key_usage: CONSUMABLE
+    gate: XNOR
+    open_mode: PERMANENT
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Commit Fully
+  status: proposed
+  play_pattern: A shortcut stays open if the player fires none or all of the single-use triggers; firing only some
+    closes it for good, leaving the longer way.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 87
+  examples:
+  - 'a shortcut through a camp of sleeping guards: drug all or none; drugging only some wakes the rest and they
+    bar it'
+- id: full-ritual
+  combination:
+    key_usage: CONSUMABLE
+    gate: XNOR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: CLOSED
+  name: Full Ritual
+  status: proposed
+  play_pattern: Spend a consumable on every input so they all match; a wrong spend locks the lock for good.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 83
+  examples:
+  - complete the blood circle with an offering at every rune; a wrong offering seals the ritual for good
+- id: point-of-commitment
+  combination:
+    key_usage: CONSUMABLE
+    gate: XNOR
+    open_mode: PERMANENT
+    access: FAILABLE
+    base_state: OPEN
+  name: Point of Commitment
+  status: proposed
+  play_pattern: The path stays open if none or all of the single-use triggers fire; a partial attempt closes it
+    for good and drops the player into a fail area.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 91
+  examples:
+  - 'a bridge on several ropes: cut none or all to drop it on enemies below; cutting only some drops the player
+    with it'
+- id: tune-the-set
+  combination:
+    key_usage: CONSUMABLE
+    gate: XNOR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: CLOSED
+  name: Tune the Set
+  status: proposed
+  play_pattern: Spend consumables to bring every input into line; the lock opens for a while.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 81
+  examples:
+  - tuning forks on every bell must ring together; each fork shatters after use
+- id: infiltration
+  combination:
+    key_usage: CONSUMABLE
+    gate: XNOR
+    open_mode: TEMPORARY
+    access: REQUIRED_OR_OPTIONAL
+    base_state: OPEN
+  name: Infiltration
+  status: named
+  play_pattern: Deal with every guard the same way (all avoided or all defeated); a mixed approach closes the way
+    for a while.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 89
+  examples:
+  - 'enemy stronghold: full stealth or kill everyone'
+- id: timed-ritual
+  combination:
+    key_usage: CONSUMABLE
+    gate: XNOR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: CLOSED
+  name: Timed Ritual
+  status: proposed
+  play_pattern: Spend a consumable on every input within a time limit; the lock opens for a while, and failing wastes
+    them, so new ones must be fetched from elsewhere.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 85
+  examples:
+  - light every candle of a ritual before the first burns out; failing wastes the candles
+- id: clean-sweep
+  combination:
+    key_usage: CONSUMABLE
+    gate: XNOR
+    open_mode: TEMPORARY
+    access: FAILABLE
+    base_state: OPEN
+  name: Clean Sweep
+  status: proposed
+  play_pattern: Deal with every threat the same way (all avoided or all cleared); a mixed approach lets a threat
+    use up consumables or a reward the player needs elsewhere.
+  unusable_reason: ''
+  productions: []
+  sheet_lp: 93
+  examples:
+  - a spotted bomber starts using up the bombs needed for another encounter

@@ -2,7 +2,7 @@
 type: concept
 title: "Lock logic gates"
 created: 2026-11-23
-updated: 2026-11-23
+updated: 2026-11-25
 status: developing
 tags:
   - concept
@@ -32,6 +32,25 @@ lists the gate per row.
 | NOR | open only while *no* input is active; any trigger fails it | Tripwire trap, Death Trap, Stealth Mission, Rotating Passage |
 | XOR | exactly one of the inputs; choices exclude each other | Cipher, Two state obstacle, Monster Assist, Ambush at the Gate |
 | XNOR | all or nothing; consistent state | Infiltration (full stealth or kill everyone) |
+
+## Reading by count of active inputs (proposal)
+
+For more than two inputs the boolean names are ambiguous (XOR could mean parity
+or "exactly one"). `data/archetypes.yaml` writes its play patterns against this
+reading, pending an owner decision:
+
+| Gate | Passable when the number of active inputs is |
+|---|---|
+| AND | all (n) |
+| OR | 1 to n |
+| NAND | 0 to n−1 |
+| NOR | 0 |
+| XOR | exactly 1 |
+| XNOR | 0 or n |
+
+The gate only says which inputs must be reachable. Order and timing between
+inputs (sequences, time windows) are placement constraints for the room-map
+and content steps, not part of the gate.
 
 ## Patterns
 

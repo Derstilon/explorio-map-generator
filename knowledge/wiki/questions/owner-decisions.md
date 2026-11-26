@@ -30,6 +30,48 @@ Decisions the project owner gave in conversation. Newest first. Each one
 resolves an item in [[wiki/questions/inconsistencies-sheet-doc-code|Inconsistencies]]
 or [[wiki/questions/scope-and-open-questions|Scope and open questions]].
 
+## 2026-11-26
+
+### Productions follow the sheet where it disagrees with the productions doc
+
+Settled while implementing productions 1–9. The sheet wins on numbering and
+attributes; the doc's diagrams still give each production's shape.
+
+- **Numbering:** 4 = Ambush at the Gate, 5 = Tripwire trap (the doc has them the
+  other way round).
+- **P3 Decision:** the lock is CLOSED, so it is Pick your poison (LP 49). The doc
+  draws it OPEN, which would make it Point of no return.
+- **Ambush:** XOR with a consumable key, as the sheet's LP 73, in the doc's shape
+  (key inside the ambush area, optional access). The doc's NAND with a reusable
+  key would be Overloaded Circuit (LP 26).
+- **P7a Sequence lock:** the lock is FAILABLE, so it is Sequence Lock (LP 5); the
+  doc's failable key and trap area stay.
+
+### Objective productions hide the goal
+
+A production with the `objective` role puts the zone's goal behind its lock. P7a
+(Sequence lock) matches the area that holds the goal and moves the goal into its
+success area. Its lock is failable, so the same step adds a secret passage from
+the area to the success area: failing costs the short way, never the goal. P7b
+(Gambit) is a filler: only one of its two areas opens for good, so it cannot hold
+the goal; its areas hold an equal reward.
+
+### Fillers can move a secret passage's entrance deeper
+
+Fillers get a variant d (P2d, P3d, P4d, P7cd): it moves the entrance of a secret
+passage from the matched area behind the filler's new lock, so a passage such as
+P7a's no longer starts in the first area. A passage that has to stay
+non-failable (a fallback, like P7a's and P9's) can't move into a failable area;
+fillers whose new area is always failable (Tripwire, Tool assist, Gambit) have
+no variant d.
+
+### Failable means content the player can lose access to
+
+Access mode FAILABLE marks content the player can lose access to, not only a
+lock the player can fail. A new lock therefore inherits FAILABLE from the area,
+lock or key it is built on: a chest (P1) inside a failable area is a Sequence
+Lock, a gate (P2) there is Endless Tool.
+
 ## 2026-11-24
 
 ### Every one-way link needs a way back

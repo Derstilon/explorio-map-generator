@@ -396,7 +396,7 @@
         }
       ],
       "location": {
-        "anchor": "Lock and key properties \u2013 match with the sheet",
+        "anchor": "Lock and key properties – match with the sheet",
         "path": "wiki/concepts/cyclic-dungeon-generation.md"
       },
       "notes": null,
@@ -423,7 +423,7 @@
       "reviewed_at": "2026-11-23",
       "risk": "normal",
       "supersedes": null,
-      "text": "GDD 02 determines enemies as Environment \u2192 Encounter \u2192 possible enemy pool \u2192 enemy, stacking stats by type, variant, class (e.g. Boss) and random gear."
+      "text": "GDD 02 determines enemies as Environment → Encounter → possible enemy pool → enemy, stacking stats by type, variant, class (e.g. Boss) and random gear."
     },
     "clm-explorio-fifteen-classes": {
       "assessment": "accepted",
@@ -851,7 +851,7 @@
       "text": "An oil-like status that removes floor traction is proposed as part of a parkour challenge on a narrow passage between chasms."
     },
     "clm-explorio-only-p1-implemented": {
-      "assessment": "accepted",
+      "assessment": "contested",
       "confidence": "high",
       "evidence": [
         {
@@ -869,7 +869,7 @@
         "anchor": "Implementation status",
         "path": "wiki/entities/production-catalogue.md"
       },
-      "notes": null,
+      "notes": "Outdated on 2026-11-26: all productions P1a-P9 are implemented in lock_and_key_productions/rules.py.",
       "reviewed_at": "2026-11-23",
       "risk": "normal",
       "supersedes": null,
@@ -1201,7 +1201,7 @@
       "text": "GDD 04 names six base spell schools (Pyromancy, Water, Power, Air, Earth, Wild) and three quasi elements (Wood, Metal, Magma); only Water has any content."
     },
     "clm-explorio-tests-broken": {
-      "assessment": "accepted",
+      "assessment": "contested",
       "confidence": "high",
       "evidence": [
         {
@@ -1214,7 +1214,7 @@
         "anchor": "Broken",
         "path": "wiki/questions/implementation-status-and-gaps.md"
       },
-      "notes": "Checked by grep in the repo working tree; tests/ is not part of the captured snapshot.",
+      "notes": "Outdated: epic part 1 (PR #3) replaced the master-era tests; pytest passes.",
       "reviewed_at": "2026-11-23",
       "risk": "normal",
       "supersedes": null,

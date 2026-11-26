@@ -44,7 +44,7 @@ Detailed reading per gate: [[wiki/concepts/lock-logic-gates|Lock logic gates]].
 | Sheet | Doc | Code (`Importance`) | Meaning |
 |---|---|---|---|
 | Required/Optional | X (inherited) / OPTIONAL | `MANDATORY`, `MISSABLE` | normal progression or side content |
-| Failable | FAILABLE | `FAILABLE` | the player can fail and lose access or get punished |
+| Failable | FAILABLE | `FAILABLE` | content the player can lose access to ([[wiki/questions/owner-decisions|owner decision 2026-11-26]]) |
 
 The sheet merges required and optional into one value; the code splits them
 (`MANDATORY` vs `MISSABLE`). Productions use an inherited access `X` and add the

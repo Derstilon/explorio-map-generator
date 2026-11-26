@@ -1,5 +1,10 @@
 # Graph grammar productions
 
+> Implemented in `rules.py`. Where the sheet and these diagrams disagree, the code follows the owner decisions of
+> 2026-11-26 (`knowledge/wiki/questions/owner-decisions.md`): Production 4 is the Ambush and Production 5 the Tripwire
+> (swapped against the headings below), Production 3's lock is CLOSED, the Ambush lock is XOR with a consumable key,
+> and the 7a Sequence lock is FAILABLE.
+
 ## Production 1 - Chest
 
 Rule of locking a node inside of a chest[2].

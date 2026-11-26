@@ -139,8 +139,8 @@
     base_state: OPEN
   name: Juggling Act
   status: proposed
-  play_pattern: Keep several reusable inputs active at once to keep the path open; dropping any closes it for a
-    while and sets off a penalty.
+  play_pattern: Keep several reusable inputs active at once to keep the path open; dropping any closes it and drops
+    whoever is on it into a fail area to escape before retrying.
   unusable_reason: ''
   productions: []
   sheet_lp: 14
@@ -327,7 +327,8 @@
     base_state: OPEN
   name: Guarded Hoard
   status: proposed
-  play_pattern: Taking guarded items springs a trap; putting them back in time cancels it.
+  play_pattern: Taking any guarded item springs a trap; putting it back in time cancels it, otherwise the trap destroys
+    a consumable or reward the player carries.
   unusable_reason: ''
   productions: []
   sheet_lp: 60
@@ -375,7 +376,7 @@
   name: Endless Tool
   status: proposed
   play_pattern: Use any one of several reusable tools or abilities to pass the hazard for a while; failing midway
-    punishes.
+    lets the hazard destroy a consumable the player carries.
   unusable_reason: ''
   productions: []
   sheet_lp: 54
@@ -390,8 +391,8 @@
     base_state: OPEN
   name: Last Light
   status: proposed
-  play_pattern: The path stays open while at least one input is kept active; if all drop, it closes and punishes
-    whoever is inside.
+  play_pattern: The path stays open while at least one input is kept active; if all drop, it closes and the hazard
+    destroys a consumable or reward the player carries.
   unusable_reason: ''
   productions: []
   sheet_lp: 62
@@ -498,7 +499,7 @@
   name: Tool assist
   status: named
   play_pattern: Use any one consumable tool (primary or spare) to pass the hazard for a while; running out midway
-    punishes.
+    sends the player back, and the spent tool is gone.
   unusable_reason: ''
   productions:
   - '6'
@@ -519,7 +520,7 @@
   name: Weather the Hazard
   status: proposed
   play_pattern: The open path turns hazardous at times; any one consumable protects the player for a while, and
-    without one they are punished.
+    without one the hazard destroys a consumable or reward they carry.
   unusable_reason: ''
   productions: []
   sheet_lp: 63
@@ -562,7 +563,8 @@
     base_state: CLOSED
   name: Punishment
   status: named
-  play_pattern: Inputs hold the lock shut; breaking the wrong one opens it for good and punishes the player.
+  play_pattern: Inputs hold the lock shut; breaking the wrong one opens it for good and releases a threat the player
+    must survive.
   unusable_reason: ''
   productions: []
   sheet_lp: 20
@@ -578,7 +580,7 @@
   name: Mouse Trap
   status: named
   play_pattern: The path stays open until the player takes every item; taking the last one springs the trap for
-    good.
+    good, closing the way out and leaving the player a fail area to escape.
   unusable_reason: ''
   productions: []
   sheet_lp: 28
@@ -626,7 +628,7 @@
   name: Hot Wiring
   status: proposed
   play_pattern: All inputs hold the lock shut; disable any one to open it for a while, but disabling the wrong one
-    punishes.
+    jams the lock until a spare key from elsewhere frees it.
   unusable_reason: ''
   productions: []
   sheet_lp: 22
@@ -641,7 +643,7 @@
   name: Alarm Threshold
   status: proposed
   play_pattern: The player may set off some triggers but not all at once; setting off the last one closes the path
-    for a while and calls a penalty.
+    for a while and sends a threat after a reward elsewhere, lost unless the player gets there first.
   unusable_reason: ''
   productions: []
   sheet_lp: 30
@@ -685,7 +687,7 @@
   name: Sabotage
   status: proposed
   play_pattern: Spend a consumable to break any one of the inputs holding the lock shut; breaking the wrong one
-    opens it for good but punishes.
+    opens it for good but destroys part of the reward behind it.
   unusable_reason: ''
   productions: []
   sheet_lp: 21
@@ -700,7 +702,7 @@
   name: Last Charge
   status: proposed
   play_pattern: The path stays open until the player has used up every charge here; using the last one springs the
-    trap for good.
+    trap and closes the path for good, cutting off what lies beyond.
   unusable_reason: ''
   productions: []
   sheet_lp: 29
@@ -743,7 +745,8 @@
     base_state: CLOSED
   name: Short Circuit
   status: proposed
-  play_pattern: Spend a consumable to disable one input holding the lock shut for a while; the wrong one punishes.
+  play_pattern: Spend a consumable to disable one input holding the lock shut for a while; the wrong one wastes
+    the consumable, so another must be fetched from elsewhere.
   unusable_reason: ''
   productions: []
   sheet_lp: 23
@@ -815,7 +818,8 @@
     base_state: OPEN
   name: Sentry Watch
   status: proposed
-  play_pattern: Pass without any reusable sensor spotting the player; one sighting closes the way for good and punishes.
+  play_pattern: Pass without any reusable sensor spotting the player; one sighting closes the way for good and sends
+    a threat after a reward elsewhere, lost unless the player gets there first.
   unusable_reason: ''
   productions: []
   sheet_lp: 44
@@ -880,7 +884,8 @@
     base_state: OPEN
   name: Guarded Crossing
   status: proposed
-  play_pattern: Pass while no trigger is active; a triggered one closes the path for a while and punishes.
+  play_pattern: Pass while no trigger is active; a triggered one closes the path for a while and drops the player
+    into a fail area to escape before retrying.
   unusable_reason: ''
   productions: []
   sheet_lp: 46
@@ -983,7 +988,8 @@
     base_state: CLOSED
   name: Timed Defuse
   status: proposed
-  play_pattern: Spend consumables to suppress every input for a short time and cross; failing punishes.
+  play_pattern: Spend consumables to suppress every input for a short time and cross; failing wastes them, so new
+    ones must be fetched from elsewhere.
   unusable_reason: ''
   productions: []
   sheet_lp: 39
@@ -997,7 +1003,8 @@
     base_state: OPEN
   name: Minefield
   status: proposed
-  play_pattern: Pass without setting off any single-use trap; a fired one closes the path for a while and hurts.
+  play_pattern: Pass without setting off any single-use trap; a fired one closes the path for a while and destroys
+    a consumable the player carries.
   unusable_reason: ''
   productions: []
   sheet_lp: 47
@@ -1056,7 +1063,7 @@
   name: Single Weight
   status: proposed
   play_pattern: The path holds while exactly one input is active; activating a second collapses it for good and
-    punishes.
+    destroys a consumable the player carries.
   unusable_reason: ''
   productions: []
   sheet_lp: 76
@@ -1101,7 +1108,7 @@
   name: Quick Choice
   status: proposed
   play_pattern: Activate exactly one input under time pressure; the right one opens the lock for a while, a wrong
-    one punishes.
+    one drops the player into a fail area to escape before retrying.
   unusable_reason: ''
   productions: []
   sheet_lp: 70
@@ -1183,7 +1190,8 @@
     base_state: OPEN
   name: Fateful Fork
   status: proposed
-  play_pattern: Several routes are open; taking one closes the others for good, and the wrong one punishes.
+  play_pattern: Several routes are open; taking one closes the others for good, and the wrong one leads into a fail
+    area while the routes it closed stay closed.
   unusable_reason: ''
   productions: []
   sheet_lp: 75
@@ -1230,7 +1238,8 @@
     base_state: CLOSED
   name: Wager
   status: proposed
-  play_pattern: Spend one consumable on exactly one of several options for a while; a wrong one wastes it and punishes.
+  play_pattern: Spend one consumable on exactly one of several options for a while; a wrong one wastes it, and another
+    must be fetched from elsewhere before trying again.
   unusable_reason: ''
   productions: []
   sheet_lp: 69
@@ -1244,7 +1253,8 @@
     base_state: OPEN
   name: Shifting Fork
   status: proposed
-  play_pattern: Several routes are open; taking one closes the others for a while, and the wrong one punishes.
+  play_pattern: Several routes are open; taking one closes the others for a while, and the wrong one leads into
+    a fail area to escape before choosing again.
   unusable_reason: ''
   productions: []
   sheet_lp: 77
@@ -1300,7 +1310,8 @@
     base_state: OPEN
   name: Half Measures
   status: proposed
-  play_pattern: The path is open while all inputs agree; a partial action closes it for good and punishes.
+  play_pattern: The path is open while all inputs agree; a partial action closes it for good and lets a threat use
+    up consumables the player needs elsewhere.
   unusable_reason: ''
   productions: []
   sheet_lp: 90
@@ -1342,7 +1353,8 @@
     base_state: CLOSED
   name: Synchronised Strike
   status: proposed
-  play_pattern: Set every input alike within a time limit to open the lock for a while; failing punishes.
+  play_pattern: Set every input alike within a time limit to open the lock for a while; failing drops the player
+    into a fail area to escape before retrying.
   unusable_reason: ''
   productions: []
   sheet_lp: 84
@@ -1356,7 +1368,8 @@
     base_state: OPEN
   name: Lockstep
   status: proposed
-  play_pattern: The path is open while all inputs agree; a mismatch closes it for a while and punishes.
+  play_pattern: The path is open while all inputs agree; a mismatch closes it for a while and destroys a consumable
+    the player carries.
   unusable_reason: ''
   productions: []
   sheet_lp: 92
@@ -1415,7 +1428,7 @@
   name: Point of Commitment
   status: proposed
   play_pattern: The path stays open if none or all of the single-use triggers fire; a partial attempt closes it
-    for good and punishes.
+    for good and drops the player into a fail area.
   unusable_reason: ''
   productions: []
   sheet_lp: 91
@@ -1460,7 +1473,7 @@
   name: Timed Ritual
   status: proposed
   play_pattern: Spend a consumable on every input within a time limit; the lock opens for a while, and failing wastes
-    them and punishes.
+    them, so new ones must be fetched from elsewhere.
   unusable_reason: ''
   productions: []
   sheet_lp: 85
@@ -1474,9 +1487,10 @@
     base_state: OPEN
   name: Clean Sweep
   status: proposed
-  play_pattern: Either avoid every single-use threat or clear them all; a mixed approach closes the path for a while
-    and punishes.
+  play_pattern: Deal with every threat the same way (all avoided or all cleared); a mixed approach lets a threat
+    use up consumables or a reward the player needs elsewhere.
   unusable_reason: ''
   productions: []
   sheet_lp: 93
-  examples: []
+  examples:
+  - a spotted bomber starts using up the bombs needed for another encounter

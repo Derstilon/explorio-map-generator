@@ -2,3 +2,4 @@ matplotlib
 networkx[default]>=3
 pillow
 pytest
+pyyaml

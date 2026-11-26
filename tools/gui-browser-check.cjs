@@ -96,6 +96,9 @@ async function download(page, buttonId) {
   check('hovering a lock shows its attributes',
     tooltip.includes('L1') && tooltip.includes('Logic gate') && tooltip.includes('AND') && tooltip.includes('Created by'),
     tooltip.slice(0, 80));
+  check('the lock tooltip shows its archetype name and play pattern',
+    tooltip.includes('ArchetypeLocked Chest') && tooltip.includes('Play patternBring every required key'),
+    tooltip.slice(tooltip.indexOf('Archetype'), tooltip.indexOf('Archetype') + 80));
   await page.mouse.move(5, 5);
   check('tooltip hides when the pointer leaves', await page.isHidden('#tooltip'));
 

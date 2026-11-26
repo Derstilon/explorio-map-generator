@@ -326,6 +326,17 @@ function formatValue(value) {
   return value === null || value === undefined ? '–' : String(value);
 }
 
+// Archetype name (with its status unless confirmed) and play pattern, from the derivation's archetype table.
+function addArchetypeRows(addRow, id) {
+  const archetype = state.derivation.archetypes[id];
+  if (!archetype) {
+    addRow('Archetype', id);
+    return;
+  }
+  addRow('Archetype', archetype.status === 'named' ? archetype.name : `${archetype.name} (${archetype.status})`);
+  if (archetype.play_pattern) addRow('Play pattern', archetype.play_pattern);
+}
+
 function showTooltip(event) {
   const element = event.target;
   element.addClass('hover');
@@ -340,7 +351,11 @@ function showTooltip(event) {
   };
   if (element.isNode()) {
     heading.textContent = data.id;
-    for (const [field, name] of TOOLTIP_FIELDS) if (field in data) addRow(name, data[field]);
+    for (const [field, name] of TOOLTIP_FIELDS) {
+      if (!(field in data)) continue;
+      if (field === 'archetype') addArchetypeRows(addRow, data.archetype);
+      else addRow(name, data[field]);
+    }
   } else {
     heading.textContent = data.mode === 'unlocks'
       ? `${data.source} unlocks ${data.target}` : `${data.source} → ${data.target} (access)`;

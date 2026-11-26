@@ -4,6 +4,7 @@ import sys
 
 import networkx as nx
 
+import archetypes
 from nodes import Lock, LockState, OpenMode, AccessMode, LogicGate, Key, KeyType, Reusability, Access
 from biome_injections import EnvironmentBiomes, EncounterBiomes
 
@@ -25,6 +26,7 @@ def base_graph():
 
 
 PRODUCTIONS = {'L1': L1, 'L2': L2}
+ARCHETYPES = archetypes.load()
 
 
 def pick_production(rng: Random, weights: dict):
@@ -46,7 +48,8 @@ def generate(seed: int, steps: int = 9, on_stage=None, *, weights: dict | None =
       environment biomes, encounter biomes) with the node attributes worth showing.
     - on_step(G, production_name): called after each applied production.
     Every node gets `created_by`: 'seed', the production name that added it, or
-    nothing for later stages (biome passes add no nodes).
+    nothing for later stages (biome passes add no nodes). Every lock in the
+    archetype matrix gets `archetype`, the id of its entry in ARCHETYPES.
     """
     weights = dict(weights) if weights is not None else {name: 1 for name in PRODUCTIONS}
     rng = Random(seed)
@@ -54,6 +57,7 @@ def generate(seed: int, steps: int = 9, on_stage=None, *, weights: dict | None =
     G.graph['seed'] = seed
     for node in G.nodes:
         G.nodes[node]['created_by'] = 'seed'
+    archetypes.tag_locks(ARCHETYPES, G)
     if on_stage:
         on_stage(G, ['label', 'depth'])
     applied = 0
@@ -65,6 +69,7 @@ def generate(seed: int, steps: int = 9, on_stage=None, *, weights: dict | None =
             if PRODUCTIONS[name].apply(G, rng):
                 for node in set(G.nodes) - before:
                     G.nodes[node]['created_by'] = name
+                archetypes.tag_locks(ARCHETYPES, G)
                 break
             del remaining[name]
         if not remaining:

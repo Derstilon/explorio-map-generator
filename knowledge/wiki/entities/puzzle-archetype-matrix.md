@@ -2,7 +2,7 @@
 type: entity
 title: "Puzzle archetype matrix"
 created: 2026-11-23
-updated: 2026-11-23
+updated: 2026-11-25
 status: developing
 tags:
   - entity
@@ -34,6 +34,29 @@ Navigation: [[wiki/maps/explorio-knowledge-map|Knowledge map]]
 
 Source: [[wiki/sources/source-product-sheet-key-lock-matrix|Explorio Product Sheet]].
 Examples are translated from Polish and shortened.
+
+## Source of truth: `data/archetypes.yaml`
+
+The matrix lives in the repo as [`data/archetypes.yaml`](../../../data/archetypes.yaml):
+one entry per combination (all 96), with an id, name, status, abstract play
+pattern or unusable reason, productions, sheet LP and the translated examples.
+`archetypes.py` loads and validates it, and the generator tags every lock with
+its archetype id (GUI tooltip, JSON export). The file was seeded once from the
+sheet by `tools/import_archetype_sheet.py` and is edited by hand since. The
+tables below are a summary of the sheet as captured; the data file wins where
+they differ.
+
+Status in the data file (part 3 of the epic, waiting for owner review):
+
+| Gate | Named | Proposed | Unusable |
+|---|---|---|---|
+| AND | 7 | 9 | 0 |
+| OR | 6 | 10 | 0 |
+| NAND | 3 | 10 | 3 |
+| NOR | 4 | 10 | 2 |
+| XOR | 4 | 12 | 0 |
+| XNOR | 1 | 15 | 0 |
+| **Total** | **25** | **66** | **5** |
 
 ## Shape
 

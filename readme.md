@@ -43,6 +43,13 @@ Main methodology used is Lock and Key system implemented with Graph grammars as 
 -   Browser check: with the GUI server running, `node tools/gui-browser-check.cjs` (needs Playwright; set
     `PLAYWRIGHT_MODULE` to a playwright package directory if it isn't installed where Node finds it)
 
+### Archetype data
+
+-   `data/archetypes.yaml` holds one abstract puzzle archetype per lock/key combination (96); `archetypes.py`
+    loads and validates it when the generator starts, and every generated lock carries its archetype id
+-   `tools/import_archetype_sheet.py` seeded the file from the product sheet CSV; the file is edited by hand
+    since, so the script refuses to overwrite it without `--force`
+
 ### Run the tests
 
 -   `python -m pytest`

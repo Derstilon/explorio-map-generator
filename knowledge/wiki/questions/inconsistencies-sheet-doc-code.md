@@ -2,7 +2,7 @@
 type: question
 title: "Inconsistencies between sheet, productions doc and code"
 created: 2026-11-23
-updated: 2026-11-23
+updated: 2026-11-25
 status: developing
 tags:
   - question
@@ -57,7 +57,10 @@ Each item needs a decision on which source is right. None is resolved here.
 
 6. 94 rows for 96 combinations; two cells missing in the XOR/XNOR block (see
    [[wiki/entities/puzzle-archetype-matrix#Matrix defects|matrix defects]]).
-7. Typo-level names: "Point of no? return", "Reuseable".
+   **Resolved:** `data/archetypes.yaml` has all 96 combinations in one fixed
+   order; the two missing cells have no sheet LP.
+7. Typo-level names: "Point of no? return", "Reuseable". **Resolved:** fixed in
+   `data/archetypes.yaml` (the importer maps them).
 
 ## Doc / sheet vs code vocabulary
 

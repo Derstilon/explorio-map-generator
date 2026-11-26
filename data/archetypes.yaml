@@ -43,8 +43,8 @@
     base_state: OPEN
   name: Borrowed Support
   status: proposed
-  play_pattern: The path is open while all its reusable supports stay in place; taking one away to use elsewhere
-    closes the path for good.
+  play_pattern: A shortcut stays open while all its reusable supports stay in place; taking one away to use elsewhere
+    closes the shortcut for good, leaving the longer way.
   unusable_reason: ''
   productions: []
   sheet_lp: 8
@@ -172,7 +172,8 @@
     base_state: OPEN
   name: Toll Path
   status: proposed
-  play_pattern: The path is open, but it closes for good unless the player pays every required consumable when asked.
+  play_pattern: A shortcut stays open while the player pays every required consumable when asked; refusing closes
+    it for good, leaving the longer way.
   unusable_reason: ''
   productions: []
   sheet_lp: 9
@@ -297,8 +298,8 @@
     base_state: OPEN
   name: Anchored Path
   status: proposed
-  play_pattern: The path stays open while at least one reusable anchor holds it; removing the last one closes it
-    for good.
+  play_pattern: A shortcut stays open while at least one reusable anchor holds it; taking the last anchor to use
+    elsewhere closes the shortcut for good, leaving the longer way.
   unusable_reason: ''
   productions: []
   sheet_lp: 56
@@ -548,8 +549,8 @@
     base_state: OPEN
   name: Leave One Out
   status: proposed
-  play_pattern: The path stays open while at least one input is left untouched; triggering all of them closes it
-    for good.
+  play_pattern: A shortcut stays open while at least one input is left untouched; triggering all of them closes
+    it for good, leaving the longer way.
   unusable_reason: ''
   productions: []
   sheet_lp: 24
@@ -1033,7 +1034,8 @@
     base_state: OPEN
   name: Single Anchor
   status: proposed
-  play_pattern: The path is open while exactly one input is active; activating none or a second closes it for good.
+  play_pattern: A shortcut is open while exactly one input is active; activating none or a second closes it for
+    good, leaving the longer way.
   unusable_reason: ''
   productions: []
   sheet_lp: 72
@@ -1155,7 +1157,7 @@
     base_state: OPEN
   name: Fork in the Road
   status: proposed
-  play_pattern: Several routes are open; taking one closes the others for good.
+  play_pattern: Several open routes each lead on; taking one closes the others for good.
   unusable_reason: ''
   productions: []
   sheet_lp: 71
@@ -1282,7 +1284,8 @@
     base_state: OPEN
   name: All or Nothing
   status: proposed
-  play_pattern: The path is open while all inputs agree; leaving them half done closes it for good.
+  play_pattern: A shortcut is open while all inputs agree; leaving them half done closes it for good, leaving the
+    longer way.
   unusable_reason: ''
   productions: []
   sheet_lp: 86
@@ -1398,8 +1401,8 @@
     base_state: OPEN
   name: Commit Fully
   status: proposed
-  play_pattern: The path stays open if the player fires none or all of the single-use triggers; firing only some
-    closes it for good.
+  play_pattern: A shortcut stays open if the player fires none or all of the single-use triggers; firing only some
+    closes it for good, leaving the longer way.
   unusable_reason: ''
   productions: []
   sheet_lp: 87

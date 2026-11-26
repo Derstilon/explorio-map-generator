@@ -52,11 +52,11 @@ Status in the data file (part 3 of the epic, waiting for owner review):
 |---|---|---|---|
 | AND | 7 | 9 | 0 |
 | OR | 6 | 10 | 0 |
-| NAND | 3 | 10 | 3 |
-| NOR | 4 | 10 | 2 |
+| NAND | 3 | 13 | 0 |
+| NOR | 4 | 12 | 0 |
 | XOR | 4 | 12 | 0 |
 | XNOR | 1 | 15 | 0 |
-| **Total** | **25** | **66** | **5** |
+| **Total** | **25** | **71** | **0** |
 
 ## Shape
 

@@ -112,16 +112,19 @@ def test_entrance_lock_has_no_archetype(catalogue):
     assert archetypes.lock_archetype(catalogue, G, 'L0') is None
 
 
-def test_tagging_warns_once_for_an_unusable_combination(catalogue, caplog):
-    G, lock = lock_with_keys((Reusability.CONSUMABLE, KeyType.PRIMARY), gate=LogicGate.NAND,
-                             open_mode=OpenMode.TEMPORARY)
-    G.nodes[lock]['lock_state'] = LockState.OPEN  # LP 27: CONSUMABLE · NAND · TEMPORARY · REQUIRED_OR_OPTIONAL · OPEN
+def test_tagging_warns_once_for_an_unusable_combination(entries, caplog):
+    def mark_locked_chest_unusable(copied):
+        chest = next(entry for entry in copied if entry['id'] == 'locked-chest')
+        chest.update(status='unusable', unusable_reason='test reason')
+    catalogue = Catalogue(broken(entries, mark_locked_chest_unusable))
+    G, lock = lock_with_keys((Reusability.CONSUMABLE, KeyType.PRIMARY))
     with caplog.at_level(logging.WARNING, logger='archetypes'):
         archetypes.tag_locks(catalogue, G)
         archetypes.tag_locks(catalogue, G)
-    assert catalogue.by_id[G.nodes[lock]['archetype']].status == 'unusable'
-    assert [record.getMessage().split(':')[0] for record in caplog.records] == [
-        f'lock {lock} has the unusable combination CONSUMABLE · NAND · TEMPORARY · REQUIRED_OR_OPTIONAL · OPEN']
+    assert G.nodes[lock]['archetype'] == 'locked-chest'
+    assert [record.getMessage() for record in caplog.records] == [
+        f'lock {lock} has the unusable combination CONSUMABLE · AND · PERMANENT · REQUIRED_OR_OPTIONAL · CLOSED: '
+        'test reason']
 
 
 @pytest.mark.parametrize('seed', range(8))

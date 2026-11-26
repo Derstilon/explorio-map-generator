@@ -46,7 +46,8 @@ FILE_HEADER = """\
 # unusable_reason  why the cell can't be used (unusable only)
 # productions      production numbers that create this archetype, e.g. ['1'], ['7a']
 # sheet_lp         LP number of the product sheet row; empty for cells the sheet lacks
-# examples         the sheet's examples, translated and shortened; reference for flavours, not read by the generator
+# examples         the sheet's examples, translated and shortened; for cells the sheet left empty,
+#                  proposed ones drawn from the GDDs; reference for flavours, not read by the generator
 #
 # Gates count the active inputs: AND all, OR at least one, NAND not all, NOR none, XOR exactly one,
 # XNOR none or all. Order and timing between inputs are left to the room-map and content steps.

@@ -2,7 +2,7 @@
 type: question
 title: "Inconsistencies between sheet, productions doc and code"
 created: 2026-11-23
-updated: 2026-11-23
+updated: 2026-11-25
 status: developing
 tags:
   - question
@@ -87,6 +87,17 @@ Each item needs a decision on which source is right. None is resolved here.
     [[wiki/sources/source-gdd-01-bestiary|GDD 01]].
 12. **Inside GDD 05:** WIS is a base stat but missing from the class table; "spells
     can have minimal strength requirement" is likely meant as INT.
+
+## Gate labels
+
+13. **Alarm gate.** Sheet LP 52 *Alarm* is R · OR · Perm · Fail · Closed, but it
+    plays as a trap: any trigger (the turret spotting the player) springs it and
+    opens the monster cages. That is NOR over the triggers, the same family as
+    *Stealth Mission* (LP 42). Proposal: move Alarm to R · NOR · Perm · Fail ·
+    Open, the empty LP 44. It then differs from Stealth Mission by open mode and
+    access: Stealth's alarms reset after a while (Temporary, Required/Optional),
+    Alarm's cages stay open (Permanent, Failable). LP 52's cell (R · OR · Perm ·
+    Fail · Closed) is then empty and needs an archetype or an unusable reason.
 
 ## Recommendation (proposal)
 

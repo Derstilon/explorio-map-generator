@@ -49,6 +49,7 @@ See [[hot|Recent context]] and [[log|Operation history]] for completed work.
 - [[wiki/concepts/enemy-lure-and-deterrence|Enemy lure and deterrence]]
 - [[wiki/concepts/environmental-puzzle-variety|Environmental puzzle variety (Genshin Impact)]]
 - [[wiki/concepts/five-room-dungeon-biome-template|Five Room Dungeon biome template]]
+- [[wiki/concepts/flavour-spread-and-archetype-weights|Flavour spread and archetype weights]]
 - [[wiki/concepts/graph-grammar-productions|Graph grammar productions]]
 - [[wiki/concepts/items-as-keys|Items as keys]]
 - [[wiki/concepts/key-burden-and-compound-puzzles|Key burden and compound puzzles]]

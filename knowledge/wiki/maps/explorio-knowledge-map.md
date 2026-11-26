@@ -51,6 +51,7 @@ flowchart TD
 
 - [[wiki/concepts/graph-grammar-productions|Graph grammar productions]]
 - [[wiki/entities/production-catalogue|Production catalogue]] – P1–P9
+- [[wiki/concepts/flavour-spread-and-archetype-weights|Flavour spread and archetype weights]] – proposal: flavours spread during generation and weight archetypes
 - [[wiki/entities/dev-branch-codebase|Dev branch codebase]]
 
 ## 4. Inspirations

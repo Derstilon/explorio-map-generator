@@ -8,7 +8,7 @@ import archetypes
 from nodes import Lock, LockState, OpenMode, AccessMode, LogicGate, Key, KeyType, Reusability, Access
 from biome_injections import EnvironmentBiomes, EncounterBiomes
 
-from lock_and_key_productions import L1, L2
+from lock_and_key_productions import PRODUCTIONS
 
 
 def base_graph():
@@ -25,7 +25,6 @@ def base_graph():
     return G
 
 
-PRODUCTIONS = {'L1': L1, 'L2': L2}
 ARCHETYPES = archetypes.load()
 
 

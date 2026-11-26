@@ -6,10 +6,14 @@ Export schema `explorio.story-graph.v1`:
   "seed": int,
   "params": {"steps": int, "weights": {name: number}, "environment_biomes": bool, "encounter_biomes": bool},
   "nodes": [{"id": str, "type": "access"|"lock"|"key", <attributes>}],
-  "edges": [{"source": str, "target": str, "mode": "access"|"unlocks"}]
+  "edges": [{"source": str, "target": str, "mode": "access"|"unlocks"|"returns"|"secret"}]
 }
 Edge mode `access`: the source makes the target reachable (a physical
 connection). Edge mode `unlocks`: the key opens the lock (logic only).
+Edge mode `returns`: a one-way way back from a trap area to the area before
+it. Edge mode `secret`: a secret passage, present in both directions.
+Areas and keys carry `access_mode` like locks. Areas behind a lock that opens
+several areas carry `outcome`: `trap`, `success`, `choice` or `killzone`.
 Enum attributes are their names, sets are sorted lists.
 Lock nodes carry `archetype`: the id of their entry in data/archetypes.yaml.
 The zone entrance (role `start`, open mode DUNGEON) lies outside the matrix

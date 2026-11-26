@@ -90,4 +90,6 @@ main { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; min-width: 0
 .swatch.key { border-radius: 50%; }
 .swatch.edge { height: 0; border-width: 2px 0 0; }
 .swatch.edge.unlocks { border-top-style: dashed; }
+.swatch.edge.returns { border-top-style: dotted; }
+.swatch.edge.secret { border-top-style: dashed; }
 .swatch.dot { border-radius: 50%; width: 12px; height: 12px; }

@@ -6,6 +6,7 @@ import urllib.request
 import pytest
 
 from gui import derive_params, make_server
+from main import PRODUCTIONS
 
 
 @pytest.fixture(scope='module')
@@ -24,16 +25,19 @@ def get(url):
 
 
 def test_derive_params_defaults_and_parsing():
-    assert derive_params({}) == {'seed': 0, 'steps': 9, 'weights': {'L1': 1.0, 'L2': 1.0},
+    assert derive_params({}) == {'seed': 0, 'steps': 9, 'weights': {name: 1.0 for name in PRODUCTIONS},
                                  'environment_biomes': True, 'encounter_biomes': True}
-    params = derive_params({'seed': ['7'], 'steps': ['3'], 'w_L1': ['0'], 'env': ['0']})
-    assert params['seed'] == 7 and params['steps'] == 3 and params['weights']['L1'] == 0
+    params = derive_params({'seed': ['7'], 'steps': ['3'], 'w_P1a': ['0'], 'env': ['0']})
+    assert params['seed'] == 7 and params['steps'] == 3 and params['weights']['P1a'] == 0
     assert params['environment_biomes'] is False
 
 
-@pytest.mark.parametrize('query', [{'steps': ['-1']}, {'steps': ['999']}, {'w_L1': ['0'], 'w_L2': ['0']},
-                                   {'w_L1': ['-2']}, {'seed': ['abc']}, {'w_L1': ['inf']}, {'w_L1': ['nan']},
-                                   {'w_L1': ['1e309'], 'w_L2': ['1e309']}])
+ALL_ZERO = {f'w_{name}': ['0'] for name in PRODUCTIONS}
+
+
+@pytest.mark.parametrize('query', [{'steps': ['-1']}, {'steps': ['999']}, ALL_ZERO,
+                                   {'w_P1a': ['-2']}, {'seed': ['abc']}, {'w_P1a': ['inf']}, {'w_P1a': ['nan']},
+                                   {**ALL_ZERO, 'w_P1a': ['1e309'], 'w_P2a': ['1e309']}])
 def test_derive_params_rejects_bad_input(query):
     with pytest.raises(ValueError):
         derive_params(query)
@@ -60,7 +64,7 @@ def test_api_derive_returns_frames(base_url):
     assert payload['frames'][0]['title'] == 'Seed graph'
 
 
-@pytest.mark.parametrize('query, mentions', [('steps=-3', 'steps'), ('w_L1=inf', 'finite'), ('w_L1=nan', 'finite')])
+@pytest.mark.parametrize('query, mentions', [('steps=-3', 'steps'), ('w_P1a=inf', 'finite'), ('w_P1a=nan', 'finite')])
 def test_api_derive_reports_bad_parameters(base_url, query, mentions):
     with pytest.raises(urllib.error.HTTPError) as error:
         get(f'{base_url}/api/derive?{query}')
@@ -69,5 +73,5 @@ def test_api_derive_reports_bad_parameters(base_url, query, mentions):
 
 def test_api_productions_lists_names_and_descriptions(base_url):
     productions = json.loads(get(f'{base_url}/api/productions')[2])
-    assert [production['name'] for production in productions] == ['L1', 'L2']
-    assert all(production['description'] for production in productions)
+    assert [production['name'] for production in productions] == list(PRODUCTIONS)
+    assert all(production['description'] and production['role'] for production in productions)

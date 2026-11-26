@@ -4,8 +4,8 @@ Run `python gui.py` and the page opens in the browser. The server only listens
 on 127.0.0.1. Endpoints:
 - GET /                 the page (web/index.html)
 - GET /<file>           static files from web/
-- GET /api/productions  production names and descriptions
-- GET /api/derive?seed=42&steps=9&w_L1=1&w_L2=1&env=1&enc=1
+- GET /api/productions  production names, sheet numbers, roles and descriptions
+- GET /api/derive?seed=42&steps=9&w_P1a=1&w_P2a=0&env=1&enc=1
                         derivation frames and export JSON (see story_export.derive)
 """
 import argparse
@@ -65,7 +65,8 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         url = urlparse(self.path)
         if url.path == '/api/productions':
-            self.send_json(HTTPStatus.OK, [{'name': name, 'description': production.description}
+            self.send_json(HTTPStatus.OK, [{'name': name, 'number': production.number, 'role': production.role,
+                                            'description': production.description}
                                            for name, production in PRODUCTIONS.items()])
             return
         if url.path == '/api/derive':

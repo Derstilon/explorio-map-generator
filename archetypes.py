@@ -180,12 +180,14 @@ def load(path: Path = DEFAULT_PATH) -> Catalogue:
 
 
 def lock_key_usage(G: nx.DiGraph, lock: str) -> str | None:
-    """Key usage of a lock, taken from its primary keys: CONSUMABLE when any of them is consumable.
+    """Key usage of a lock, taken from its primary keys (all its keys when it has no primary key, e.g. a lock
+    opened by a clue alone): CONSUMABLE when any of them is consumable.
 
-    None when the lock has no primary key or one of them is outside the matrix (DUNGEON).
+    None when the lock has no keys or one of them is outside the matrix (DUNGEON).
     """
-    usages = {G.nodes[key]['reusability'] for key in G.nodes[lock]['keys']
-              if G.nodes[key]['key_type'] == KeyType.PRIMARY}
+    keys = G.nodes[lock]['keys']
+    primary = {key for key in keys if G.nodes[key]['key_type'] == KeyType.PRIMARY}
+    usages = {G.nodes[key]['reusability'] for key in primary or keys}
     if not usages or Reusability.DUNGEON in usages:
         return None
     return Reusability.CONSUMABLE.name if Reusability.CONSUMABLE in usages else Reusability.REUSABLE.name

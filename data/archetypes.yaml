@@ -894,8 +894,9 @@
   productions: []
   sheet_lp: 34
   examples:
-  - rotating bridge can't open all routes at once
-  - switch which portals work
+  - a rotating bridge swings to the passage only while none of its brakes is set; setting any brake, to stop it
+    at another route, swings it away
+  - a portal works only while none of the rival portals is lit; lighting any of them draws its power
   - kill the ice elemental freezing the mill's river
 - id: stealth-mission
   combination:

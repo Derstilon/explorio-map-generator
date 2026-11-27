@@ -55,7 +55,30 @@ instead of adding a new archetype.
 
 ## Implementation status
 
-Only production 1 exists in code, as `L1` (lock in front of a key, ≈ 1c) and
-`L2` (lock in front of a lock, ≈ 1b), both hard-coded to AND · LOCKED · PERMANENT
-· MANDATORY with one consumable MAIN key. Variant 1a and productions 2–9 are not
-implemented. See [[wiki/questions/implementation-status-and-gaps|Implementation status and gaps]].
+All productions are in code as `lock_and_key_productions/rules.py`: `P1a`–`P1c`,
+`P2a`–`P2c`, `P3a`–`P3c`, `P4`, `P5`, `P6`, `P7a`–`P7c`, `P8` and `P9`, each with a
+role (proposal for part 4: `spread`, `filler`, `objective`, `meta`).
+
+They follow the diagrams, with the [[wiki/questions/owner-decisions|owner decisions of 2026-11-26]]
+where the sheet and the doc disagree: sheet numbering (4 = Ambush, 5 = Tripwire),
+P3's lock CLOSED, Ambush as XOR with a consumable key, P7a's lock FAILABLE. So the
+table above still shows the doc's attributes for P3, P4, P5 and 7a.
+
+Details the diagrams leave open, as implemented:
+- `X` is the access mode of the matched area (a), lock (b) or key (c), so a lock
+  built in failable content is failable too (FAILABLE = content the player can
+  lose access to, owner decision 2026-11-26).
+- Variant c matches any key, including the goal key, whose lock is the open
+  entrance; that is how the goal moves deeper.
+- Tripwire draws `keys(2)` but one key; it has one key. Its area returns to the
+  area before it (edge mode `returns`).
+- A lock opened only by a clue (7c Death trap) takes its key usage from the clue.
+- P8 skips the entrance lock and needs a primary key to copy its usage from.
+- P9 adds the secret passage in both directions and only once per lock.
+- P7a is the only `objective`: it matches the area holding the goal, moves the
+  goal into its success area and adds a secret passage there in the same step
+  ([[wiki/questions/owner-decisions|owner decision 2026-11-26]]). P7b is a filler.
+- Fillers have a variant d (P2d, P3d, P4d, P7cd) that moves a secret passage's
+  entrance behind the new lock; a fallback passage never moves into a failable
+  area or behind a failable lock (so P7cd moves only passages that are not
+  fallbacks), and P9 does not add a passage again where one was moved away.

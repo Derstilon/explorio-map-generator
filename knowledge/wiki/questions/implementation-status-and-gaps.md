@@ -2,7 +2,7 @@
 type: question
 title: "Implementation status and gaps"
 created: 2026-11-23
-updated: 2026-11-23
+updated: 2026-11-26
 status: developing
 tags:
   - question
@@ -27,38 +27,42 @@ claim_ids:
 
 Navigation: [[wiki/maps/explorio-knowledge-map|Knowledge map]]
 
-Status from static reading of `dev` at `5b2372f`; the code was not run in this
-session (no Python environment with networkx on this machine yet).
+Status of `dev` with the productions change (2026-11-26). Earlier versions of
+this page described the proof of concept before epic part 1.
 
 ## Exists
 
-- Node model for areas, locks and keys with all attribute enums.
-- Subgraph-isomorphism matching and two rules (`L1`, `L2`) = production 1 b/c.
-- Depth tracking on areas.
-- Environment (2-way) and encounter (4 themes) biome tagging.
-- Icon-based graph plotting.
-- Specification of productions 1–9 in `productions.md`.
+- Node model for areas, locks and keys; areas and keys carry an access mode
+  like locks.
+- Pattern matching by subgraph isomorphism, with attribute predicates
+  (`X != FAILABLE`, `keys < 3`).
+- All productions of the [[wiki/entities/production-catalogue|Production catalogue]]:
+  P1a–P1c, P2a–P2c, P3a–P3c, P4–P6, P7a–P7c, P8, P9, each with a proposed role.
+  Extra edge modes `returns` (Tripwire) and `secret` (P7a, P9).
+- One seeded RNG for the whole run; same seed and parameters give the same graph.
+- Archetype data for all 96 matrix cells (`data/archetypes.yaml`); every lock is
+  tagged with its archetype.
+- Depth tracking on areas; environment (2-way) and encounter (4 themes) biome
+  tagging after generation.
+- Interactive web GUI (`gui.py`): seed, weights, stepping, hover, JSON/PNG/SVG
+  export (`explorio.story-graph.v1`).
+- `pytest` suite and a headless browser check of the GUI.
 
 ## Missing
 
 | Gap | Notes |
 |---|---|
-| Productions 1a, 2–9 | spec only |
-| Attribute conditions in patterns | doc uses `X != FAILABLE`, `keys < 3`; matcher compares only `type` / `mode` |
-| Logic-gate semantics | gates are stored but nothing evaluates them |
-| Solvability / soft-lock check | none; needed once failable and temporary locks exist |
-| Generation control | fixed 9 steps, no recipe, weights or target metrics |
-| Archetype assignment | sheet archetypes are not in code |
+| Logic-gate semantics and solver | gates are stored and tagged but nothing evaluates them (epic part 5) |
+| Generation plan | productions are picked by weight only, not objective → key spread → filler (part 4) |
+| Cycles | only the secret passages of P7a and P9; no general cycle production |
+| Flavours | no concrete content per archetype; see [[wiki/concepts/flavour-spread-and-archetype-weights|Flavour spread and archetype weights]] (part 6) |
 | WFC / machines | `machine_wfc/machines.py` is `{}` |
 | Zone layers | no layer concept |
 | Biome rules | adjacency, start/end validity unused; biome picks hard-coded |
-| Cycles | graph grows as a tree of locks; no loop or cycle production |
-| Export | no serialisation of the story graph for a later layout stage |
+| GraphML export | optional, not done |
 
 ## Broken
 
-- `tests/` and `examples/` still import `productions` (P1–P15 from master),
-  which dev deleted, so `pytest` fails at import on dev.
-- `readme.md` describes WFC and a test run that dev cannot do.
-- `L1`/`L2` match selection is fixed by `Random(x=1)`; `Random(x=4)` in
-  `main.py` does nothing.
+- The GitHub workflow runs only for `master` and calls `derivation_a.py` and
+  `derivation_b.py`, which no longer exist; `pytest` passes locally.
+- `readme.md` still describes WFC, which the code does not have yet.

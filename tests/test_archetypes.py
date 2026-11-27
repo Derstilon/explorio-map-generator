@@ -6,7 +6,7 @@ import yaml
 
 import archetypes
 from archetypes import ArchetypeError, Catalogue
-from main import base_graph, generate
+from main import PRODUCTIONS, base_graph, generate
 from nodes import AccessMode, Key, KeyType, Lock, LockState, LogicGate, OpenMode, Reusability
 from story_export import derive
 
@@ -104,6 +104,8 @@ def test_key_usage_comes_from_primary_keys():
     G, lock = lock_with_keys((Reusability.REUSABLE, KeyType.PRIMARY), (Reusability.CONSUMABLE, KeyType.PRIMARY))
     assert archetypes.lock_key_usage(G, lock) == 'CONSUMABLE'
     G, lock = lock_with_keys((Reusability.REUSABLE, KeyType.CLUE))
+    assert archetypes.lock_key_usage(G, lock) == 'REUSABLE', 'a clue-only lock takes the usage of its clue'
+    G, lock = lock_with_keys()
     assert archetypes.lock_key_usage(G, lock) is None
 
 
@@ -127,16 +129,22 @@ def test_tagging_warns_once_for_an_unusable_combination(entries, caplog):
         'test reason']
 
 
+ARCHETYPE_IDS = set(archetypes.load().by_id)
+
+
 @pytest.mark.parametrize('seed', range(8))
 def test_every_generated_lock_has_an_archetype(seed):
-    G = generate(seed, 12)
+    G = generate(seed, 25)
     for node, data in G.nodes(data=True):
         if data['type'] == 'lock' and data.get('role') != 'start':
-            assert data['archetype'] == 'locked-chest', node
+            assert data['archetype'] in ARCHETYPE_IDS, node
+
+
+CHESTS_ONLY = {name: int(name.startswith('P1')) for name in PRODUCTIONS}
 
 
 def test_export_and_frames_carry_the_archetype():
-    derivation = derive(3, 5)
+    derivation = derive(3, 5, weights=CHESTS_ONLY)
     locks = [node for node in derivation['export']['nodes'] if node['type'] == 'lock']
     assert {node['id']: node.get('archetype') for node in locks if node['id'] != 'L0'} == {
         f'L{i}': 'locked-chest' for i in range(1, 6)}

@@ -25,11 +25,20 @@ const SHORT = {
   REQUIRED: 'REQ', OPTIONAL: 'OPT', FAILABLE: 'FAIL', REUSABLE: 'REUSE', CONSUMABLE: 'CONS',
   PRIMARY: 'PRIMARY', SPARE: 'SPARE', CLUE: 'CLUE',
 };
+// Edge colours and dash patterns for the SVG export; the canvas styles are in the cytoscape stylesheet.
+const EDGE_SVG = {
+  access: { color: '#7b8794' }, unlocks: { color: '#b23a36', dash: '6 4' },
+  returns: { color: '#7b8794', dash: '2 4' }, secret: { color: '#6a3d9a', dash: '6 4' },
+};
+const EDGE_HEADINGS = {
+  access: (s, t) => `${s} → ${t} (access)`, unlocks: (s, t) => `${s} unlocks ${t}`,
+  returns: (s, t) => `${s} returns to ${t}`, secret: (s, t) => `${s} ⇢ ${t} (secret passage)`,
+};
 const TOOLTIP_FIELDS = [
   ['role', 'Role'], ['type', 'Type'], ['created_by', 'Created by'], ['depth', 'Depth'],
   ['logic_gate', 'Logic gate'], ['lock_state', 'Base state'], ['open_mode', 'Open mode'], ['access_mode', 'Access'],
   ['reusability', 'Key usage'], ['key_type', 'Key type'], ['lock', 'Opens lock'], ['keys', 'Keys'], ['locks', 'Locks'],
-  ['env_biome', 'Environment biome'], ['enc_biome', 'Encounter biomes'], ['archetype', 'Archetype'], ['flavour', 'Flavour'],
+  ['outcome', 'Outcome'], ['env_biome', 'Environment biome'], ['enc_biome', 'Encounter biomes'], ['archetype', 'Archetype'], ['flavour', 'Flavour'],
   ['complexity', 'Complexity'],
 ];
 
@@ -88,6 +97,14 @@ const cy = cytoscape({
         'line-color': '#b23a36', 'target-arrow-color': '#b23a36', 'line-style': 'dashed',
         'curve-style': 'unbundled-bezier', 'control-point-distances': 40, 'control-point-weights': 0.5, opacity: 0.8,
       },
+    },
+    {
+      selector: 'edge[mode="returns"]',
+      style: { 'line-color': '#7b8794', 'target-arrow-color': '#7b8794', 'line-style': 'dotted', 'curve-style': 'unbundled-bezier', 'control-point-distances': -40 },
+    },
+    {
+      selector: 'edge[mode="secret"]',
+      style: { 'line-color': '#6a3d9a', 'target-arrow-color': '#6a3d9a', 'line-style': 'dashed', 'curve-style': 'unbundled-bezier', 'control-point-distances': 30 },
     },
     { selector: 'edge.added', style: { 'line-color': '#f2b705', 'target-arrow-color': '#f2b705', width: 4 } },
     { selector: 'edge.removed', style: { opacity: 0.35, 'line-style': 'dotted', 'line-color': '#9aa4b2', 'target-arrow-color': '#9aa4b2' } },
@@ -308,6 +325,8 @@ function renderLegend() {
     legendItem('key', GOLD.border, 'GOAL: the dungeon key, the zone objective', GOLD.fill),
     legendItem('edge', '#7b8794', 'access: makes reachable'),
     legendItem('edge unlocks', '#b23a36', 'unlocks: key opens lock'),
+    legendItem('edge returns', '#7b8794', 'returns: one-way way back from a trap area'),
+    legendItem('edge secret', '#6a3d9a', 'secret: secret passage around a failable lock'),
     legendItem('edge', '#f2b705', 'added in this step'),
   ];
   for (const [name, color] of Object.entries(state.biomeColors)) {
@@ -357,8 +376,7 @@ function showTooltip(event) {
       else addRow(name, data[field]);
     }
   } else {
-    heading.textContent = data.mode === 'unlocks'
-      ? `${data.source} unlocks ${data.target}` : `${data.source} → ${data.target} (access)`;
+    heading.textContent = EDGE_HEADINGS[data.mode](data.source, data.target);
     if (data.removed) addRow('Change', 'removed in this step');
   }
   tooltip.replaceChildren(heading, table);
@@ -528,6 +546,8 @@ function exportSvg() {
     '<defs>',
     '<marker id="arrow-access" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#7b8794"/></marker>',
     '<marker id="arrow-unlocks" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#b23a36"/></marker>',
+    '<marker id="arrow-returns" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#7b8794"/></marker>',
+    '<marker id="arrow-secret" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#6a3d9a"/></marker>',
     '</defs>',
     `<rect width="100%" height="100%" fill="#ffffff"/>`,
     `<text x="${pad}" y="32" font-size="16" font-weight="600" fill="#1f2328">${escapeXml(caption())}</text>`,
@@ -536,8 +556,8 @@ function exportSvg() {
     if (edge.hasClass('removed')) return;
     const [s, t] = [edge.sourceEndpoint(), edge.targetEndpoint()];
     const mode = edge.data('mode');
-    const color = mode === 'unlocks' ? '#b23a36' : '#7b8794';
-    const dash = mode === 'unlocks' ? ' stroke-dasharray="6 4"' : '';
+    const color = EDGE_SVG[mode].color;
+    const dash = EDGE_SVG[mode].dash ? ` stroke-dasharray="${EDGE_SVG[mode].dash}"` : '';
     parts.push(`<line x1="${tx(s.x)}" y1="${ty(s.y)}" x2="${tx(t.x)}" y2="${ty(t.y)}" stroke="${color}" stroke-width="2"${dash} marker-end="url(#arrow-${mode})"/>`);
   });
   cy.nodes().forEach((node) => {
@@ -583,8 +603,9 @@ async function loadProductions() {
     const row = document.createElement('div');
     row.className = 'production';
     row.innerHTML = `<input id="use-${production.name}" type="checkbox" checked aria-label="Enable ${production.name}">`
-      + `<label for="use-${production.name}">${production.name}<small></small></label>`
+      + `<label for="use-${production.name}">${production.name} <em></em><small></small></label>`
       + `<input id="weight-${production.name}" type="number" min="0" step="0.5" value="1" title="Relative weight" aria-label="Weight of ${production.name}">`;
+    row.querySelector('em').textContent = production.role;
     row.querySelector('small').textContent = production.description;
     return row;
   }));

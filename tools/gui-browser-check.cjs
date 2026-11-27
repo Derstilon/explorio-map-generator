@@ -45,8 +45,11 @@ async function download(page, buttonId) {
   });
   page.on('pageerror', (error) => consoleProblems.push(error.message));
 
-  // 1. Load with parameters in the URL hash.
-  await page.goto(`${baseUrl}#seed=42&steps=9`);
+  // 1. Load with parameters in the URL hash: only the chest productions P1b and P1c, so every step adds one
+  // lock, key and area, and the first step (P1c) moves the goal key.
+  const productionNames = (await (await fetch(`${baseUrl}api/productions`)).json()).map((production) => production.name);
+  const chestsOnly = productionNames.filter((name) => !['P1b', 'P1c'].includes(name)).map((name) => `w_${name}=0`).join('&');
+  await page.goto(`${baseUrl}#seed=42&steps=9&${chestsOnly}`);
   await waitForFrames(page, 12);
   check('loads with seed 42 and 12 frames (seed, 9 steps, 2 biome passes)',
     (await page.textContent('#status-seed')) === 'Seed 42');
@@ -121,14 +124,14 @@ async function download(page, buttonId) {
     encounterColors.length > 0 && encounterColors.every((color) => svgText.includes(`fill="${color}"`)),
     encounterColors.join(','));
 
-  // 5. Controls: disable L1, so L2 has nothing to match on the seed graph.
-  await page.uncheck('#use-L1');
+  // 5. Controls: disable P1c, so P1b has nothing to match on the seed graph.
+  await page.uncheck('#use-P1c');
   await page.click('#generate');
   await waitForFrames(page, 3);
-  check('with only L2 enabled generation stops early and says why',
+  check('with only P1b enabled generation stops early and says why',
     (await page.textContent('#status-frame')).includes('no enabled production matched'));
-  check('URL hash records the parameters', (await page.evaluate(() => location.hash)).includes('w_L1=0'));
-  await page.check('#use-L1');
+  check('URL hash records the parameters', (await page.evaluate(() => location.hash)).includes('w_P1c=0'));
+  await page.check('#use-P1c');
   await page.fill('#seed', '7');
   await page.fill('#steps', '4');
   await page.press('#steps', 'Enter');
@@ -161,6 +164,23 @@ async function download(page, buttonId) {
   await page.click('#generate');
   await waitForFrames(page, 7);
   check('regenerating the same seed gives the same graph', first === (await fingerprint()));
+
+  // 6b. All productions: varied archetypes and the returns and secret edges, on the canvas and in the SVG.
+  await page.goto('about:blank');
+  await page.goto(`${baseUrl}#seed=1&steps=30`);
+  await waitForFrames(page, 33);
+  const mixed = await page.evaluate(() => ({
+    archetypes: new Set(cy.nodes('[type="lock"]').map((node) => node.data('archetype')).filter(Boolean)).size,
+    returns: cy.edges('[mode="returns"]').map((edge) => edge.style('line-style')),
+    secret: cy.edges('[mode="secret"]').map((edge) => edge.style('line-color')),
+  }));
+  check('all productions give several archetypes', mixed.archetypes >= 4, `${mixed.archetypes} archetypes`);
+  check('returns edges are dotted and secret edges purple',
+    mixed.returns.length > 0 && mixed.returns.every((style) => style === 'dotted')
+    && mixed.secret.length > 0 && mixed.secret.every((color) => color === 'rgb(106,61,154)'),
+    JSON.stringify(mixed));
+  const mixedSvg = (await download(page, 'export-svg')).content.toString();
+  check('SVG export draws returns and secret edges', mixedSvg.includes('url(#arrow-returns)') && mixedSvg.includes('url(#arrow-secret)'));
 
   // 7. Many steps on a small window: the page must not grow, the sidebar stays visible,
   //    and the step strip scrolls to the current step without scrolling the page.

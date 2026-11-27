@@ -14,10 +14,14 @@ def test_frames_cover_seed_each_production_and_biome_passes():
     assert json.loads(json.dumps(derivation)) == derivation  # plain JSON, no sets or enums left
 
 
-def test_each_production_frame_adds_one_area_lock_and_key():
-    for frame in derive(7, 6)['frames'][1:7]:
+CHESTS_ONLY = {'P1a': 1, 'P1b': 1, 'P1c': 1}
+
+
+def test_each_chest_frame_adds_one_area_lock_and_key():
+    for frame in derive(7, 6, weights=CHESTS_ONLY)['frames'][1:7]:
         assert sorted(node[0] for node in frame['added_nodes']) == ['A', 'K', 'L']
-        assert frame['removed_edges'], 'the matched key or lock moves behind the new lock'
+        # variants b and c move the matched lock or key behind the new lock; a adds a new empty area
+        assert bool(frame['removed_edges']) == (frame['production'] != 'P1a'), frame['production']
 
 
 def test_biome_frames_change_attributes_only():
@@ -28,10 +32,10 @@ def test_biome_frames_change_attributes_only():
 
 
 def test_export_is_the_final_graph_with_seed_and_params():
-    derivation = derive(5, 4, weights={'L1': 2, 'L2': 1}, encounter_biomes=False)
+    derivation = derive(5, 4, weights={'P1a': 2, 'P1c': 1}, encounter_biomes=False)
     export = derivation['export']
     assert export['schema'] == SCHEMA and export['seed'] == 5
-    assert export['params'] == {'steps': 4, 'weights': {'L1': 2, 'L2': 1},
+    assert export['params'] == {'steps': 4, 'weights': {'P1a': 2, 'P1c': 1},
                                 'environment_biomes': True, 'encounter_biomes': False}
     assert export['nodes'] == derivation['frames'][-1]['graph']['nodes']
     lock = next(node for node in export['nodes'] if node['id'] == 'L1')
@@ -40,7 +44,7 @@ def test_export_is_the_final_graph_with_seed_and_params():
     assert {edge['mode'] for edge in export['edges']} == {'access', 'unlocks'}
 
 
-@pytest.mark.parametrize('kwargs', [{'weights': {'L1': 0, 'L2': 1}}, {'steps': 0}])
+@pytest.mark.parametrize('kwargs', [{'weights': {'P1b': 1}}, {'steps': 0}])
 def test_stops_early_when_nothing_can_apply_and_still_runs_biome_passes(kwargs):
     derivation = derive(1, **{'steps': 9, **kwargs})
     assert derivation['productions_applied'] == 0

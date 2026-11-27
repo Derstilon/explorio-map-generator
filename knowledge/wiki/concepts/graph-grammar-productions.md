@@ -2,7 +2,7 @@
 type: concept
 title: "Graph grammar productions"
 created: 2026-11-23
-updated: 2026-11-23
+updated: 2026-11-26
 status: developing
 tags:
   - concept
@@ -29,15 +29,17 @@ Navigation: [[wiki/maps/explorio-knowledge-map|Knowledge map]]
 
 A production is a **left-hand pattern graph** and a **replacement**. The engine
 finds the pattern in the dungeon graph with networkx `GraphMatcher`
-subgraph-isomorphism (nodes matched by `type`, edges by `mode`), picks one match
-and rewrites around it.
+subgraph-isomorphism, picks one match with the seeded RNG and rewrites around it.
+Pattern nodes and edges match on their attributes (`type`, `mode`, enum values)
+and on predicates such as `X != FAILABLE` or `keys < 3`.
 
 - `lock_and_key_productions/utils.py` – `find_isomorphisms`, deduplicating
-  matches that cover the same node set.
-- `decorators.py` – `basic_isomorphism(left, all)` injects the first or all
-  matches into `apply`; when nothing matches, `apply` gets `None` and returns
-  `False`.
-- `l1.py`, `l2.py` – the two implemented rules.
+  matches that cover the same node set and sorting them, so a seed gives the same
+  pick.
+- `lock_and_key_productions/rules.py` – all productions of the
+  [[wiki/entities/production-catalogue|Production catalogue]] (P1a–P9, with
+  variants a–d) as `Production` objects: pattern, rewrite, an optional extra
+  check on a match, sheet number and role.
 
 ## Heritage from master
 
@@ -49,18 +51,18 @@ ported (see [[wiki/questions/implementation-status-and-gaps|gaps]]).
 
 ## Control loop
 
-`main.py` applies `L1` or `L2` at random until 9 applications succeed. There is
-no scheduler, weighting, budget or stopping condition based on graph properties
-(depth, number of locks, cycles).
+`main.generate` picks a production by weight (default 1 each) for each step and
+applies it; a production with no match is dropped for that step, and generation
+stops early when none matches. There is no plan by role (objective → key spread →
+filler), budget or stopping condition based on graph properties (depth, number of
+locks, cycles).
 
 ## What a fuller grammar needs
 
 Derived from the productions doc and the inspirations:
 
-- attribute conditions on the pattern (`X != FAILABLE`, `keys < 3`) – doc uses
-  them, code matches only on node type;
-- variants a/b/c per production;
-- a recipe or weighted selection of productions per zone (see
+- a recipe or plan of productions per zone beyond weights (see
   [[wiki/concepts/cyclic-dungeon-generation|cyclic generation]] for a recipe
   approach);
-- validation after each step (solvable, no soft-lock).
+- validation after each step (solvable, no soft-lock); the tests only check that
+  the goal stays reachable when every failable lock stays shut.

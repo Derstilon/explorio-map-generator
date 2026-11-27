@@ -42,13 +42,16 @@ class Access(Node):
         return Node().increment_label_counter(G, counter)
     
     @staticmethod
-    def add_new_access(G: nx.DiGraph, lock_node: str):
+    def add_new_access(G: nx.DiGraph, lock_node: str, access_mode=None):
+        """Add an area behind lock_node. Its access_mode defaults to the lock's."""
         new_node = f'A{Access.increment_label_counter(G)}'
         # read depth from access node with edge to lock node
         depth = min([G.nodes[access_node]['depth'] for access_node in G.predecessors(lock_node) if G.edges[access_node,lock_node]['mode'] == 'access']+[math.inf])+1
         if math.isinf(depth):
             depth = 0
-        G.add_node(new_node, type='access', depth=depth, keys=set(), locks=set())
+        if access_mode is None:
+            access_mode = G.nodes[lock_node]['access_mode']
+        G.add_node(new_node, type='access', depth=depth, keys=set(), locks=set(), access_mode=access_mode)
         G.add_edges_from([(lock_node,new_node)], mode='access', weight=.5)
         
         return new_node

@@ -61,7 +61,9 @@ the goal; its areas hold an equal reward.
 Fillers get a variant d (P2d, P3d, P4d, P7cd): it moves the entrance of a secret
 passage from the matched area behind the filler's new lock, so a passage such as
 P7a's no longer starts in the first area. A passage that has to stay
-non-failable (a fallback, like P7a's and P9's) can't move into a failable area;
+non-failable (a fallback, like P7a's and P9's) can't move into a failable area
+or behind a failable lock, so P7cd (Death trap, a failable lock) moves only
+passages that are not fallbacks;
 fillers whose new area is always failable (Tripwire, Tool assist, Gambit) have
 no variant d.
 

@@ -6,7 +6,8 @@ and rewrites the graph around it. Variants a/b/c insert the new lock in front
 of a new empty area (a), an existing closed lock (b) or an existing key (c).
 Fillers also have a variant d: it moves the entrance of a secret passage from
 the matched area behind the new lock. A fallback passage (one that keeps the
-goal or failable content reachable) never moves into a failable area.
+goal or failable content reachable) never moves into a failable area or behind
+a failable lock, so P7cd moves only passages that are not fallbacks.
 
 Numbering follows the product sheet (owner decision 2026-11-26): 4 = Ambush,
 5 = Tripwire. Where the sheet and productions.md disagree on a lock's
@@ -156,7 +157,8 @@ def two_outcomes(G, area, lock, first: tuple, second: tuple) -> list:
 def add_secret_passage(G, area, behind, fallback=True):
     """A secret passage both ways; the edge from `area` is its entrance.
 
-    A fallback passage keeps the goal or failable content reachable, so it never moves into a failable area.
+    A fallback passage keeps the goal or failable content reachable, so it never moves into a failable area or
+    behind a failable lock.
     """
     G.add_edge(area, behind, mode='secret', entrance=True, fallback=fallback)
     G.add_edge(behind, area, mode='secret', entrance=False, fallback=fallback)
@@ -183,7 +185,11 @@ def passage_pattern(**area_conditions) -> nx.DiGraph:
 
 
 def passage_may_enter(target_access):
-    """`requires` for variant d: a fallback passage may not move into a failable area."""
+    """`requires` for variant d: a fallback passage may not move behind a failable lock.
+
+    target_access(G, match) gives the access mode of the lock the production adds; the area behind a failable lock
+    is content the player can lose, whatever its own access mode.
+    """
     def check(G, match):
         return not (G.edges[match['area'], match['exit']]['fallback'] and target_access(G, match) == FAILABLE)
     return check
@@ -328,8 +334,8 @@ PRODUCTION_LIST = [
                SAFE_AREA, gambit),
     Production('P7c', '7c', 'filler', 'Death trap: a failable NOR lock with a clue, in front of a success area and '
                'a killzone', SAFE_AREA, death_trap),
-    Production('P7cd', '7c', 'filler', 'Death trap: move a secret passage entrance into a new success area',
-               SAFE_AREA_PASSAGE, death_trap, passage_may_enter(lambda G, match: OPTIONAL)),
+    Production('P7cd', '7c', 'filler', 'Death trap: move a secret passage entrance (not a fallback) into a new '
+               'success area', SAFE_AREA_PASSAGE, death_trap, passage_may_enter(lambda G, match: FAILABLE)),
     Production('P8', '8', 'meta', 'Complexity increase: one more key on a non-failable, non-OR lock with fewer than '
                '3 keys', complexity_pattern(), complexity_increase, has_primary_key),
     Production('P9', '9', 'meta', 'Failure decrease: a secret passage around a failable lock',

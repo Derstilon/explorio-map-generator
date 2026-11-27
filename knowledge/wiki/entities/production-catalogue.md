@@ -80,4 +80,5 @@ Details the diagrams leave open, as implemented:
   ([[wiki/questions/owner-decisions|owner decision 2026-11-26]]). P7b is a filler.
 - Fillers have a variant d (P2d, P3d, P4d, P7cd) that moves a secret passage's
   entrance behind the new lock; a fallback passage never moves into a failable
-  area, and P9 does not add a passage again where one was moved away.
+  area or behind a failable lock (so P7cd moves only passages that are not
+  fallbacks), and P9 does not add a passage again where one was moved away.

@@ -4,7 +4,7 @@ import pytest
 
 import archetypes
 from lock_and_key_productions import PRODUCTION_LIST, PRODUCTIONS
-from main import base_graph
+from main import base_graph, generate
 from nodes import AccessMode, KeyType, LockState, Reusability
 
 CATALOGUE = archetypes.load()
@@ -237,9 +237,16 @@ def graph_with_hidden_goal():
     return G, success
 
 
+def drop_fallback(G, area, exit_area):
+    for edge in ((area, exit_area), (exit_area, area)):
+        G.edges[edge]['fallback'] = False
+
+
 @pytest.mark.parametrize('name', ['P2d', 'P3d', 'P4d', 'P7cd'])
 def test_variant_d_moves_the_passage_entrance_behind_the_new_lock(name):
     G, success = graph_with_hidden_goal()
+    if name == 'P7cd':
+        drop_fallback(G, 'A0', success)  # the death trap's lock is failable, so it takes no fallback passage
     before = set(G.nodes)
     assert PRODUCTIONS[name].apply(G, Random(0))
     [lock], _, areas = new_nodes(G, before)
@@ -262,9 +269,13 @@ def test_a_fallback_passage_never_moves_into_a_failable_area():
     G, success = graph_with_hidden_goal()
     G.nodes['A0']['access_mode'] = AccessMode.FAILABLE  # P2d's new area would inherit FAILABLE
     assert PRODUCTIONS['P2d'].apply(G, Random(0)) is False
-    for edge in (('A0', success), (success, 'A0')):
-        G.edges[edge]['fallback'] = False
+    drop_fallback(G, 'A0', success)
     assert PRODUCTIONS['P2d'].apply(G, Random(0)), 'a passage that is not a fallback may move'
+
+
+def test_a_fallback_passage_never_moves_behind_a_failable_lock():
+    G, success = graph_with_hidden_goal()
+    assert PRODUCTIONS['P7cd'].apply(G, Random(0)) is False, 'the success area is optional, but behind a failable lock'
 
 
 def test_failure_decrease_does_not_add_a_passage_again_after_its_entrance_moved():
@@ -276,3 +287,30 @@ def test_failure_decrease_does_not_add_a_passage_again_after_its_entrance_moved(
     assert PRODUCTIONS['P2d'].apply(G, Random(0))
     assert ('A0', behind) not in G.edges
     assert PRODUCTIONS['P9'].apply(G, Random(0)) is False
+
+
+def reachable_keys_when_every_failable_lock_fails(G):
+    """Keys the player can reach when every FAILABLE lock stays shut for good.
+
+    Any other lock opens once it is open by default or one of its keys is reachable; areas also connect through
+    `returns` and `secret` edges.
+    """
+    [start] = [node for node, data in G.nodes(data=True) if data.get('role') == 'start']
+    opened, areas, keys = {start}, set(), set()
+    while True:
+        size = len(opened) + len(areas) + len(keys)
+        areas |= {child for lock in opened for child in access_children(G, lock)}
+        areas |= {s for area in list(areas) for s in G.successors(area) if G.nodes[s]['type'] == 'access'}
+        keys |= {s for area in areas for s in access_children(G, area) if G.nodes[s]['type'] == 'key'}
+        opened |= {lock for area in areas for lock in access_children(G, area)
+                   if G.nodes[lock]['type'] == 'lock' and G.nodes[lock]['access_mode'] != AccessMode.FAILABLE
+                   and (G.nodes[lock]['lock_state'] == LockState.OPEN or G.nodes[lock]['keys'] & keys)}
+        if len(opened) + len(areas) + len(keys) == size:
+            return keys
+
+
+@pytest.mark.parametrize('seed', range(100))
+def test_failing_every_failable_lock_never_loses_the_goal(seed):
+    G = generate(seed, 25, environment_biomes=False, encounter_biomes=False)
+    [goal] = [node for node, data in G.nodes(data=True) if data.get('role') == 'goal']
+    assert goal in reachable_keys_when_every_failable_lock_fails(G)

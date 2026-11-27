@@ -2,7 +2,7 @@
 type: entity
 title: "Puzzle archetype matrix"
 created: 2026-11-23
-updated: 2026-11-25
+updated: 2026-11-27
 status: developing
 tags:
   - entity
@@ -45,6 +45,16 @@ its archetype id (GUI tooltip, JSON export). The file was seeded once from the
 sheet by `tools/import_archetype_sheet.py` and is edited by hand since. The
 tables below are a summary of the sheet as captured; the data file wins where
 they differ.
+
+Rules for play patterns, from the owner's review of the proposals:
+- A failure cost never destroys what the player carries. A failable cell costs a
+  reward lying on the path or elsewhere, access lost for good, consumables the
+  player chose to spend, or a fail area to escape.
+- A consumable key the player can also spend on something else (a wrong input,
+  another lock) makes a Required/Optional cell failable in practice. Such cells
+  use keys with no other use, or a supply that refills.
+- Each cell's example shows how the player controls the inputs, and differs in
+  kind from the examples of other cells, not only in theme.
 
 Status in the data file (part 3 of the epic, waiting for owner review):
 

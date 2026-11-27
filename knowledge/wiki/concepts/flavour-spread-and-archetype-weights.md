@@ -2,7 +2,7 @@
 type: concept
 title: "Flavour spread and archetype weights"
 created: 2026-11-25
-updated: 2026-11-25
+updated: 2026-11-27
 status: seed
 tags:
   - concept
@@ -52,7 +52,15 @@ but cannot change which locks get created.
    archetypes it can create using the weights of its area's flavour. This makes
    archetype frequency vary per flavour and keeps flavour-only archetypes
    inside their zones.
-4. **Borders are useful.** A lock between two flavour regions is a natural
+4. **Archetypes weight each other.** Some archetypes pair well: a failable
+   archetype can use another one as its failure state. When Clean Sweep is
+   created, Point of Commitment gets a higher weight nearby, so the bridge the
+   player can drop on the camp, or break under themselves, is what a mixed
+   approach costs.
+5. **Some archetypes stay rare.** One Offering (an altar that takes exactly one
+   of several items) works only as an occasional surprise, so its base weight is
+   low in every flavour.
+6. **Borders are useful.** A lock between two flavour regions is a natural
    place for a transition archetype. The biome adjacency restrictions in
    `biome_injections/environment_biomes.py` can block bad neighbours when a new
    flavour starts.
@@ -62,7 +70,11 @@ but cannot change which locks get created.
 - Which layer the flavour is: the environment biome (Molten Caverns), the
   encounter theme (Mechanical, Traps), or a separate layer. If it is the
   encounter theme, this moves the existing spread before the productions.
-- Weights have no effect while productions `L1`/`L2` only create Locked Chest;
-  they start to matter once productions 2–9 offer a choice of archetypes.
+- Weights need a choice to act on: today a production's archetype follows from
+  its lock attributes and the access mode it inherits, and nothing picks among
+  archetypes.
+- Candidate flavours for puzzles, besides the environment biomes: **Mineshaft**
+  with minecarts and rail switches (Shifting Fork's mine-cart junction, tracks
+  as routes, carts as moving platforms or weights).
 - Where the per-flavour weights live: likely a field of each entry in
   `data/archetypes.yaml`, added with part 6.

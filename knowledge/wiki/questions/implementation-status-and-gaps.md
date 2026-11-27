@@ -38,7 +38,7 @@ this page described the proof of concept before epic part 1.
   (`X != FAILABLE`, `keys < 3`).
 - All productions of the [[wiki/entities/production-catalogue|Production catalogue]]:
   P1a–P1c, P2a–P2c, P3a–P3c, P4–P6, P7a–P7c, P8, P9, each with a proposed role.
-  Extra edge modes `returns` (Tripwire) and `secret` (P9).
+  Extra edge modes `returns` (Tripwire) and `secret` (P7a, P9).
 - One seeded RNG for the whole run; same seed and parameters give the same graph.
 - Archetype data for all 96 matrix cells (`data/archetypes.yaml`); every lock is
   tagged with its archetype.
@@ -54,7 +54,7 @@ this page described the proof of concept before epic part 1.
 |---|---|
 | Logic-gate semantics and solver | gates are stored and tagged but nothing evaluates them (epic part 5) |
 | Generation plan | productions are picked by weight only, not objective → key spread → filler (part 4) |
-| Cycles | only P9's secret passages; no general cycle production |
+| Cycles | only the secret passages of P7a and P9; no general cycle production |
 | Flavours | no concrete content per archetype; see [[wiki/concepts/flavour-spread-and-archetype-weights|Flavour spread and archetype weights]] (part 6) |
 | WFC / machines | `machine_wfc/machines.py` is `{}` |
 | Zone layers | no layer concept |
